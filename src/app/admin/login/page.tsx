@@ -12,6 +12,8 @@ export default function LoginPage() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setError("");
+
         const res = await signIn("credentials", {
             username,
             password,
@@ -20,8 +22,9 @@ export default function LoginPage() {
 
         if (res?.error) {
             setError("Invalid credentials");
-        } else {
-            router.push("/admin");
+        } else if (res?.ok) {
+            // Use window.location for hard redirect to ensure session is loaded
+            window.location.href = "/admin";
         }
     };
 
