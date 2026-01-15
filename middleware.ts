@@ -1,29 +1,28 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { getToken } from "next-auth/jwt";
 
 export async function middleware(request: NextRequest) {
-    const token = await getToken({
-        req: request,
-        secret: process.env.NEXTAUTH_SECRET,
-    });
-
-    const isAdminPage = request.nextUrl.pathname.startsWith("/admin");
     const isLoginPage = request.nextUrl.pathname === "/admin/login";
 
-    // If trying to access admin pages
+    // Check for session token - try both cookie names
+    const sessionToken =
+        request.cookies.get("__Secure-next-auth.session-token")?.value ||
+        request.cookies.get("next-auth.session-token")?.value;
+
+    const isAdminPage = request.nextUrl.pathname.startsWith("/admin");
+
     if (isAdminPage) {
-        // Allow login page without authentication
+        // Allow login page
         if (isLoginPage) {
-            // If already logged in, redirect to admin dashboard
-            if (token) {
+            // If has session, redirect to admin
+            if (sessionToken) {
                 return NextResponse.redirect(new URL("/admin", request.url));
             }
             return NextResponse.next();
         }
 
-        // For other admin pages, require authentication
-        if (!token) {
+        // For other admin pages, check session
+        if (!sessionToken) {
             const loginUrl = new URL("/admin/login", request.url);
             loginUrl.searchParams.set("callbackUrl", request.nextUrl.pathname);
             return NextResponse.redirect(loginUrl);
