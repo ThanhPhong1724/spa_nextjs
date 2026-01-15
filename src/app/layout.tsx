@@ -12,7 +12,7 @@ const libreBaskerville = Libre_Baskerville({
 });
 
 export const metadata: Metadata = {
-  title: "Lotus Spa & Salon",
+  title: "Smiling Studio",
   description: "A sanctuary of peace in the heart of the city. Premium spa and salon services.",
 };
 

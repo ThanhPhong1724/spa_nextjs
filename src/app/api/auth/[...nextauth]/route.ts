@@ -18,7 +18,7 @@ export const authOptions: NextAuthOptions = {
                     credentials?.username === adminUser &&
                     credentials?.password === adminPass
                 ) {
-                    return { id: "1", name: "Admin User", email: "admin@lotusspa.com" };
+                    return { id: "1", name: "Admin User", email: "admin@smilingstudio.de" };
                 }
                 return null;
             }

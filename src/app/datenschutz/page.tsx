@@ -1,5 +1,5 @@
 export const metadata = {
-    title: "Datenschutzerklärung | Lotus Beauty & Wellness",
+    title: "Datenschutzerklärung | Smiling Studio",
     description: "Datenschutzerklärung und Informationen zum Umgang mit personenbezogenen Daten.",
 };
 
@@ -70,11 +70,11 @@ export default function DatenschutzPage() {
                         Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
                     </p>
                     <address className="text-[#555] mb-4 not-italic">
-                        Lotus Beauty & Wellness<br />
+                        Smiling Studio<br />
                         Musterstraße 123<br />
                         12345 Musterstadt<br /><br />
                         Telefon: +49 123 456789<br />
-                        E-Mail: info@lotusbeauty.de
+                        E-Mail: info@smilingstudio.de
                     </address>
 
                     <h3 className="text-lg font-bold text-[#181611] mt-4 mb-2">Speicherdauer</h3>

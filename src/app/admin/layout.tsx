@@ -59,7 +59,7 @@ export default function AdminLayout({
                 {/* Sidebar */}
                 <aside className="w-64 bg-[#181611] text-white flex-shrink-0 hidden md:flex flex-col">
                     <div className="p-6 border-b border-white/10">
-                        <h2 className="text-xl font-bold text-[#eeb32b]">Lotus Admin</h2>
+                        <h2 className="text-xl font-bold text-[#eeb32b]">Smiling Studio Admin</h2>
                         <p className="text-xs text-white/50">Management Console</p>
                     </div>
 
@@ -97,7 +97,7 @@ export default function AdminLayout({
                 <main className="flex-1 flex flex-col overflow-hidden">
                     {/* Mobile Header */}
                     <header className="bg-white border-b border-[#e6e2db] p-4 flex md:hidden justify-between items-center">
-                        <span className="font-bold text-[#181611]">Lotus Admin</span>
+                        <span className="font-bold text-[#181611]">Smiling Studio Admin</span>
                         <button className="text-[#181611]">
                             <span className="material-symbols-outlined">menu</span>
                         </button>

@@ -235,7 +235,7 @@ export default function ContactPage() {
                                     <span className="material-symbols-outlined text-[#eeb32b] text-2xl">mail</span>
                                     <div>
                                         <p className="font-medium text-[#181611]">Email</p>
-                                        <p className="text-[#897d61]">hello@lotusspa.com</p>
+                                        <p className="text-[#897d61]">info@smilingstudio.de</p>
                                     </div>
                                 </div>
                             </div>

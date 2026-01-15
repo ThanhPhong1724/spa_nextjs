@@ -113,7 +113,7 @@ export default function HeadSpaPage() {
             {/* Section Title */}
             <section className="py-12 text-center">
                 <span className="text-[#897d61] text-sm font-bold tracking-widest uppercase">Our Signature Menu</span>
-                <h2 className="text-[#181611] text-xl font-bold mt-2">Lotus Spa & Salon</h2>
+                <h2 className="text-[#181611] text-xl font-bold mt-2">Smiling Studio</h2>
                 <div className="w-16 h-1 bg-[#eeb32b] mx-auto rounded-full mt-4"></div>
             </section>
 

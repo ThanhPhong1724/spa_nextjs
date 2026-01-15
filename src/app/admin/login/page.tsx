@@ -30,7 +30,7 @@ export default function LoginPage() {
             <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-[#e6e2db]">
                 <div className="text-center mb-8">
                     <h1 className="text-2xl font-bold text-[#181611]">Admin Login</h1>
-                    <p className="text-[#897d61]">Lotus Spa Dashboard</p>
+                    <p className="text-[#897d61]">Smiling Studio Dashboard</p>
                 </div>
 
                 {error && (
