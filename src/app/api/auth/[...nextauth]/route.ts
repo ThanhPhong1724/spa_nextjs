@@ -24,6 +24,10 @@ export const authOptions: NextAuthOptions = {
             }
         })
     ],
+    session: {
+        strategy: "jwt",
+        maxAge: 30 * 24 * 60 * 60, // 30 days
+    },
     pages: {
         signIn: "/admin/login",
     },
@@ -31,17 +35,33 @@ export const authOptions: NextAuthOptions = {
         async jwt({ token, user }) {
             if (user) {
                 token.role = "admin";
+                token.id = user.id;
             }
             return token;
         },
         async session({ session, token }) {
             if (session?.user) {
                 (session.user as any).role = token.role;
+                (session.user as any).id = token.id;
             }
             return session;
         }
     },
-    secret: process.env.NEXTAUTH_SECRET || "your-secret-key-here",
+    cookies: {
+        sessionToken: {
+            name: process.env.NODE_ENV === "production"
+                ? "__Secure-next-auth.session-token"
+                : "next-auth.session-token",
+            options: {
+                httpOnly: true,
+                sameSite: "lax",
+                path: "/",
+                secure: process.env.NODE_ENV === "production",
+            },
+        },
+    },
+    secret: process.env.NEXTAUTH_SECRET,
+    debug: process.env.NODE_ENV === "development",
 };
 
 const handler = NextAuth(authOptions);
