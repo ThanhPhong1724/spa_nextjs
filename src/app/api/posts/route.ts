@@ -1,0 +1,62 @@
+import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]/route";
+
+// GET /api/posts - Get all posts
+export async function GET(request: Request) {
+    try {
+        const { searchParams } = new URL(request.url);
+        const status = searchParams.get("status");
+
+        const where = status ? { status } : {};
+
+        const posts = await prisma.post.findMany({
+            where,
+            orderBy: { createdAt: "desc" },
+        });
+        return NextResponse.json(posts);
+    } catch (error) {
+        return NextResponse.json(
+            { error: "Failed to fetch posts" },
+            { status: 500 }
+        );
+    }
+}
+
+// POST /api/posts - Create a new post
+export async function POST(request: Request) {
+    const session = await getServerSession(authOptions);
+
+    // Basic auth check
+    if (!session) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    try {
+        const body = await request.json();
+        const { title, titleEn, slug, content, contentEn, image, category, author, status } = body;
+
+        const post = await prisma.post.create({
+            data: {
+                title,
+                titleEn,
+                slug,
+                content,
+                contentEn,
+                image,
+                category,
+                author,
+                status: status || "published",
+            },
+        });
+
+        return NextResponse.json(post);
+    } catch (error) {
+        console.error("Error creating post:", error);
+        return NextResponse.json(
+            { error: "Failed to create post" },
+            { status: 500 }
+        );
+    }
+}
