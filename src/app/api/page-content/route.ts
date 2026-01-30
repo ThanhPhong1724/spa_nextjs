@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
+
+// Force dynamic rendering - no caching
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 // GET /api/page-content?pageKey=home
 export async function GET(request: Request) {
@@ -28,7 +32,10 @@ export async function GET(request: Request) {
             }
         });
 
-        return NextResponse.json(contentMap);
+        const response = NextResponse.json(contentMap);
+        // Add cache control headers to prevent caching
+        response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
+        return response;
     } catch (error) {
         console.error("Error fetching page content:", error);
         return NextResponse.json(

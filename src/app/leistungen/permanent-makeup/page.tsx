@@ -33,14 +33,22 @@ const faqs = [
 export default function PermanentMakeupPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
     const [menuImage, setMenuImage] = useState<string | null>(null);
+    const [heroTitle, setHeroTitle] = useState("PERMANENT MAKE UP");
+    const [videoUrl, setVideoUrl] = useState("https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4");
+    const [browsImage, setBrowsImage] = useState("https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=400&fit=crop");
+    const [lipsImage, setLipsImage] = useState("https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=600&h=400&fit=crop");
+    const [eyesImage, setEyesImage] = useState("https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop");
 
     useEffect(() => {
-        fetch("/api/page-content?page=permanent-makeup")
+        fetch("/api/page-content?pageKey=permanent_makeup_page", { cache: 'no-store' })
             .then(res => res.json())
             .then(data => {
-                if (data.menu_image?.image) {
-                    setMenuImage(data.menu_image.image);
-                }
+                if (data.hero?.title_de) setHeroTitle(data.hero.title_de);
+                if (data.hero?.video_url) setVideoUrl(data.hero.video_url);
+                if (data.menu_image?.image) setMenuImage(data.menu_image.image);
+                if (data.service_images?.brows_image) setBrowsImage(data.service_images.brows_image);
+                if (data.service_images?.lips_image) setLipsImage(data.service_images.lips_image);
+                if (data.service_images?.eyes_image) setEyesImage(data.service_images.eyes_image);
             })
             .catch(() => { });
     }, []);
@@ -50,7 +58,7 @@ export default function PermanentMakeupPage() {
             {/* Hero - Coral Theme */}
             <section className="pt-44 pb-4">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-[#ff8b69] text-4xl md:text-5xl font-bold uppercase tracking-wide">PERMANENT MAKE UP</h1>
+                    <h1 className="text-[#ff8b69] text-4xl md:text-5xl font-bold uppercase tracking-wide">{heroTitle}</h1>
                 </div>
             </section>
 
@@ -80,13 +88,14 @@ export default function PermanentMakeupPage() {
                         </div>
                         <div className="rounded-2xl overflow-hidden shadow-lg">
                             <video
+                                key={videoUrl}
                                 autoPlay
                                 loop
                                 muted
                                 playsInline
                                 className="w-full h-auto object-cover"
                             >
-                                <source src="/uploads/upload_1768240173725.mp4" type="video/mp4" />
+                                <source src={videoUrl} type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -97,7 +106,7 @@ export default function PermanentMakeupPage() {
                         {/* Brows */}
                         <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group">
                             <img
-                                src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=400&fit=crop"
+                                src={browsImage}
                                 alt="Brows - Permanent Make Up"
                                 className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                             />
@@ -106,7 +115,7 @@ export default function PermanentMakeupPage() {
                         {/* Lips */}
                         <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group">
                             <img
-                                src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=600&h=400&fit=crop"
+                                src={lipsImage}
                                 alt="Lips - Permanent Make Up"
                                 className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                             />
@@ -115,7 +124,7 @@ export default function PermanentMakeupPage() {
                         {/* Eyes */}
                         <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group">
                             <img
-                                src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop"
+                                src={eyesImage}
                                 alt="Eyes - Permanent Make Up"
                                 className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                             />

@@ -1,39 +1,37 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "spa-nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --webpack",
+    "dev": "next dev --turbo",
     "build": "next build",
+    "build:static": "node scripts/static-export.js",
     "start": "next start",
-    "lint": "eslint",
-    "postinstall": "prisma generate",
-    "seed": "tsx prisma/seed.ts"
+    "lint": "next lint"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
-    "date-fns": "^4.1.0",
-    "next": "16.1.1",
-    "next-auth": "^4.24.13",
-    "prisma": "^5.22.0",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "next": "^16.0.0",
+    "next-auth": "^4.24.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@eslint/eslintrc": "^3",
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "better-sqlite3": "^12.6.0",
+    "better-sqlite3": "^11.8.1",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
-    "puppeteer": "^24.35.0",
+    "prisma": "^5.22.0",
     "tailwindcss": "^4",
-    "tsx": "^4.21.0",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }

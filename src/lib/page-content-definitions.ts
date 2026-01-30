@@ -91,11 +91,11 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
                 label: "Studio Gallery",
                 description: "The 5 images displayed in the Studio Space section.",
                 fields: [
-                    { name: "image1", label: "Image 1 (Main Large)", type: "image", defaultValue: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop" },
-                    { name: "image2", label: "Image 2 (Top Left)", type: "image", defaultValue: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=400&h=300&fit=crop" },
-                    { name: "image3", label: "Image 3 (Top Right)", type: "image", defaultValue: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=400&h=300&fit=crop" },
-                    { name: "image4", label: "Image 4 (Bottom Left)", type: "image", defaultValue: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&h=300&fit=crop" },
-                    { name: "image5", label: "Image 5 (Bottom Right)", type: "image", defaultValue: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop" },
+                    { name: "image1", label: "Image 1 (Main Large)", type: "image", defaultValue: "https://media.canva.com/v2/image-resize/format:JPG/height:600/quality:92/uri:ifs%3A%2F%2FM%2F21badc7c-666a-48e0-a684-beefd9e50311/watermark:F/width:800?csig=AAAAAAAAAAAAAAAAAAAAAIZbSy5URbAZqnp4zj9mttTwZO0YJZExK1Y-etRtTjl8&exp=1769805719&osig=AAAAAAAAAAAAAAAAAAAAAG9B5-xJevtUiRO8bPsC9mUa2YDe1duXVmu1MDnU3rk8&signer=media-rpc&x-canva-quality=screenhttps://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop" },
+                    { name: "image2", label: "Image 2 (Top Left)", type: "image", defaultValue: "https://media.canva.com/v2/image-resize/format:JPG/height:600/quality:92/uri:ifs%3A%2F%2FM%2Fb611e909-05ae-46c5-97e2-13d25b94bf6c/watermark:F/width:800?csig=AAAAAAAAAAAAAAAAAAAAAPqszJ2eIoOgowTBAdHePYryONiZjtVnqB6RHWt8rK2-&exp=1769806844&osig=AAAAAAAAAAAAAAAAAAAAALJg78kFKRs1fwP8cc5lKxV-rD6PFEYhCRoz4GXFkKrX&signer=media-rpc&x-canva-quality=screen" },
+                    { name: "image3", label: "Image 3 (Top Right)", type: "image", defaultValue: "https://media.canva.com/v2/image-resize/format:JPG/height:600/quality:92/uri:ifs%3A%2F%2FM%2Fa07e1fea-cb57-4482-9e28-14b1f2820103/watermark:F/width:800?csig=AAAAAAAAAAAAAAAAAAAAAPBRFtPNgQIjsCsjwRBt9XJawO-LgZ2EZF5k36jYzX3q&exp=1769804830&osig=AAAAAAAAAAAAAAAAAAAAAGzKF2UwJs5zD4AfDiheW9g5Ps_ACcwdTNj-QsqLyxcr&signer=media-rpc&x-canva-quality=screen" },
+                    { name: "image4", label: "Image 4 (Bottom Left)", type: "image", defaultValue: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F88f0b44d-778f-434e-839b-5b7db4caa8a1/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAGoAh3JsmSOsXWeUEFXIaLgZbIxZeTxQipo-b2Oyd282&exp=1769804701&osig=AAAAAAAAAAAAAAAAAAAAADTpfTwCbr_NxSWs2ZfHZPAlmfM56S4JVhS59T8w2qjt&signer=media-rpc&x-canva-quality=screen" },
+                    { name: "image5", label: "Image 5 (Bottom Right)", type: "image", defaultValue: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F1f55ba98-6271-4340-ad5b-92b4e28f1b15/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAJF9my3Yp244QZ8W_LNiO13u6KtbULYtW49TUoVPQiOz&exp=1769807200&osig=AAAAAAAAAAAAAAAAAAAAADVTMlJjpuGKO4cwmCx7ZTIcogzg53bJQrdDXX27RTYO&signer=media-rpc&x-canva-quality=screen" },
                 ]
             },
             {
@@ -219,6 +219,175 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
                 description: "The QR code image for PayPal payment.",
                 fields: [
                     { name: "qr_image", label: "QR Code Image", type: "image", defaultValue: "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://paypal.me/hoangrealt" },
+                ]
+            }
+        ]
+    },
+    headspa_page: {
+        key: "headspa_page",
+        label: "Headspa Page",
+        sections: [
+            {
+                key: "hero",
+                label: "Hero Section",
+                description: "Main title and video displayed at the top of the Headspa page.",
+                fields: [
+                    { name: "title_de", label: "Title (DE)", type: "text", defaultValue: "HEADSPA" },
+                    { name: "title_en", label: "Title (EN)", type: "text", defaultValue: "HEADSPA" },
+                    { name: "video_url", label: "Hero Video URL", type: "video", defaultValue: "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4", helperText: "Upload video or paste URL" },
+                    { name: "typewriter_text_de", label: "Typewriter Text (DE)", type: "text", defaultValue: "Entspannung für Körper und Geist" },
+                    { name: "typewriter_text_en", label: "Typewriter Text (EN)", type: "text", defaultValue: "Relaxation for Body and Mind" },
+                ]
+            },
+            {
+                key: "package_images",
+                label: "Package Images",
+                description: "Images for the 6 Headspa packages displayed on the page.",
+                fields: [
+                    { name: "package1_image", label: "Signature Asian Head Calm Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop" },
+                    { name: "package2_image", label: "Headspa Essential Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop" },
+                    { name: "package3_image", label: "Headspa Deluxe Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&h=400&fit=crop" },
+                    { name: "package4_image", label: "Headspa Signature Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=600&h=400&fit=crop" },
+                    { name: "package5_image", label: "Headspa Detox Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" },
+                    { name: "package6_image", label: "Headspa Together Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=400&fit=crop" },
+                ]
+            },
+            {
+                key: "menu_image",
+                label: "Price Menu Image",
+                description: "The pricing/menu image shown on the page.",
+                fields: [
+                    { name: "image", label: "Menu Image", type: "image", defaultValue: "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/" },
+                ]
+            }
+        ]
+    },
+    permanent_makeup_page: {
+        key: "permanent_makeup_page",
+        label: "Permanent Make Up Page",
+        sections: [
+            {
+                key: "hero",
+                label: "Hero Section",
+                description: "Main title and video displayed at the top of the Permanent Make Up page.",
+                fields: [
+                    { name: "title_de", label: "Title (DE)", type: "text", defaultValue: "PERMANENT MAKE UP" },
+                    { name: "title_en", label: "Title (EN)", type: "text", defaultValue: "PERMANENT MAKE UP" },
+                    { name: "video_url", label: "Hero Video URL", type: "video", defaultValue: "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4", helperText: "Upload video or paste URL" },
+                ]
+            },
+            {
+                key: "service_images",
+                label: "Service Images",
+                description: "Images for the 3 main services: Brows, Lips, Eyes.",
+                fields: [
+                    { name: "brows_image", label: "Brows Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=400&fit=crop" },
+                    { name: "lips_image", label: "Lips Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=600&h=400&fit=crop" },
+                    { name: "eyes_image", label: "Eyes Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop" },
+                ]
+            },
+            {
+                key: "menu_image",
+                label: "Price Menu Image",
+                description: "The pricing/menu image shown on the page.",
+                fields: [
+                    { name: "image", label: "Menu Image", type: "image", defaultValue: "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/" },
+                ]
+            }
+        ]
+    },
+    nails_page: {
+        key: "nails_page",
+        label: "Nails Page",
+        sections: [
+            {
+                key: "hero",
+                label: "Hero Section",
+                description: "Main title displayed at the top of the Nails page.",
+                fields: [
+                    { name: "title_de", label: "Title (DE)", type: "text", defaultValue: "NAILS" },
+                    { name: "title_en", label: "Title (EN)", type: "text", defaultValue: "NAILS" },
+                ]
+            },
+            {
+                key: "service_images",
+                label: "Service Images",
+                description: "Images for the 2 main services: Nagelmodellage and Fusspflege.",
+                fields: [
+                    { name: "nagelmodellage_image", label: "Nagelmodellage Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop" },
+                    { name: "fusspflege_image", label: "Fusspflege Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&h=400&fit=crop" },
+                ]
+            },
+            {
+                key: "menu_image",
+                label: "Price Menu Image",
+                description: "The pricing/menu image shown on the page.",
+                fields: [
+                    { name: "image", label: "Menu Image", type: "image", defaultValue: "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/" },
+                ]
+            }
+        ]
+    },
+    wimpern_page: {
+        key: "wimpern_page",
+        label: "Wimpern/Lashes Page",
+        sections: [
+            {
+                key: "hero",
+                label: "Hero Section",
+                description: "Main title displayed at the top of the Lashes page.",
+                fields: [
+                    { name: "title_de", label: "Title (DE)", type: "text", defaultValue: "WIMPERN" },
+                    { name: "title_en", label: "Title (EN)", type: "text", defaultValue: "EYELASHES" },
+                ]
+            },
+            {
+                key: "service_images",
+                label: "Service Images",
+                description: "Images for the 2 main services: Wimpernverlängerung and Wimpernwelle.",
+                fields: [
+                    { name: "verlangerung_image", label: "Wimpernverlängerung Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop" },
+                    { name: "welle_image", label: "Wimpernwelle (Lifting) Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop" },
+                ]
+            },
+            {
+                key: "menu_image",
+                label: "Price Menu Image",
+                description: "The pricing/menu image shown on the page.",
+                fields: [
+                    { name: "image", label: "Menu Image", type: "image", defaultValue: "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/" },
+                ]
+            }
+        ]
+    },
+    augenbrauen_page: {
+        key: "augenbrauen_page",
+        label: "Augenbrauen/Eyebrows Page",
+        sections: [
+            {
+                key: "hero",
+                label: "Hero Section",
+                description: "Main title displayed at the top of the Eyebrows page.",
+                fields: [
+                    { name: "title_de", label: "Title (DE)", type: "text", defaultValue: "AUGENBRAUEN" },
+                    { name: "title_en", label: "Title (EN)", type: "text", defaultValue: "EYEBROWS" },
+                ]
+            },
+            {
+                key: "service_images",
+                label: "Service Images",
+                description: "Images for the 2 main services: Zupfen & Färben and Laminieren.",
+                fields: [
+                    { name: "zupfen_image", label: "Zupfen & Färben Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=400&fit=crop" },
+                    { name: "laminieren_image", label: "Laminieren Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop" },
+                ]
+            },
+            {
+                key: "menu_image",
+                label: "Price Menu Image",
+                description: "The pricing/menu image shown on the page.",
+                fields: [
+                    { name: "image", label: "Menu Image", type: "image", defaultValue: "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/" },
                 ]
             }
         ]

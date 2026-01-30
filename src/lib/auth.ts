@@ -1,0 +1,50 @@
+import type { AuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+
+export const authOptions: AuthOptions = {
+    providers: [
+        CredentialsProvider({
+            name: "Admin Login",
+            credentials: {
+                username: { label: "Username", type: "text", placeholder: "admin" },
+                password: { label: "Password", type: "password" }
+            },
+            async authorize(credentials) {
+                const adminUser = process.env.ADMIN_USER || "admin";
+                const adminPass = process.env.ADMIN_PASS || "admin123";
+
+                if (
+                    credentials?.username === adminUser &&
+                    credentials?.password === adminPass
+                ) {
+                    return { id: "1", name: "Admin User", email: "admin@smilingstudio.de" };
+                }
+                return null;
+            }
+        })
+    ],
+    session: {
+        strategy: "jwt",
+        maxAge: 30 * 24 * 60 * 60,
+    },
+    pages: {
+        signIn: "/admin/login",
+    },
+    callbacks: {
+        async jwt({ token, user }) {
+            if (user) {
+                token.role = "admin";
+                token.id = user.id;
+            }
+            return token;
+        },
+        async session({ session, token }) {
+            if (session?.user) {
+                (session.user as any).role = token.role;
+                (session.user as any).id = token.id;
+            }
+            return session;
+        }
+    },
+    secret: process.env.NEXTAUTH_SECRET,
+};

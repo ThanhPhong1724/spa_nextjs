@@ -3,16 +3,16 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const services = [
+const getServices = (nagelImage: string, fusspflegeImage: string) => [
     {
         title: "NAGELMODELLAGE",
         description: "Mehr als 900 Farben und Designs ohne Grenzen – von klassisch bis extravagant. Wir gestalten Ihre Nägel mit höchster Sorgfalt für jeden individuellen Look.",
-        image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop"
+        image: nagelImage || "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop"
     },
     {
         title: "FUSSPFLEGE",
         description: "Exklusive Fußpflege mit modernem Dampfgerät: Sanfte Tiefenentspannung, geöffnete Poren und maximale Pflegeaufnahme – für ein spürbar gepflegtes und entspanntes Hautgefühl.",
-        image: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&h=400&fit=crop"
+        image: fusspflegeImage || "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&h=400&fit=crop"
     }
 ];
 
@@ -34,24 +34,30 @@ const faqs = [
 export default function NailsPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
     const [menuImage, setMenuImage] = useState<string | null>(null);
+    const [heroTitle, setHeroTitle] = useState("NAILS");
+    const [nagelImage, setNagelImage] = useState("");
+    const [fusspflegeImage, setFusspflegeImage] = useState("");
 
     useEffect(() => {
-        fetch("/api/page-content?page=nails")
+        fetch("/api/page-content?pageKey=nails_page")
             .then(res => res.json())
             .then(data => {
-                if (data.menu_image?.image) {
-                    setMenuImage(data.menu_image.image);
-                }
+                if (data.hero?.title_de) setHeroTitle(data.hero.title_de);
+                if (data.menu_image?.image) setMenuImage(data.menu_image.image);
+                if (data.service_images?.nagelmodellage_image) setNagelImage(data.service_images.nagelmodellage_image);
+                if (data.service_images?.fusspflege_image) setFusspflegeImage(data.service_images.fusspflege_image);
             })
             .catch(() => { });
     }, []);
+
+    const services = getServices(nagelImage, fusspflegeImage);
 
     return (
         <div className="min-h-screen bg-[#f5ebe0]">
             {/* Hero - Coral Theme */}
             <section className="pt-44 pb-4">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-[#ff8b69] text-4xl md:text-5xl font-bold uppercase tracking-wide">NAILS</h1>
+                    <h1 className="text-[#ff8b69] text-4xl md:text-5xl font-bold uppercase tracking-wide">{heroTitle}</h1>
                 </div>
             </section>
 

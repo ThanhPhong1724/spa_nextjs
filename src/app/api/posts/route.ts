@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 
 // GET /api/posts - Get all posts
 export async function GET(request: Request) {
@@ -11,9 +11,15 @@ export async function GET(request: Request) {
 
         const where = status ? { status } : {};
 
+        const page = parseInt(searchParams.get("page") || "1");
+        const limit = parseInt(searchParams.get("limit") || "100"); // Default high limit for backward compatibility if not specified
+        const skip = (page - 1) * limit;
+
         const posts = await prisma.post.findMany({
             where,
             orderBy: { createdAt: "desc" },
+            take: limit,
+            skip: skip,
         });
         return NextResponse.json(posts);
     } catch (error) {

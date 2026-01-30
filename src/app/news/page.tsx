@@ -16,6 +16,7 @@ export default async function NewsPage() {
         posts = await prisma.post.findMany({
             where: { status: "published" },
             orderBy: { createdAt: "desc" },
+            take: 6,
             // Select specific fields including new English ones
             // We select all or specific fields. Prisma types might be outdated so we cast result to any[] above
         });

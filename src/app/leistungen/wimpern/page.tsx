@@ -3,21 +3,16 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const services = [
+const getServices = (verlangerungImage: string, welleImage: string) => [
     {
         title: "Wimpernverlängerung",
         description: "Typgerechte Wimpernverlängerung für mehr Volumen und einen frischen, eleganten Blick.",
-        image: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop"
+        image: verlangerungImage || "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop"
     },
-    // {
-    //     title: "Quick-Lash Look – 7 Tage Effekt",
-    //     description: "Perfekt zum Ausprobieren: Unser 1-Wochen-Wimpernlook bietet einen schönen, dezenten Effekt zu einem kleinen Preis – ideal für Events, Reisen oder als Test-Set.",
-    //     image: "https://images.unsplash.com/photo-1516914589923-f105f1535f88?w=600&h=400&fit=crop"
-    // },
     {
         title: "Wimpernwelle (Wimpernlifting)",
         description: "Ideal bei langen Naturwimpern: Ein Lifting, das ohne Wimpernzange auskommt und eure natürliche Schönheit betont.",
-        image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop"
+        image: welleImage || "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop"
     }
 ];
 
@@ -47,24 +42,30 @@ const faqs = [
 export default function WimpernPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
     const [menuImage, setMenuImage] = useState<string | null>(null);
+    const [heroTitle, setHeroTitle] = useState("WIMPERN");
+    const [verlangerungImage, setVerlangerungImage] = useState("");
+    const [welleImage, setWelleImage] = useState("");
 
     useEffect(() => {
-        fetch("/api/page-content?page=wimpern")
+        fetch("/api/page-content?pageKey=wimpern_page")
             .then(res => res.json())
             .then(data => {
-                if (data.menu_image?.image) {
-                    setMenuImage(data.menu_image.image);
-                }
+                if (data.hero?.title_de) setHeroTitle(data.hero.title_de);
+                if (data.menu_image?.image) setMenuImage(data.menu_image.image);
+                if (data.service_images?.verlangerung_image) setVerlangerungImage(data.service_images.verlangerung_image);
+                if (data.service_images?.welle_image) setWelleImage(data.service_images.welle_image);
             })
             .catch(() => { });
     }, []);
+
+    const services = getServices(verlangerungImage, welleImage);
 
     return (
         <div className="min-h-screen bg-[#f5ebe0]">
             {/* Hero - Coral Theme */}
             <section className="pt-44 pb-4">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-[#ff8b69] text-4xl md:text-5xl font-bold uppercase tracking-wide">WIMPERN</h1>
+                    <h1 className="text-[#ff8b69] text-4xl md:text-5xl font-bold uppercase tracking-wide">{heroTitle}</h1>
                 </div>
             </section>
 
