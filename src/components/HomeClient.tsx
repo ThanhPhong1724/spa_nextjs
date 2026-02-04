@@ -100,17 +100,17 @@ const servicesData = {
 const reviewsData = {
     de: [
         { name: "Anna M.", avatar: "https://randomuser.me/api/portraits/women/44.jpg", text: "Ein wunderbares Erlebnis! Die Headspa-Behandlung war so entspannend. Ich komme definitiv wieder!", rating: 5 },
-        { name: "Julia K.", avatar: "https://randomuser.me/api/portraits/women/68.jpg", text: "Professionelles Permanent Make-up mit natürlichem Ergebnis. Sehr zufrieden mit der Beratung!", rating: 5 },
+        { name: "Julia K.", avatar: "https://randomuser.me/api/portraits/women/68.jpg", text: "Endlich ein Permanent Make-up, das wirklich natürlich aussieht! Ich bin so happy mit dem Ergebnis. Die Beratung war super ehrlich und professionell – man fühlt sich direkt gut aufgehoben.", rating: 5 },
         { name: "Sophie H.", avatar: "https://randomuser.me/api/portraits/women/45.jpg", text: "Die besten Wimpernverlängerungen in Wiesbaden! Leicht, natürlich und lange haltbar.", rating: 5 },
         { name: "Marie L.", avatar: "https://randomuser.me/api/portraits/women/32.jpg", text: "Hervorragender Service und wunderschöne Nägel. Das Team ist super freundlich!", rating: 5 },
-        { name: "Laura B.", avatar: "https://randomuser.me/api/portraits/women/65.jpg", text: "Entspannung pur! Das Ambiente ist traumhaft und die Behandlungen erstklassig.", rating: 5 }
+        { name: "Laura B.", avatar: "https://randomuser.me/api/portraits/women/65.jpg", text: "Einfach magisch! Die Kopfmassage war sehr entspannend & wirksam. Ich dachte immer, meine Kopfschmerzen seien chronisch, aber nach der Behandlung sind sie wie weggeblasen. Ich komme definitiv wieder!", rating: 5 }
     ],
     en: [
         { name: "Anna M.", avatar: "https://randomuser.me/api/portraits/women/44.jpg", text: "A wonderful experience! The headspa treatment was so relaxing. I'll definitely come back!", rating: 5 },
-        { name: "Julia K.", avatar: "https://randomuser.me/api/portraits/women/68.jpg", text: "Professional permanent make-up with natural results. Very satisfied with the consultation!", rating: 5 },
+        { name: "Julia K.", avatar: "https://randomuser.me/api/portraits/women/68.jpg", text: "Finally a permanent make-up that really looks natural! I'm so happy with the result. The consultation was super honest and professional – you feel well taken care of right away.", rating: 5 },
         { name: "Sophie H.", avatar: "https://randomuser.me/api/portraits/women/45.jpg", text: "The best eyelash extensions in Wiesbaden! Light, natural and long-lasting.", rating: 5 },
         { name: "Marie L.", avatar: "https://randomuser.me/api/portraits/women/32.jpg", text: "Outstanding service and beautiful nails. The team is super friendly!", rating: 5 },
-        { name: "Laura B.", avatar: "https://randomuser.me/api/portraits/women/65.jpg", text: "Pure relaxation! The ambiance is dreamy and the treatments are first-class.", rating: 5 }
+        { name: "Laura B.", avatar: "https://randomuser.me/api/portraits/women/65.jpg", text: "Simply magical! The head massage was very relaxing & effective. I always thought my headaches were chronic, but after the treatment they were blown away. I'll definitely come back!", rating: 5 }
     ]
 };
 

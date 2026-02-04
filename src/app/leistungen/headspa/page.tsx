@@ -48,7 +48,7 @@ const getPackages = (images: string[]) => [
     },
     {
         name: "Headspa Essential",
-        description: "Basispaket mit Kopfhautpflege, Kopfmassage, Gesichtsmaske und Dekolleté-Massage – für ganzheitliche Entspannung und Pflege.",
+        description: "Basispaket mit Kopfhautpflege, Kopfmassage, Haarsauna und Dekolleté-Massage – für ganzheitliche Entspannung und Pflege.",
         image: images[1] || "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop"
     },
     {

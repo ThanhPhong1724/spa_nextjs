@@ -27,6 +27,7 @@ export default function ImpressumPage() {
                     <section>
                         <h2 className="text-xl font-bold text-[#5c4033] mb-4">Kontakt</h2>
                         <div className="text-[#555] space-y-2">
+                            <p><strong>Van Hoang</strong></p>
                             <p>
                                 <strong>Telefon:</strong>{" "}
                                 <a href="tel:01638562022" className="text-[#d4a373] hover:underline">
@@ -35,8 +36,8 @@ export default function ImpressumPage() {
                             </p>
                             <p>
                                 <strong>E-Mail:</strong>{" "}
-                                <a href="mailto:info@smilingstudio@gmail.com" className="text-[#d4a373] hover:underline">
-                                    info@smilingstudio@gmail.com
+                                <a href="mailto:info@smilingstudio.com" className="text-[#d4a373] hover:underline">
+                                    info@smilingstudio.com
                                 </a>
                             </p>
                         </div>
@@ -48,7 +49,7 @@ export default function ImpressumPage() {
                             Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG
                         </h2>
                         <p className="text-[#555]">
-                            [Umsatzsteuer-ID wird hier eingefügt]
+                            DE305891485
                         </p>
                     </section>
 
@@ -58,7 +59,7 @@ export default function ImpressumPage() {
                             Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
                         </h2>
                         <address className="not-italic text-[#555] leading-relaxed">
-                            [Name des Verantwortlichen]<br />
+                            Van Hoang<br />
                             Dotzheimerstr. 68<br />
                             65197 Wiesbaden
                         </address>
@@ -99,4 +100,3 @@ export default function ImpressumPage() {
         </main>
     );
 }
-
