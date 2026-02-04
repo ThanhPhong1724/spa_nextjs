@@ -30,7 +30,7 @@ export default function Header() {
         { label: t("nav.services"), href: "/leistungen" },
         { label: t("nav.pricelist"), href: "/price-list" },
         { label: t("nav.news"), href: "/news" },
-        { label: "Schulung", href: "/schulung" },
+        { label: "SCHULUNG", href: "/schulung" },
         { label: t("nav.voucher"), href: "/gutschein" },
     ];
 
