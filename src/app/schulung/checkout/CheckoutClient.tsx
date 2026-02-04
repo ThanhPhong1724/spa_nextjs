@@ -6,6 +6,37 @@ import { useCart } from '@/contexts/CartContext';
 
 type PaymentMethod = 'paypal' | 'bank' | null;
 
+// SVG Icons
+const CartIcon = () => (
+    <svg className="w-12 h-12 text-[#d4a373]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+    </svg>
+);
+
+const CheckCircleIcon = () => (
+    <svg className="w-20 h-20 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+);
+
+const CreditCardIcon = () => (
+    <svg className="w-8 h-8 text-[#d4a373]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+    </svg>
+);
+
+const BankIcon = () => (
+    <svg className="w-8 h-8 text-[#d4a373]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+    </svg>
+);
+
+const LockIcon = () => (
+    <svg className="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+    </svg>
+);
+
 export default function CheckoutClient() {
     const { items, totalPrice, clearCart } = useCart();
     const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>(null);
@@ -16,7 +47,9 @@ export default function CheckoutClient() {
         return (
             <main className="pt-32 pb-20 bg-[#f8f7f6] min-h-screen">
                 <div className="max-w-2xl mx-auto px-6 text-center">
-                    <p className="text-4xl mb-4">🛒</p>
+                    <div className="flex justify-center mb-4">
+                        <CartIcon />
+                    </div>
                     <h1 className="text-2xl font-serif font-bold text-[#5c4033] mb-4">
                         Ihr Warenkorb ist leer
                     </h1>
@@ -35,7 +68,9 @@ export default function CheckoutClient() {
         return (
             <main className="pt-32 pb-20 bg-[#f8f7f6] min-h-screen">
                 <div className="max-w-2xl mx-auto px-6 text-center">
-                    <p className="text-6xl mb-6">✅</p>
+                    <div className="flex justify-center mb-6">
+                        <CheckCircleIcon />
+                    </div>
                     <h1 className="text-3xl font-serif font-bold text-[#5c4033] mb-4">
                         Vielen Dank für Ihre Bestellung!
                     </h1>
@@ -138,11 +173,11 @@ export default function CheckoutClient() {
                             <button
                                 onClick={() => setPaymentMethod('paypal')}
                                 className={`w-full p-4 rounded-xl border-2 transition-colors text-left flex items-center gap-4 ${paymentMethod === 'paypal'
-                                        ? 'border-[#d4a373] bg-[#faf8f5]'
-                                        : 'border-gray-200 hover:border-[#d4a373]'
+                                    ? 'border-[#d4a373] bg-[#faf8f5]'
+                                    : 'border-gray-200 hover:border-[#d4a373]'
                                     }`}
                             >
-                                <span className="text-2xl">💳</span>
+                                <CreditCardIcon />
                                 <div>
                                     <p className="font-semibold text-[#5c4033]">PayPal</p>
                                     <p className="text-sm text-[#666]">Schnell und sicher. Sie werden zu PayPal weitergeleitet.</p>
@@ -153,11 +188,11 @@ export default function CheckoutClient() {
                             <button
                                 onClick={() => setPaymentMethod('bank')}
                                 className={`w-full p-4 rounded-xl border-2 transition-colors text-left flex items-center gap-4 ${paymentMethod === 'bank'
-                                        ? 'border-[#d4a373] bg-[#faf8f5]'
-                                        : 'border-gray-200 hover:border-[#d4a373]'
+                                    ? 'border-[#d4a373] bg-[#faf8f5]'
+                                    : 'border-gray-200 hover:border-[#d4a373]'
                                     }`}
                             >
-                                <span className="text-2xl">🏦</span>
+                                <BankIcon />
                                 <div>
                                     <p className="font-semibold text-[#5c4033]">Banküberweisung (Vorkasse)</p>
                                     <p className="text-sm text-[#666]">Sie erhalten unsere Bankverbindung per E-Mail.</p>
@@ -173,7 +208,9 @@ export default function CheckoutClient() {
                                         onClick={handlePayPal}
                                         className="w-full bg-[#0070ba] text-white py-4 rounded-full font-bold hover:bg-[#005ea6] transition-colors flex items-center justify-center gap-2"
                                     >
-                                        <span>💳</span>
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                        </svg>
                                         Jetzt sicher mit PayPal bezahlen
                                     </button>
                                 ) : (
@@ -181,7 +218,9 @@ export default function CheckoutClient() {
                                         onClick={handleBankTransfer}
                                         className="w-full bg-[#d4a373] text-white py-4 rounded-full font-bold hover:bg-[#c49363] transition-colors flex items-center justify-center gap-2"
                                     >
-                                        <span>🏦</span>
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                        </svg>
                                         Per Banküberweisung bezahlen
                                     </button>
                                 )}
@@ -190,7 +229,8 @@ export default function CheckoutClient() {
 
                         {/* Security Note */}
                         <p className="text-center text-xs text-[#888] mt-6">
-                            🔒 Alle Zahlungen sind SSL-verschlüsselt und sicher.
+                            <LockIcon />
+                            Alle Zahlungen sind SSL-verschlüsselt und sicher.
                         </p>
                     </div>
                 </div>
