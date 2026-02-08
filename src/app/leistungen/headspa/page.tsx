@@ -291,7 +291,8 @@ export default function HeadspaPage() {
                                         <div className="inline-block mb-3 px-4 py-1 rounded-full border border-[#ff8b69]/40 bg-[#ff8b69]/10 backdrop-blur-md text-[#ffcaa6] text-xs font-serif tracking-[0.2em] uppercase">
                                             Exklusive Signature Behandlung
                                         </div>
-                                        <h3 className="text-4xl md:text-6xl font-serif font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white via-[#ffe4d6] to-[#ffcaa6] drop-shadow-sm">
+                                        {/* Added pb-2 and leading-normal to prevent clipping of 'g' */}
+                                        <h3 className="text-4xl md:text-6xl font-serif font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white via-[#ffe4d6] to-[#ffcaa6] drop-shadow-sm pb-2 leading-tight">
                                             Hydro-Oxygen Scalp Glow
                                         </h3>
                                         <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#ff8b69] to-transparent mb-6 opacity-80" />
@@ -348,7 +349,7 @@ export default function HeadspaPage() {
                                                 <h4 className="text-[#ff8b69] font-bold uppercase tracking-widest text-sm mb-2">Das Ergebnis</h4>
                                                 <p className="text-white/95 text-lg md:text-2xl font-light leading-relaxed">
                                                     Tiefengereinigte, hydratisierte Kopfhaut und sichtbar glänzendes Haar. <br className="hidden md:block" />
-                                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff8b69] to-[#ffd7b5] font-serif italic font-medium">Spürbar befreit und revitalisiert.</span>
+                                                    <span className="text-[#ffcaa6] font-serif italic font-medium">Spürbar befreit und revitalisiert.</span>
                                                 </p>
                                             </div>
                                         </div>
