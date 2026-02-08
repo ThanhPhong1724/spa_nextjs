@@ -127,31 +127,6 @@ export default function WimpernPage() {
                 </div>
             </section>
 
-            {/* Price List */}
-            <section className="py-16">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl font-bold text-[#ff8b69] text-center mb-8">Preisliste</h2>
-                    <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-[#ff8b69]/20">
-                        {menuImage ? (
-                            <img
-                                src={menuImage}
-                                alt="Wimpern Preisliste"
-                                className="w-full h-auto"
-                            />
-                        ) : (
-                            <div className="aspect-[16/9] bg-gradient-to-br from-[#f5ebe0] to-[#efe5d8] flex items-center justify-center">
-                                <div className="text-center text-[#8b7355]">
-                                    <span className="material-symbols-outlined text-6xl mb-4">visibility</span>
-                                    <p className="font-medium">Preisliste wird geladen...</p>
-                                    <p className="text-sm mt-2">Bitte im Admin-Bereich hochladen</p>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </section>
-
-
         </div>
     );
 }

@@ -17,7 +17,6 @@ const getServices = (zupfenImage: string, laminierenImage: string) => [
 ];
 
 export default function AugenbrauenPage() {
-    const [menuImage, setMenuImage] = useState<string | null>(null);
     const [heroTitle, setHeroTitle] = useState("AUGENBRAUEN");
     const [zupfenImage, setZupfenImage] = useState("");
     const [laminierenImage, setLaminierenImage] = useState("");
@@ -27,7 +26,6 @@ export default function AugenbrauenPage() {
             .then(res => res.json())
             .then(data => {
                 if (data.hero?.title_de) setHeroTitle(data.hero.title_de);
-                if (data.menu_image?.image) setMenuImage(data.menu_image.image);
                 if (data.service_images?.zupfen_image) setZupfenImage(data.service_images.zupfen_image);
                 if (data.service_images?.laminieren_image) setLaminierenImage(data.service_images.laminieren_image);
             })
@@ -67,31 +65,6 @@ export default function AugenbrauenPage() {
                     </div>
                 </div>
             </section>
-
-            {/* Price List */}
-            <section className="py-16 bg-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl font-bold text-[#ff8b69] text-center mb-8">Preisliste</h2>
-                    <div className="bg-[#f5ebe0] rounded-2xl shadow-lg overflow-hidden border border-[#ff8b69]/20">
-                        {menuImage ? (
-                            <img
-                                src={menuImage}
-                                alt="Augenbrauen Preisliste"
-                                className="w-full h-auto"
-                            />
-                        ) : (
-                            <div className="aspect-[16/9] flex items-center justify-center bg-gradient-to-br from-[#f5ebe0] to-[#efe5d8]">
-                                <div className="text-center text-[#8b7355]">
-                                    <span className="material-symbols-outlined text-6xl mb-4">face_6</span>
-                                    <p className="font-medium">Preisliste wird geladen...</p>
-                                    <p className="text-sm mt-2">Bitte im Admin-Bereich hochladen</p>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </section>
-
 
         </div>
     );
