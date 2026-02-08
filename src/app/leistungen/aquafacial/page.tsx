@@ -182,23 +182,6 @@ export default function AquafacialPage() {
                     </div>
                 </div>
             </section>
-
-            {/* CTA Section */}
-            <section className="py-16">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl font-bold text-[#5c4033] mb-6">Bereit für strahlende Haut?</h2>
-                    <p className="text-[#6b5344] mb-8">
-                        Buchen Sie jetzt Ihren AquaFacial-Termin und erleben Sie den Unterschied.
-                    </p>
-                    <Link
-                        href="/contact"
-                        className="inline-block bg-[#ff8b69] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e87a5a] transition-colors shadow-lg hover:shadow-xl"
-                    >
-                        Termin vereinbaren
-                    </Link>
-                </div>
-            </section>
-
         </div>
     );
 }

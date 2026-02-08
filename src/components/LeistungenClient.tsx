@@ -5,6 +5,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const servicesData = {
     de: [
+        { key: "kopfhautpflege", description: "Professionelle Lösungen für Kopfhautprobleme, Haarausfall und Hautgesundheit.", href: "/leistungen/kopfhaut-und-hautpflege" },
+        { key: "aquafacial", description: "Tiefenreinigung, Hydration und Wirkstoffversorgung für sofort sichtbar strahlende Haut.", href: "/leistungen/aquafacial" },
         { key: "headspa", description: "Ganzheitliche Kopfhautpflege und Entspannung für Körper und Geist.", href: "/leistungen/headspa" },
         { key: "permanent", description: "Natürliche Schönheit mit modernsten Techniken und höchster Präzision.", href: "/leistungen/permanent-makeup" },
         { key: "nails", description: "Kreative Nageldesigns und professionelle Fußpflege.", href: "/leistungen/nails" },
@@ -12,6 +14,8 @@ const servicesData = {
         { key: "augenbrauen", description: "Perfekte Augenbrauen durch Zupfen, Färben oder Laminieren.", href: "/leistungen/augenbrauen" }
     ],
     en: [
+        { key: "kopfhautpflege", description: "Professional solutions for scalp problems, hair loss and skin health.", href: "/leistungen/kopfhaut-und-hautpflege" },
+        { key: "aquafacial", description: "Deep cleansing, hydration and active ingredient delivery for instantly radiant skin.", href: "/leistungen/aquafacial" },
         { key: "headspa", description: "Holistic scalp care and relaxation for body and mind.", href: "/leistungen/headspa" },
         { key: "permanent", description: "Natural beauty with state-of-the-art techniques and highest precision.", href: "/leistungen/permanent-makeup" },
         { key: "nails", description: "Creative nail designs and professional foot care.", href: "/leistungen/nails" },
@@ -22,6 +26,8 @@ const servicesData = {
 
 const defaultImages = {
     headspa: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop",
+    kopfhautpflege: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&h=400&fit=crop",
+    aquafacial: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop",
     permanent: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop",
     nails: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop",
     wimpern: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop",
@@ -31,6 +37,8 @@ const defaultImages = {
 const defaultTitles = {
     de: {
         headspa: "HEADSPA",
+        kopfhautpflege: "PROFESSIONELLE KOPFHAUT/HAUTPFLEGE",
+        aquafacial: "AQUAFACIAL",
         permanent: "PERMANENT MAKE UP",
         nails: "NAILS",
         wimpern: "WIMPERN",
@@ -38,6 +46,8 @@ const defaultTitles = {
     },
     en: {
         headspa: "HEADSPA",
+        kopfhautpflege: "SCALP & SKIN CARE",
+        aquafacial: "AQUAFACIAL",
         permanent: "PERMANENT MAKE UP",
         nails: "NAILS",
         wimpern: "EYELASHES",
@@ -89,9 +99,9 @@ export default function LeistungenClient({ content }: LeistungenClientProps) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {services.map((service, index) => (
-                            <Link key={service.key} href={service.href} className={`group animate-slide-in animate-slide-in-delay-${(index % 5) + 1}`}>
-                                <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                                    <div className="relative h-64 overflow-hidden">
+                            <Link key={service.key} href={service.href} className={`group animate-slide-in animate-slide-in-delay-${(index % 5) + 1} h-full`}>
+                                <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full flex flex-col">
+                                    <div className="relative h-64 overflow-hidden flex-shrink-0">
                                         <img
                                             src={service.image}
                                             alt={service.title}
@@ -99,9 +109,9 @@ export default function LeistungenClient({ content }: LeistungenClientProps) {
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                                     </div>
-                                    <div className="p-6">
+                                    <div className="p-6 flex-1 flex flex-col">
                                         <h3 className="text-xl font-bold text-[#ff8b69] uppercase tracking-wide mb-2">{service.title}</h3>
-                                        <div className="flex items-start gap-3">
+                                        <div className="flex items-end gap-3 flex-1">
                                             <p className="text-[#5c4033] font-medium text-sm flex-1">{service.description}</p>
                                             {/* Circular Arrow */}
                                             <span className="flex-shrink-0 w-10 h-10 rounded-full bg-[#ff8b69] flex items-center justify-center group-hover:bg-[#e87a5a] transition-colors">
