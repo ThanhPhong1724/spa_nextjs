@@ -263,40 +263,45 @@ export default function HeadspaPage() {
                         </div>
 
                         {/* Premium Treatment - Hydro-Oxygen Scalp Glow */}
-                        {/* Premium Treatment - Hydro-Oxygen Scalp Glow */}
                         <div className="mb-12">
-                            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-[#2a1d18] group perspective-1000">
+                            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-[#2a1d18] group perspective-1000 border border-[#ff8b69]/20">
                                 {/* Dynamic Background System */}
-                                <div className="absolute inset-0 opacity-40">
-                                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#ff8b69] rounded-full blur-[120px] mix-blend-screen opacity-20 animate-pulse" style={{ animationDuration: '8s' }} />
-                                    <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#d4a373] rounded-full blur-[100px] mix-blend-screen opacity-20 animate-pulse" style={{ animationDuration: '10s', animationDelay: '1s' }} />
+                                <div className="absolute inset-0 opacity-50">
+                                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#ff8b69] rounded-full blur-[120px] mix-blend-screen opacity-20 animate-pulse" style={{ animationDuration: '6s' }} />
+                                    <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#d4a373] rounded-full blur-[100px] mix-blend-screen opacity-20 animate-pulse" style={{ animationDuration: '8s', animationDelay: '1s' }} />
                                 </div>
 
                                 {/* Subtle Texture Pattern */}
-                                <div className="absolute inset-0 opacity-[0.03]"
-                                    style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}>
+                                <div className="absolute inset-0 opacity-[0.05]"
+                                    style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '30px 30px' }}>
+                                </div>
+
+                                {/* Ribbon Badge - Top Right Corner */}
+                                <div className="absolute top-0 right-0 w-40 h-40 overflow-hidden z-20">
+                                    <div className="absolute top-[30px] right-[-50px] w-[200px] bg-gradient-to-r from-[#d4a373] via-[#ff8b69] to-[#d4a373] text-white font-bold text-xs uppercase tracking-widest py-2 text-center transform rotate-45 shadow-[0_5px_15px_rgba(0,0,0,0.3)] border-y border-white/20">
+                                        Premium
+                                        <br />
+                                        Treatment
+                                    </div>
                                 </div>
 
                                 <div className="relative p-8 md:p-12 text-white">
-                                    {/* Header Section */}
-                                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-                                        <div>
-                                            <h3 className="text-3xl md:text-5xl font-serif font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white via-[#ffe4d6] to-[#ffcaa6]">
-                                                Hydro-Oxygen Scalp Glow
-                                            </h3>
-                                            <p className="text-[#d4a373] text-xl font-light tracking-wide">The Ultimate Hair & Scalp Detox</p>
+                                    {/* Header Section - CENTERED */}
+                                    <div className="flex flex-col items-center text-center mb-12 relative z-10">
+                                        <div className="inline-block mb-3 px-4 py-1 rounded-full border border-[#ff8b69]/40 bg-[#ff8b69]/10 backdrop-blur-md text-[#ffcaa6] text-xs font-serif tracking-[0.2em] uppercase">
+                                            Exklusive Signature Behandlung
                                         </div>
-                                        {/* Premium Badge */}
-                                        <div className="px-5 py-2 rounded-full border border-[#ff8b69]/30 bg-[#ff8b69]/10 backdrop-blur-md flex items-center gap-2 shadow-[0_0_20px_rgba(255,139,105,0.2)]">
-                                            <svg className="w-5 h-5 text-[#ff8b69]" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                            </svg>
-                                            <span className="text-[#ff8b69] font-bold text-sm tracking-widest uppercase">Premium Treatment</span>
-                                        </div>
+                                        <h3 className="text-4xl md:text-6xl font-serif font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white via-[#ffe4d6] to-[#ffcaa6] drop-shadow-sm">
+                                            Hydro-Oxygen Scalp Glow
+                                        </h3>
+                                        <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#ff8b69] to-transparent mb-6 opacity-80" />
+                                        <p className="text-[#e8d5c4] text-xl md:text-2xl font-light tracking-wide max-w-2xl">
+                                            The Ultimate Hair & Scalp Detox
+                                        </p>
                                     </div>
 
                                     {/* Features Grid */}
-                                    <div className="grid md:grid-cols-3 gap-6 mb-10">
+                                    <div className="grid md:grid-cols-3 gap-6 mb-12">
                                         {[
                                             {
                                                 title: "Bubble Cleaning",
@@ -314,16 +319,16 @@ export default function HeadspaPage() {
                                                 icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517l-2.387-.477a2 2 0 01-1.594-1.955v-8.164a2 2 0 012.5-1.95l2.387.478a6 6 0 003.86-.517l.318-.158a6 6 0 013.86-.517l2.387.477a2 2 0 011.594 1.955v8.164a2 2 0 01-.948 1.7"
                                             }
                                         ].map((item, i) => (
-                                            <div key={i} className="group relative bg-white/5 backdrop-blur-[2px] rounded-2xl p-6 border border-white/5 hover:bg-white/10 hover:border-[#ff8b69]/30 transition-all duration-500 hover:-translate-y-1">
-                                                <div className="absolute inset-0 bg-gradient-to-br from-[#ff8b69]/0 to-[#ff8b69]/0 group-hover:from-[#ff8b69]/5 group-hover:to-transparent rounded-2xl transition-all duration-500" />
+                                            <div key={i} className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/5 hover:bg-white/10 hover:border-[#ff8b69]/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
+                                                <div className="absolute inset-0 bg-gradient-to-br from-[#ff8b69]/0 to-[#ff8b69]/0 group-hover:from-[#ff8b69]/10 group-hover:to-transparent rounded-2xl transition-all duration-500" />
 
-                                                <div className="w-14 h-14 bg-gradient-to-br from-[#ff8b69] to-[#d46d50] rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-orange-900/20 group-hover:scale-110 transition-transform duration-300">
-                                                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <div className="w-16 h-16 bg-gradient-to-br from-[#2a1d18] to-[#3d2a22] border border-[#ff8b69]/20 rounded-2xl flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:border-[#ff8b69]/60 transition-all duration-300 relative z-10">
+                                                    <svg className="w-8 h-8 text-[#ff8b69] group-hover:text-[#ffcaa6] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={item.icon} />
                                                     </svg>
                                                 </div>
-                                                <h4 className="font-serif font-bold text-xl text-[#ffcaa6] mb-2">{item.title}</h4>
-                                                <p className="text-white/70 text-sm leading-relaxed relative z-10">
+                                                <h4 className="font-serif font-bold text-xl text-[#ffcaa6] mb-3 group-hover:text-white transition-colors">{item.title}</h4>
+                                                <p className="text-white/70 text-sm leading-relaxed relative z-10 group-hover:text-white/90 transition-colors">
                                                     {item.desc}
                                                 </p>
                                             </div>
@@ -332,17 +337,18 @@ export default function HeadspaPage() {
 
                                     {/* Result Section */}
                                     <div className="relative">
-                                        <div className="absolute inset-0 bg-gradient-to-r from-[#ff8b69] via-[#d4a373] to-[#ff8b69] rounded-2xl opacity-20 blur-lg" />
-                                        <div className="relative bg-gradient-to-r from-[#1a120f] to-[#2a1d18] rounded-2xl p-6 border border-[#ff8b69]/30 flex items-center gap-5">
-                                            <div className="w-12 h-12 flex-shrink-0 bg-[#ff8b69]/20 rounded-full flex items-center justify-center border border-[#ff8b69]/50 shadow-[0_0_15px_rgba(255,139,105,0.3)]">
-                                                <svg className="w-6 h-6 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        <div className="absolute inset-0 bg-gradient-to-r from-[#ff8b69] via-[#d4a373] to-[#ff8b69] rounded-2xl opacity-20 blur-xl animate-pulse" />
+                                        <div className="relative bg-gradient-to-r from-[#1a120f]/90 to-[#2a1d18]/90 backdrop-blur-xl rounded-2xl p-8 border border-[#ff8b69]/30 flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-2xl">
+                                            <div className="w-16 h-16 flex-shrink-0 bg-[#ff8b69] rounded-full flex items-center justify-center border-4 border-[#2a1d18] shadow-[0_0_20px_rgba(255,139,105,0.4)]">
+                                                <svg className="w-8 h-8 text-[#2a1d18]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                                                 </svg>
                                             </div>
-                                            <div>
-                                                <h4 className="text-[#ff8b69] font-bold uppercase tracking-wider text-sm mb-1">Das Ergebnis</h4>
-                                                <p className="text-white/90 text-lg md:text-xl font-light">
-                                                    Tiefengereinigte, hydratisierte Kopfhaut und sichtbar glänzendes Haar. <span className="text-[#ffcaa6] italic font-serif">Spürbar befreit.</span>
+                                            <div className="text-center md:text-left">
+                                                <h4 className="text-[#ff8b69] font-bold uppercase tracking-widest text-sm mb-2">Das Ergebnis</h4>
+                                                <p className="text-white/95 text-lg md:text-2xl font-light leading-relaxed">
+                                                    Tiefengereinigte, hydratisierte Kopfhaut und sichtbar glänzendes Haar. <br className="hidden md:block" />
+                                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff8b69] to-[#ffd7b5] font-serif italic font-medium">Spürbar befreit und revitalisiert.</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -351,21 +357,21 @@ export default function HeadspaPage() {
                             </div>
                         </div>
 
-                        {/* Laser Hair Boost */}
-                        <div className="bg-white rounded-3xl p-8 shadow-xl">
-                            <h3 className="text-2xl md:text-3xl font-bold text-[#5c4033] mb-4">
+                        {/* Laser Hair Boost - CENTERED */}
+                        <div className="bg-white rounded-3xl p-8 shadow-xl text-center">
+                            <h3 className="text-2xl md:text-4xl font-serif font-bold text-[#5c4033] mb-4">
                                 Laser Hair Boost – Growth Support & Density
                             </h3>
-                            <p className="text-[#ff8b69] font-semibold text-lg mb-4">
+                            <p className="text-[#ff8b69] font-semibold text-lg md:text-xl mb-6 uppercase tracking-wide">
                                 Eine weltweit anerkannte Lösung gegen Haarausfall
                             </p>
-                            <p className="text-[#6b5344] mb-6">
+                            <p className="text-[#6b5344] mb-8 max-w-3xl mx-auto leading-relaxed text-lg">
                                 Dünnes Haar und Haarausfall sind heute keine ästhetische Belastung mehr – weder für Männer noch für Frauen.
                                 Diese moderne Technologie wird weltweit erfolgreich eingesetzt und geschätzt.
                             </p>
 
-                            <div className="bg-[#f5ebe0] rounded-xl p-6 mb-6">
-                                <p className="text-[#5c4033] mb-4">
+                            <div className="bg-[#f5ebe0]/50 rounded-2xl p-8 mb-8 border border-[#e8d5c4]">
+                                <p className="text-[#5c4033] text-lg leading-relaxed max-w-4xl mx-auto">
                                     Eine exklusive Anwendung mit spezialisierter Gerätetechnologie, die reinen Sauerstoff mit fokussierter Laser-Energie kombiniert.
                                     Die aktivierende Behandlung wirkt Haarverlust entgegen, stärkt die Haarwurzelbasis und unterstützt sichtbar mehr Dichte und Vitalität.
                                 </p>
