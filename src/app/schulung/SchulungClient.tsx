@@ -278,13 +278,15 @@ export default function SchulungClient() {
 
                     <div className="space-y-4">
                         {faqs.map((faq, i) => (
-                            <details key={i} className="bg-[#f8f7f6] rounded-xl overflow-hidden group">
-                                <summary className="p-6 cursor-pointer font-semibold text-[#5c4033] hover:bg-[#f0ede8] transition-colors list-none flex justify-between items-center">
+                            <details key={i} className="bg-white rounded-xl overflow-hidden shadow-sm border border-[#ff8b69]/20 group">
+                                <summary className="p-6 cursor-pointer font-bold text-[#5c4033] hover:bg-[#faf4ef] transition-colors list-none flex justify-between items-center">
                                     {faq.question}
-                                    <span className="text-[#ff8b69] group-open:rotate-45 transition-transform">+</span>
+                                    <span className="material-symbols-outlined text-[#ff8b69] group-open:rotate-180 transition-transform duration-300 flex-shrink-0">
+                                        expand_more
+                                    </span>
                                 </summary>
-                                <div className="px-6 pb-6 text-[#666]">
-                                    {faq.answer}
+                                <div className="px-6 pb-6 text-[#666] border-t border-[#ff8b69]/10">
+                                    <p className="pt-4">{faq.answer}</p>
                                 </div>
                             </details>
                         ))}
