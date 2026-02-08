@@ -125,7 +125,7 @@ export default function CheckoutClient() {
                     <span className="text-[#5c4033]">Kasse</span>
                 </nav>
 
-                <h1 className="text-3xl font-serif font-bold text-[#5c4033] mb-8">
+                <h1 className="text-3xl font-serif font-bold text-[#ff8b69] text-center uppercase mb-8">
                     Kasse
                 </h1>
 

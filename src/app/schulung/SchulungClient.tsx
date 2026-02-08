@@ -130,21 +130,6 @@ export default function SchulungClient() {
 
     return (
         <main className="pt-24 bg-[#f5ebe0]">
-            {/* Cart Button */}
-            {totalItems > 0 && (
-                <button
-                    onClick={() => setIsCartOpen(true)}
-                    className="fixed bottom-6 right-6 bg-[#ff8b69] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center z-30 hover:bg-[#e87a5a] transition-colors"
-                >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                        {totalItems}
-                    </span>
-                </button>
-            )}
-
             {/* Hero Section */}
             <section className="relative py-20 bg-gradient-to-br from-[#ff8b69] to-[#e87a5a] text-white">
                 <div className="max-w-6xl mx-auto px-6 text-center">
@@ -187,10 +172,10 @@ export default function SchulungClient() {
                         eine Route, die auf deine Lebenssituation und dein Investment zugeschnitten ist.
                     </p>
 
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-3 gap-8 items-stretch">
                         {courses.map(course => (
-                            <div key={course.id} className="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow">
-                                <div className="relative h-48 overflow-hidden">
+                            <div key={course.id} className="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow flex flex-col h-full">
+                                <div className="relative h-48 overflow-hidden shrink-0">
                                     <img
                                         src={course.image}
                                         alt={course.name}
@@ -200,7 +185,7 @@ export default function SchulungClient() {
                                         {course.price.toLocaleString('de-DE')} €
                                     </div>
                                 </div>
-                                <div className="p-6">
+                                <div className="p-6 flex flex-col flex-1">
                                     <h3 className="text-xl font-bold text-[#5c4033] mb-2">{course.name}</h3>
                                     <p className="text-[#666] text-sm mb-3">{course.description}</p>
                                     <p className="text-[#ff8b69] text-sm font-medium mb-4 flex items-center gap-1">
@@ -210,7 +195,7 @@ export default function SchulungClient() {
                                         {course.duration}
                                     </p>
 
-                                    <div className="flex flex-wrap gap-2 mb-4">
+                                    <div className="flex flex-wrap gap-2 mb-6">
                                         {course.features.map((f, i) => (
                                             <span key={i} className="bg-[#f8f7f6] text-[#5c4033] text-xs px-2 py-1 rounded flex items-center gap-1">
                                                 <svg className="w-3 h-3 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -221,7 +206,7 @@ export default function SchulungClient() {
                                         ))}
                                     </div>
 
-                                    <div className="flex gap-2">
+                                    <div className="flex gap-2 mt-auto">
                                         <Link
                                             href={course.href}
                                             className="flex-1 text-center border border-[#ff8b69] text-[#ff8b69] py-2 rounded-full text-sm font-medium hover:bg-[#ff8b69] hover:text-white transition-colors"
@@ -235,7 +220,7 @@ export default function SchulungClient() {
                                                 price: course.price,
                                                 image: course.image
                                             })}
-                                            className="flex-1 bg-[#ff8b69] text-white py-2 rounded-full text-sm font-medium hover:bg-[#e87a5a] transition-colors"
+                                            className="flex-1 bg-[#ff8b69] text-white py-2 rounded-full text-sm font-medium hover:bg-[#e87a5a] transition-colors px-1"
                                         >
                                             In den Warenkorb
                                         </button>
