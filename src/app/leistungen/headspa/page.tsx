@@ -39,27 +39,45 @@ function TypeWriter({ text, className = "" }: { text: string; className?: string
     );
 }
 
-// ===== RELAX & GLOW PACKAGES (Existing HeadSpa) =====
-const relaxGlowPackages = [
+// SVG Icons
+const SpaIcon = () => (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.092 12.316a9 9 0 1 1 -8.963 -12.316z" />
+    </svg>
+);
+
+const LabIcon = () => (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 0 0 -1.022 -.547l-2.387 -.477a6 6 0 0 0 -3.86 .517l-.318 .158a6 6 0 0 1 -3.86 .517l-2.387 -.477a2 2 0 0 1 -1.594 -1.955v-8.164a2 2 0 0 1 2.5 -1.95l2.387 .478a6 6 0 0 0 3.86 -.517l.318 -.158a6 6 0 0 1 3.86 -.517l2.387 .477a2 2 0 0 1 1.594 1.955v8.164a2 2 0 0 1 -.948 1.7" />
+    </svg>
+);
+
+// ===== RELAX & GLOW PACKAGES (with images) =====
+const getRelaxGlowPackages = (packageImages: string[]) => [
     {
         name: "Signature Asian Head Calm",
         description: "Durch die gezielte Stimulation traditioneller Druckpunkte lösen wir tief sitzende Blockaden und Verspannungen. Ideal für Stressabbau, mentale Klarheit und ganzheitliches Wohlbefinden.",
+        image: packageImages[0] || "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop"
     },
     {
         name: "Headspa Essential",
         description: "Basispaket mit Kopfhautpflege, Kopfmassage, Haarsauna und Dekolleté-Massage – für ganzheitliche Entspannung und Pflege.",
+        image: packageImages[1] || "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop"
     },
     {
         name: "Headspa Deluxe",
         description: "Ein exklusives Premium-Treatment, das intensive Kopfhautpflege mit einer tiefenentspannenden Nacken- und Schultermassage mit warmen Hot Stones verbindet.",
+        image: packageImages[2] || "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&h=400&fit=crop"
     },
     {
         name: "Headspa Signature",
         description: "Das höchste Headspa-Erlebnis, das körperliche Entspannung mit einer meditativen Klangreise verbindet, für maximale mentale Erholung und tiefe innere Balance.",
+        image: packageImages[3] || "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=600&h=400&fit=crop"
     },
     {
         name: "Headspa Together",
         description: "Gemeinsam entspannen und genießen – das Headspa-Erlebnis für zwei, ob Freundinnen, Mutter & Tochter oder als Paar.",
+        image: packageImages[4] || "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=400&fit=crop"
     }
 ];
 
@@ -113,6 +131,7 @@ export default function HeadspaPage() {
     const [videoUrl, setVideoUrl] = useState("https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4");
     const [typewriterText, setTypewriterText] = useState("Entspannung für Körper und Geist");
     const [activeTab, setActiveTab] = useState<'relax' | 'detox'>('relax');
+    const [packageImages, setPackageImages] = useState<string[]>([]);
 
     // Fetch CMS content
     useEffect(() => {
@@ -122,9 +141,21 @@ export default function HeadspaPage() {
                 if (data.hero?.title_de) setHeroTitle(data.hero.title_de);
                 if (data.hero?.video_url) setVideoUrl(data.hero.video_url);
                 if (data.hero?.typewriter_text_de) setTypewriterText(data.hero.typewriter_text_de);
+                if (data.package_images) {
+                    const images = [
+                        data.package_images.package1_image,
+                        data.package_images.package2_image,
+                        data.package_images.package3_image,
+                        data.package_images.package4_image,
+                        data.package_images.package5_image,
+                    ].filter(Boolean);
+                    setPackageImages(images);
+                }
             })
             .catch((err) => console.error('Fetch error:', err));
     }, []);
+
+    const relaxGlowPackages = getRelaxGlowPackages(packageImages);
 
     return (
         <div className="min-h-screen bg-[#f5ebe0]">
@@ -164,21 +195,23 @@ export default function HeadspaPage() {
                     <div className="flex justify-center gap-4">
                         <button
                             onClick={() => setActiveTab('relax')}
-                            className={`px-8 py-4 rounded-full font-bold text-lg transition-all ${activeTab === 'relax'
+                            className={`px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-2 ${activeTab === 'relax'
                                     ? 'bg-[#ff8b69] text-white shadow-lg'
                                     : 'bg-white text-[#5c4033] hover:bg-[#ff8b69]/10'
                                 }`}
                         >
-                            🧘 Relax & Glow
+                            <SpaIcon />
+                            Relax & Glow
                         </button>
                         <button
                             onClick={() => setActiveTab('detox')}
-                            className={`px-8 py-4 rounded-full font-bold text-lg transition-all ${activeTab === 'detox'
+                            className={`px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-2 ${activeTab === 'detox'
                                     ? 'bg-[#ff8b69] text-white shadow-lg'
                                     : 'bg-white text-[#5c4033] hover:bg-[#ff8b69]/10'
                                 }`}
                         >
-                            🔬 Detox & Growth
+                            <LabIcon />
+                            Detox & Growth
                         </button>
                     </div>
                 </div>
@@ -191,16 +224,25 @@ export default function HeadspaPage() {
                         <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold text-[#5c4033] mb-4">Relax & Glow</h2>
                             <p className="text-[#6b5344] max-w-2xl mx-auto">
-                                Trọng tâm: Thư giãn, massage, làm đẹp tóc.<br />
-                                Dành cho: Người muốn xả stress, tận hưởng không gian spa thư thái.
+                                Entspannung, Massage und Haarpflege.<br />
+                                Für alle, die Stress abbauen und eine ruhige Atmosphäre genießen möchten.
                             </p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {relaxGlowPackages.map((pkg) => (
-                                <div key={pkg.name} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group p-6">
-                                    <h3 className="text-lg font-bold text-[#ff8b69] mb-3">{pkg.name}</h3>
-                                    <p className="text-[#6b5344] text-sm">{pkg.description}</p>
+                                <div key={pkg.name} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group">
+                                    <div className="h-48 overflow-hidden">
+                                        <img
+                                            src={pkg.image}
+                                            alt={pkg.name}
+                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        />
+                                    </div>
+                                    <div className="p-6">
+                                        <h3 className="text-lg font-bold text-[#ff8b69] mb-3">{pkg.name}</h3>
+                                        <p className="text-[#6b5344] text-sm">{pkg.description}</p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -215,16 +257,19 @@ export default function HeadspaPage() {
                         <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold text-[#5c4033] mb-4">Detox & Growth</h2>
                             <p className="text-[#6b5344] max-w-2xl mx-auto">
-                                Trọng tâm: Làm sạch sâu, trị gàu/dầu, kích thích mọc tóc.<br />
-                                Dành cho: Người gặp vấn đề về da đầu và rụng tóc.
+                                Tiefenreinigung, Behandlung von Schuppen und fettiger Kopfhaut, Förderung des Haarwachstums.<br />
+                                Für alle, die mit Kopfhautproblemen oder Haarausfall zu kämpfen haben.
                             </p>
                         </div>
 
                         {/* Premium Treatment - Hydro-Oxygen Scalp Glow */}
                         <div className="mb-12">
                             <div className="bg-gradient-to-br from-[#5c4033] to-[#3d2a22] rounded-3xl p-8 text-white relative overflow-hidden">
-                                <div className="absolute top-4 right-4 bg-[#ff8b69] text-white px-4 py-1 rounded-full text-sm font-bold">
-                                    ⭐ PREMIUM TREATMENT
+                                <div className="absolute top-4 right-4 bg-[#ff8b69] text-white px-4 py-1 rounded-full text-sm font-bold flex items-center gap-1">
+                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                    </svg>
+                                    PREMIUM TREATMENT
                                 </div>
                                 <h3 className="text-2xl md:text-3xl font-bold mb-4">
                                     Hydro-Oxygen Scalp Glow
@@ -233,19 +278,34 @@ export default function HeadspaPage() {
 
                                 <div className="grid md:grid-cols-3 gap-6 mb-8">
                                     <div className="bg-white/10 rounded-xl p-5">
-                                        <h4 className="font-bold text-[#ff8b69] mb-2">💧 Bubble Cleaning</h4>
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <svg className="w-6 h-6 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
+                                            </svg>
+                                            <h4 className="font-bold text-[#ff8b69]">Bubble Cleaning</h4>
+                                        </div>
                                         <p className="text-white/80 text-sm">
-                                            Sanftes Vakuum mit der Bubble-Technologie entfernt Talg, Schuppen und hartnäckige Rückstände, die eine normale Haarwäsche nicht erreicht.
+                                            Sanftes Vakuum mit der Bubble-Technologie entfernt Talg, Schuppen und hartnäckige Rückstände.
                                         </p>
                                     </div>
                                     <div className="bg-white/10 rounded-xl p-5">
-                                        <h4 className="font-bold text-[#ff8b69] mb-2">🌬️ Oxygen Infusion</h4>
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <svg className="w-6 h-6 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                            </svg>
+                                            <h4 className="font-bold text-[#ff8b69]">Oxygen Infusion</h4>
+                                        </div>
                                         <p className="text-white/80 text-sm">
                                             Reiner Sauerstoff belebt und revitalisiert die Kopfhaut.
                                         </p>
                                     </div>
                                     <div className="bg-white/10 rounded-xl p-5">
-                                        <h4 className="font-bold text-[#ff8b69] mb-2">✨ Nutrient Serum</h4>
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <svg className="w-6 h-6 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                            </svg>
+                                            <h4 className="font-bold text-[#ff8b69]">Nutrient Serum</h4>
+                                        </div>
                                         <p className="text-white/80 text-sm">
                                             Aquafacial-Technik schleust exklusive Nährstoffe direkt bis zur Haarwurzel ein.
                                         </p>
@@ -253,7 +313,12 @@ export default function HeadspaPage() {
                                 </div>
 
                                 <div className="bg-white/10 rounded-xl p-5">
-                                    <h4 className="font-bold text-[#ff8b69] mb-2">✅ Das Ergebnis</h4>
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <svg className="w-6 h-6 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <h4 className="font-bold text-[#ff8b69]">Das Ergebnis</h4>
+                                    </div>
                                     <p className="text-white/90">
                                         Eine tiefengereinigte, hydratisierte Kopfhaut und sichtbar glänzendes Haar – spürbar befreit von Altlasten.
                                     </p>
@@ -281,39 +346,54 @@ export default function HeadspaPage() {
                                 </p>
                             </div>
 
-                            {/* Expert Videos */}
+                            {/* Expert Videos - Embedded */}
                             <div className="mb-6">
-                                <h4 className="font-bold text-[#5c4033] mb-4">
-                                    👉 Expertenmeinungen und Studien:
+                                <h4 className="font-bold text-[#5c4033] mb-4 flex items-center gap-2">
+                                    <svg className="w-5 h-5 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                    </svg>
+                                    Expertenmeinungen und Studien:
                                 </h4>
-                                <div className="grid md:grid-cols-3 gap-4">
-                                    <a
-                                        href="https://www.youtube.com/watch?v=QRus_P-EewA"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-red-50 border border-red-200 rounded-xl p-4 hover:bg-red-100 transition-colors flex items-center gap-3"
-                                    >
-                                        <span className="text-2xl">▶️</span>
-                                        <span className="text-[#5c4033] text-sm font-medium">Video 1: Wirksamkeit bestätigt</span>
-                                    </a>
-                                    <a
-                                        href="https://www.youtube.com/watch?v=f3cwKKKhHi4"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-red-50 border border-red-200 rounded-xl p-4 hover:bg-red-100 transition-colors flex items-center gap-3"
-                                    >
-                                        <span className="text-2xl">▶️</span>
-                                        <span className="text-[#5c4033] text-sm font-medium">Video 2: Technologie erklärt</span>
-                                    </a>
-                                    <a
-                                        href="https://www.youtube.com/watch?v=693XjyHcxOE"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-red-50 border border-red-200 rounded-xl p-4 hover:bg-red-100 transition-colors flex items-center gap-3"
-                                    >
-                                        <span className="text-2xl">▶️</span>
-                                        <span className="text-[#5c4033] text-sm font-medium">Video 3: Arzt-Bestätigung</span>
-                                    </a>
+                                <div className="grid md:grid-cols-3 gap-6">
+                                    <div className="rounded-xl overflow-hidden shadow-lg">
+                                        <iframe
+                                            width="100%"
+                                            height="200"
+                                            src="https://www.youtube.com/embed/QRus_P-EewA"
+                                            title="Wirksamkeit bestätigt"
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            className="w-full"
+                                        ></iframe>
+                                        <p className="text-center text-sm text-[#5c4033] py-2 bg-[#f5ebe0]">Wirksamkeit bestätigt</p>
+                                    </div>
+                                    <div className="rounded-xl overflow-hidden shadow-lg">
+                                        <iframe
+                                            width="100%"
+                                            height="200"
+                                            src="https://www.youtube.com/embed/f3cwKKKhHi4"
+                                            title="Technologie erklärt"
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            className="w-full"
+                                        ></iframe>
+                                        <p className="text-center text-sm text-[#5c4033] py-2 bg-[#f5ebe0]">Technologie erklärt</p>
+                                    </div>
+                                    <div className="rounded-xl overflow-hidden shadow-lg">
+                                        <iframe
+                                            width="100%"
+                                            height="200"
+                                            src="https://www.youtube.com/embed/693XjyHcxOE"
+                                            title="Arzt-Bestätigung"
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            className="w-full"
+                                        ></iframe>
+                                        <p className="text-center text-sm text-[#5c4033] py-2 bg-[#f5ebe0]">Arzt-Bestätigung</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

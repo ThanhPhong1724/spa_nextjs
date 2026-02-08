@@ -53,7 +53,7 @@ export default function NailsPage() {
     const services = getServices(nagelImage, fusspflegeImage);
 
     return (
-        <div className="min-h-screen bg-[#f5ebe0]">
+        <div className="bg-[#f5ebe0]">
             {/* Hero - Coral Theme */}
             <section className="pt-44 pb-4">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
