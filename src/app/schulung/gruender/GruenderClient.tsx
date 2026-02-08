@@ -83,12 +83,12 @@ export default function GruenderClient() {
     };
 
     return (
-        <main className="pt-24 bg-[#f8f7f6]">
+        <main className="pt-24 bg-[#f5ebe0]">
             {/* Cart Button */}
             {totalItems > 0 && (
                 <button
                     onClick={() => setIsCartOpen(true)}
-                    className="fixed bottom-6 right-6 bg-[#d4a373] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center z-30 hover:bg-[#c49363] transition-colors"
+                    className="fixed bottom-6 right-6 bg-[#ff8b69] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center z-30 hover:bg-[#e87a5a] transition-colors"
                 >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -102,7 +102,7 @@ export default function GruenderClient() {
             {/* Breadcrumb */}
             <div className="max-w-6xl mx-auto px-6 py-4">
                 <nav className="text-sm text-[#666]">
-                    <Link href="/schulung" className="hover:text-[#d4a373]">Schulung</Link>
+                    <Link href="/schulung" className="hover:text-[#ff8b69]">Schulung</Link>
                     <span className="mx-2">/</span>
                     <span className="text-[#5c4033]">Expert-Gründerprogramm</span>
                 </nav>
@@ -126,11 +126,11 @@ export default function GruenderClient() {
                             <p className="text-xl text-[#666] mb-4">
                                 Lerne nicht nur das Handwerk, sondern meistere das Geschäft dahinter.
                             </p>
-                            <p className="text-[#d4a373] text-2xl font-bold mb-4">
+                            <p className="text-[#ff8b69] text-2xl font-bold mb-4">
                                 {courseInfo.price.toLocaleString('de-DE')} €
                             </p>
                             <p className="text-[#666] mb-6 flex items-center gap-2">
-                                <svg className="w-5 h-5 text-[#d4a373]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-5 h-5 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                                 {courseInfo.duration}
@@ -144,7 +144,7 @@ export default function GruenderClient() {
 
                             <button
                                 onClick={handleAddToCart}
-                                className="w-full bg-[#d4a373] text-white py-4 rounded-full font-bold text-lg hover:bg-[#c49363] transition-colors"
+                                className="w-full bg-[#ff8b69] text-white py-4 rounded-full font-bold text-lg hover:bg-[#e87a5a] transition-colors"
                             >
                                 In den Warenkorb – {courseInfo.price.toLocaleString('de-DE')} €
                             </button>
@@ -163,7 +163,7 @@ export default function GruenderClient() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {benefits.map((benefit, i) => (
                             <div key={i} className="bg-[#f8f7f6] rounded-2xl p-6">
-                                <div className="text-[#d4a373] mb-4">{benefit.icon}</div>
+                                <div className="text-[#ff8b69] mb-4">{benefit.icon}</div>
                                 <h3 className="text-lg font-bold text-[#5c4033] mb-3">{benefit.title}</h3>
                                 <p className="text-[#666] text-sm">{benefit.description}</p>
                             </div>
@@ -173,7 +173,7 @@ export default function GruenderClient() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-16 bg-gradient-to-br from-[#5c4033] to-[#3d2a22] text-white">
+            <section className="py-16 bg-gradient-to-br from-[#ff8b69] to-[#e87a5a] text-white">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-2xl md:text-3xl font-serif font-bold mb-6">
                         Bereit, dein eigenes Beauty-Business zu starten?
@@ -184,7 +184,7 @@ export default function GruenderClient() {
                     </p>
                     <button
                         onClick={handleAddToCart}
-                        className="bg-[#d4a373] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#c49363] transition-colors"
+                        className="bg-white text-[#ff8b69] px-8 py-4 rounded-full font-bold text-lg hover:bg-white/90 transition-colors"
                     >
                         Jetzt buchen – {courseInfo.price.toLocaleString('de-DE')} €
                     </button>
@@ -192,7 +192,7 @@ export default function GruenderClient() {
             </section>
 
             {/* WhatsApp CTA */}
-            <section className="py-12 bg-[#f8f7f6]">
+            <section className="py-12 bg-[#f5ebe0]">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <p className="text-[#666] mb-4">Haben Sie weitere Fragen?</p>
                     <a

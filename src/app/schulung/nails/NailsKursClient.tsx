@@ -55,12 +55,12 @@ export default function NailsKursClient() {
     };
 
     return (
-        <main className="pt-24 bg-[#f8f7f6]">
+        <main className="pt-24 bg-[#f5ebe0]">
             {/* Cart Button */}
             {totalItems > 0 && (
                 <button
                     onClick={() => setIsCartOpen(true)}
-                    className="fixed bottom-6 right-6 bg-[#d4a373] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center z-30 hover:bg-[#c49363] transition-colors"
+                    className="fixed bottom-6 right-6 bg-[#ff8b69] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center z-30 hover:bg-[#e87a5a] transition-colors"
                 >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -74,7 +74,7 @@ export default function NailsKursClient() {
             {/* Breadcrumb */}
             <div className="max-w-6xl mx-auto px-6 py-4">
                 <nav className="text-sm text-[#666]">
-                    <Link href="/schulung" className="hover:text-[#d4a373]">Schulung</Link>
+                    <Link href="/schulung" className="hover:text-[#ff8b69]">Schulung</Link>
                     <span className="mx-2">/</span>
                     <span className="text-[#5c4033]">Nails Profi-Kurs</span>
                 </nav>
@@ -100,11 +100,11 @@ export default function NailsKursClient() {
                             <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#5c4033] mb-4">
                                 {courseInfo.name}
                             </h1>
-                            <p className="text-[#d4a373] text-2xl font-bold mb-4">
+                            <p className="text-[#ff8b69] text-2xl font-bold mb-4">
                                 {courseInfo.price.toLocaleString('de-DE')} €
                             </p>
                             <p className="text-[#666] mb-6 flex items-center gap-2">
-                                <svg className="w-5 h-5 text-[#d4a373]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-5 h-5 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                                 {courseInfo.duration}
@@ -124,7 +124,7 @@ export default function NailsKursClient() {
                                         { title: "Kundenbindung ab Tag 1:", desc: "Vermeide typische Anfängerfehler und begeistere deine ersten Kunden sofort." }
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-start gap-2">
-                                            <svg className="w-5 h-5 text-[#d4a373] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <svg className="w-5 h-5 text-[#ff8b69] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                             </svg>
                                             <span><strong>{item.title}</strong> {item.desc}</span>
@@ -134,7 +134,7 @@ export default function NailsKursClient() {
                             </div>
 
                             <p className="text-lg font-semibold text-[#5c4033] mb-6 flex items-center gap-2">
-                                <svg className="w-6 h-6 text-[#d4a373]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-6 h-6 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                                 </svg>
                                 Werde Profi statt Amateur. Dein Erfolg beginnt hier!
@@ -142,7 +142,7 @@ export default function NailsKursClient() {
 
                             <button
                                 onClick={handleAddToCart}
-                                className="w-full bg-[#d4a373] text-white py-4 rounded-full font-bold text-lg hover:bg-[#c49363] transition-colors"
+                                className="w-full bg-[#ff8b69] text-white py-4 rounded-full font-bold text-lg hover:bg-[#e87a5a] transition-colors"
                             >
                                 In den Warenkorb – {courseInfo.price.toLocaleString('de-DE')} €
                             </button>
@@ -163,7 +163,7 @@ export default function NailsKursClient() {
                             <details key={i} className="bg-[#f8f7f6] rounded-xl overflow-hidden group">
                                 <summary className="p-6 cursor-pointer font-semibold text-[#5c4033] hover:bg-[#f0ede8] transition-colors list-none flex justify-between items-center">
                                     {faq.question}
-                                    <span className="text-[#d4a373] group-open:rotate-45 transition-transform">+</span>
+                                    <span className="text-[#ff8b69] group-open:rotate-45 transition-transform">+</span>
                                 </summary>
                                 <div className="px-6 pb-6 text-[#666]">
                                     {faq.answer}

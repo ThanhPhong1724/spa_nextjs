@@ -8,7 +8,7 @@ type PaymentMethod = 'paypal' | 'bank' | null;
 
 // SVG Icons
 const CartIcon = () => (
-    <svg className="w-12 h-12 text-[#d4a373]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-12 h-12 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
     </svg>
 );
@@ -20,13 +20,13 @@ const CheckCircleIcon = () => (
 );
 
 const CreditCardIcon = () => (
-    <svg className="w-8 h-8 text-[#d4a373]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-8 h-8 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
     </svg>
 );
 
 const BankIcon = () => (
-    <svg className="w-8 h-8 text-[#d4a373]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-8 h-8 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
     </svg>
 );
@@ -45,7 +45,7 @@ export default function CheckoutClient() {
 
     if (items.length === 0 && !orderComplete) {
         return (
-            <main className="pt-32 pb-20 bg-[#f8f7f6] min-h-screen">
+            <main className="pt-32 pb-20 bg-[#f5ebe0] min-h-screen">
                 <div className="max-w-2xl mx-auto px-6 text-center">
                     <div className="flex justify-center mb-4">
                         <CartIcon />
@@ -55,7 +55,7 @@ export default function CheckoutClient() {
                     </h1>
                     <Link
                         href="/schulung"
-                        className="inline-block bg-[#d4a373] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c49363] transition-colors"
+                        className="inline-block bg-[#ff8b69] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#e87a5a] transition-colors"
                     >
                         Zurück zu den Kursen
                     </Link>
@@ -66,7 +66,7 @@ export default function CheckoutClient() {
 
     if (orderComplete) {
         return (
-            <main className="pt-32 pb-20 bg-[#f8f7f6] min-h-screen">
+            <main className="pt-32 pb-20 bg-[#f5ebe0] min-h-screen">
                 <div className="max-w-2xl mx-auto px-6 text-center">
                     <div className="flex justify-center mb-6">
                         <CheckCircleIcon />
@@ -94,7 +94,7 @@ export default function CheckoutClient() {
                     )}
                     <Link
                         href="/"
-                        className="inline-block bg-[#d4a373] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c49363] transition-colors"
+                        className="inline-block bg-[#ff8b69] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#e87a5a] transition-colors"
                     >
                         Zurück zur Startseite
                     </Link>
@@ -116,11 +116,11 @@ export default function CheckoutClient() {
     };
 
     return (
-        <main className="pt-32 pb-20 bg-[#f8f7f6] min-h-screen">
+        <main className="pt-32 pb-20 bg-[#f5ebe0] min-h-screen">
             <div className="max-w-4xl mx-auto px-6">
                 {/* Breadcrumb */}
                 <nav className="text-sm text-[#666] mb-8">
-                    <Link href="/schulung" className="hover:text-[#d4a373]">Schulung</Link>
+                    <Link href="/schulung" className="hover:text-[#ff8b69]">Schulung</Link>
                     <span className="mx-2">/</span>
                     <span className="text-[#5c4033]">Kasse</span>
                 </nav>
@@ -145,7 +145,7 @@ export default function CheckoutClient() {
                                         <h3 className="font-semibold text-[#5c4033]">{item.name}</h3>
                                         <p className="text-sm text-[#666]">Anzahl: {item.quantity}</p>
                                     </div>
-                                    <p className="font-bold text-[#d4a373]">
+                                    <p className="font-bold text-[#ff8b69]">
                                         {(item.price * item.quantity).toLocaleString('de-DE')} €
                                     </p>
                                 </div>
@@ -154,7 +154,7 @@ export default function CheckoutClient() {
                         <div className="border-t border-gray-200 pt-4">
                             <div className="flex justify-between text-lg font-bold">
                                 <span>Gesamt:</span>
-                                <span className="text-[#d4a373]">{totalPrice.toLocaleString('de-DE')} €</span>
+                                <span className="text-[#ff8b69]">{totalPrice.toLocaleString('de-DE')} €</span>
                             </div>
                         </div>
                     </div>
@@ -173,8 +173,8 @@ export default function CheckoutClient() {
                             <button
                                 onClick={() => setPaymentMethod('paypal')}
                                 className={`w-full p-4 rounded-xl border-2 transition-colors text-left flex items-center gap-4 ${paymentMethod === 'paypal'
-                                    ? 'border-[#d4a373] bg-[#faf8f5]'
-                                    : 'border-gray-200 hover:border-[#d4a373]'
+                                    ? 'border-[#ff8b69] bg-[#fff5f2]'
+                                    : 'border-gray-200 hover:border-[#ff8b69]'
                                     }`}
                             >
                                 <CreditCardIcon />
@@ -188,8 +188,8 @@ export default function CheckoutClient() {
                             <button
                                 onClick={() => setPaymentMethod('bank')}
                                 className={`w-full p-4 rounded-xl border-2 transition-colors text-left flex items-center gap-4 ${paymentMethod === 'bank'
-                                    ? 'border-[#d4a373] bg-[#faf8f5]'
-                                    : 'border-gray-200 hover:border-[#d4a373]'
+                                    ? 'border-[#ff8b69] bg-[#fff5f2]'
+                                    : 'border-gray-200 hover:border-[#ff8b69]'
                                     }`}
                             >
                                 <BankIcon />
@@ -216,7 +216,7 @@ export default function CheckoutClient() {
                                 ) : (
                                     <button
                                         onClick={handleBankTransfer}
-                                        className="w-full bg-[#d4a373] text-white py-4 rounded-full font-bold hover:bg-[#c49363] transition-colors flex items-center justify-center gap-2"
+                                        className="w-full bg-[#ff8b69] text-white py-4 rounded-full font-bold hover:bg-[#e87a5a] transition-colors flex items-center justify-center gap-2"
                                     >
                                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />

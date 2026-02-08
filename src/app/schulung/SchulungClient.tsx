@@ -129,12 +129,12 @@ export default function SchulungClient() {
     const { addToCart, totalItems, setIsCartOpen } = useCart();
 
     return (
-        <main className="pt-24 bg-[#f8f7f6]">
+        <main className="pt-24 bg-[#f5ebe0]">
             {/* Cart Button */}
             {totalItems > 0 && (
                 <button
                     onClick={() => setIsCartOpen(true)}
-                    className="fixed bottom-6 right-6 bg-[#d4a373] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center z-30 hover:bg-[#c49363] transition-colors"
+                    className="fixed bottom-6 right-6 bg-[#ff8b69] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center z-30 hover:bg-[#e87a5a] transition-colors"
                 >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -146,7 +146,7 @@ export default function SchulungClient() {
             )}
 
             {/* Hero Section */}
-            <section className="relative py-20 bg-gradient-to-br from-[#5c4033] to-[#3d2a22] text-white">
+            <section className="relative py-20 bg-gradient-to-br from-[#ff8b69] to-[#e87a5a] text-white">
                 <div className="max-w-6xl mx-auto px-6 text-center">
                     <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">
                         Deine Beauty-Karriere: 15 Jahre Vorsprung ab Tag 1!
@@ -167,7 +167,7 @@ export default function SchulungClient() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {benefits.map((item, i) => (
                             <div key={i} className="bg-[#f8f7f6] rounded-xl p-6 text-center">
-                                <div className="text-[#d4a373] mb-4 flex justify-center">{item.icon}</div>
+                                <div className="text-[#ff8b69] mb-4 flex justify-center">{item.icon}</div>
                                 <h3 className="font-bold text-[#5c4033] mb-2">{item.title}</h3>
                                 <p className="text-[#666] text-sm">{item.desc}</p>
                             </div>
@@ -196,14 +196,14 @@ export default function SchulungClient() {
                                         alt={course.name}
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                     />
-                                    <div className="absolute top-4 right-4 bg-[#d4a373] text-white px-3 py-1 rounded-full text-sm font-bold">
+                                    <div className="absolute top-4 right-4 bg-[#ff8b69] text-white px-3 py-1 rounded-full text-sm font-bold">
                                         {course.price.toLocaleString('de-DE')} €
                                     </div>
                                 </div>
                                 <div className="p-6">
                                     <h3 className="text-xl font-bold text-[#5c4033] mb-2">{course.name}</h3>
                                     <p className="text-[#666] text-sm mb-3">{course.description}</p>
-                                    <p className="text-[#d4a373] text-sm font-medium mb-4 flex items-center gap-1">
+                                    <p className="text-[#ff8b69] text-sm font-medium mb-4 flex items-center gap-1">
                                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
@@ -213,7 +213,7 @@ export default function SchulungClient() {
                                     <div className="flex flex-wrap gap-2 mb-4">
                                         {course.features.map((f, i) => (
                                             <span key={i} className="bg-[#f8f7f6] text-[#5c4033] text-xs px-2 py-1 rounded flex items-center gap-1">
-                                                <svg className="w-3 h-3 text-[#d4a373]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <svg className="w-3 h-3 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                                 </svg>
                                                 {f}
@@ -224,7 +224,7 @@ export default function SchulungClient() {
                                     <div className="flex gap-2">
                                         <Link
                                             href={course.href}
-                                            className="flex-1 text-center border border-[#d4a373] text-[#d4a373] py-2 rounded-full text-sm font-medium hover:bg-[#d4a373] hover:text-white transition-colors"
+                                            className="flex-1 text-center border border-[#ff8b69] text-[#ff8b69] py-2 rounded-full text-sm font-medium hover:bg-[#ff8b69] hover:text-white transition-colors"
                                         >
                                             Details
                                         </Link>
@@ -235,7 +235,7 @@ export default function SchulungClient() {
                                                 price: course.price,
                                                 image: course.image
                                             })}
-                                            className="flex-1 bg-[#d4a373] text-white py-2 rounded-full text-sm font-medium hover:bg-[#c49363] transition-colors"
+                                            className="flex-1 bg-[#ff8b69] text-white py-2 rounded-full text-sm font-medium hover:bg-[#e87a5a] transition-colors"
                                         >
                                             In den Warenkorb
                                         </button>
@@ -248,7 +248,7 @@ export default function SchulungClient() {
             </section>
 
             {/* Self-Study Warning */}
-            <section className="py-16 bg-[#5c4033] text-white">
+            <section className="py-16 bg-gradient-to-br from-[#5c4033] to-[#3d2a22] text-white">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-2xl md:text-3xl font-serif font-bold mb-6">
                         Selbststudium oder Profi-Ausbildung?
@@ -262,7 +262,7 @@ export default function SchulungClient() {
                         zu bestehen, die seit 10 oder 20 Jahren am Markt sind? Mit Halbwissen wirst du im
                         Preis-Kampf untergehen.
                     </p>
-                    <p className="text-[#d4a373] font-semibold text-lg">
+                    <p className="text-[#ffb499] font-semibold text-lg">
                         Mach es direkt richtig: Eine Profi-Ausbildung gibt dir das Werkzeug, um etablierte
                         Mitbewerber nicht nur einzuholen, sondern zu überholen.
                     </p>
@@ -281,7 +281,7 @@ export default function SchulungClient() {
                             <details key={i} className="bg-[#f8f7f6] rounded-xl overflow-hidden group">
                                 <summary className="p-6 cursor-pointer font-semibold text-[#5c4033] hover:bg-[#f0ede8] transition-colors list-none flex justify-between items-center">
                                     {faq.question}
-                                    <span className="text-[#d4a373] group-open:rotate-45 transition-transform">+</span>
+                                    <span className="text-[#ff8b69] group-open:rotate-45 transition-transform">+</span>
                                 </summary>
                                 <div className="px-6 pb-6 text-[#666]">
                                     {faq.answer}
