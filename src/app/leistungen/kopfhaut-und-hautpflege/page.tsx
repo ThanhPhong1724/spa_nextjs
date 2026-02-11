@@ -117,14 +117,15 @@ export default function KopfhautPflegePage() {
                 </div>
             </section>
 
-            {/* ===== DETOX & GROWTH Section ===== */}
+            {/* ===== Treatment Section ===== */}
             <section className="py-8">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-[#5c4033] mb-4">Detox & Growth</h2>
-                        <p className="text-[#6b5344] max-w-2xl mx-auto">
-                            Tiefenreinigung, Behandlung von Schuppen und fettiger Kopfhaut, Förderung des Haarwachstums.<br />
-                            Für alle, die mit Kopfhautproblemen oder Haarausfall zu kämpfen haben.
+                        <p className="text-[#5c4033] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                            Erlebe eine einzigartige Kombination aus kraftvoller Oxygen-Power, hochwirksamen EMS-Nano-Crystals und Laser, die deine Pflege auf ein neues Level hebt – für unreine Haut, vitale Kopfhaut und unterstütztes Haarwachstum.
+                        </p>
+                        <p className="text-[#6b5344] max-w-3xl mx-auto mt-4 leading-relaxed">
+                            Jede Behandlung wird sorgfältig analysiert – mit Vorher-/Nachher-Vergleich für sichtbar nachvollziehbare Ergebnisse.
                         </p>
                     </div>
 

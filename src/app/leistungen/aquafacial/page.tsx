@@ -124,7 +124,7 @@ export default function AquafacialPage() {
                                 </svg>
                             </div>
                             <h3 className="font-bold text-[#5c4033] mb-2">Wirkstoffversorgung</h3>
-                            <p className="text-[#6b5344] text-sm">Hochwertige Seren werden tief in die Haut eingeschleust.</p>
+                            <p className="text-[#6b5344] text-sm">Hochwertige Seren werden schrittweise und mehrfach tief in die Haut eingeschleust.</p>
                         </div>
                     </div>
                 </div>

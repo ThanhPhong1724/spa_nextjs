@@ -84,7 +84,7 @@ const studioImages = [
 
 const servicesData = {
     de: [
-        { title: "PROFESSIONELLE KOPFHAUT/HAUTPFLEGE", description: "Professionelle Lösungen für Kopfhautprobleme, Haarausfall und Hautgesundheit.", image: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&h=400&fit=crop", href: "/leistungen/kopfhaut-und-hautpflege" },
+        { title: "PROFESSIONELLE KOPFHAUT/HAUTPFLEGE", description: "Moderne Technik. Pflege auf neuem Level. Sichtbare Ergebnisse.", image: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&h=400&fit=crop", href: "/leistungen/kopfhaut-und-hautpflege" },
         { title: "AQUAFACIAL", description: "Tiefenreinigung, Hydration und Wirkstoffversorgung für sofort sichtbar strahlende Haut.", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop", href: "/leistungen/aquafacial" },
         { title: "HEADSPA", description: "Ganzheitliche Kopfhautpflege und Entspannung für Körper und Geist.", image: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fe9513e54-1c6e-47f0-ac94-bcdb746b35c8/watermark:F/width:706?csig=AAAAAAAAAAAAAAAAAAAAAIdrbMbBBNgoWD10-arFC-Ns2CydzrM1FPsMi17UF4Qp&exp=1769806112&osig=AAAAAAAAAAAAAAAAAAAAAAY6d1Fr1Ez2MAKUnwM0HTk4tBVumsEE7DwsVP-oTH4K&signer=media-rpc&x-canva-quality=screen", href: "/leistungen/headspa" },
         { title: "PERMANENT MAKE UP", description: "Natürliche Schönheit mit modernsten Techniken und höchster Präzision.", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop", href: "/leistungen/permanent-makeup" },
@@ -92,7 +92,7 @@ const servicesData = {
         { title: "WIMPERN", description: "Voluminöse Wimpern für einen ausdrucksstarken Blick.", image: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop", href: "/leistungen/wimpern" }
     ],
     en: [
-        { title: "SCALP & SKIN CARE", description: "Professional solutions for scalp problems, hair loss and skin health.", image: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&h=400&fit=crop", href: "/leistungen/kopfhaut-und-hautpflege" },
+        { title: "SCALP & SKIN CARE", description: "Modern technology. Care on a new level. Visible results.", image: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&h=400&fit=crop", href: "/leistungen/kopfhaut-und-hautpflege" },
         { title: "AQUAFACIAL", description: "Deep cleansing, hydration and active ingredient delivery for instantly radiant skin.", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop", href: "/leistungen/aquafacial" },
         { title: "HEADSPA", description: "Holistic scalp care and relaxation for body and mind.", image: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fe9513e54-1c6e-47f0-ac94-bcdb746b35c8/watermark:F/width:706?csig=AAAAAAAAAAAAAAAAAAAAAIdrbMbBBNgoWD10-arFC-Ns2CydzrM1FPsMi17UF4Qp&exp=1769806112&osig=AAAAAAAAAAAAAAAAAAAAAAY6d1Fr1Ez2MAKUnwM0HTk4tBVumsEE7DwsVP-oTH4K&signer=media-rpc&x-canva-quality=screen", href: "/leistungen/headspa" },
         { title: "PERMANENT MAKE UP", description: "Natural beauty with state-of-the-art techniques and highest precision.", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop", href: "/leistungen/permanent-makeup" },
@@ -103,6 +103,9 @@ const servicesData = {
 
 const reviewsData = {
     de: [
+        { name: "Lena T.", avatar: "https://randomuser.me/api/portraits/women/22.jpg", text: "Schon nach zwei Behandlungen sind die dunklen Unreinheiten an meinen Schultern deutlich heller geworden und meine Haut fühlt sich viel glatter an. Jetzt trage ich wieder selbstbewusst schulterfreie Kleidung. Danke Smiling Studio für diese Rettung!", rating: 5 },
+        { name: "Nadia S.", avatar: "https://randomuser.me/api/portraits/women/56.jpg", text: "Meine Haut fühlt sich nach der AquaFacial-Behandlung sofort frisch, sauber und gepflegt an – ein tolles Ergebnis zum fairen Preis.", rating: 5 },
+        { name: "Daniela W.", avatar: "https://randomuser.me/api/portraits/women/29.jpg", text: "Ich habe meine Mutter zur Hair-Detox-Behandlung mitgebracht, und seitdem schläft sie deutlich besser. Wir sind sehr zufrieden und werden euch auf jeden Fall weiterempfehlen.", rating: 5 },
         { name: "Anna M.", avatar: "https://randomuser.me/api/portraits/women/44.jpg", text: "Ein wunderbares Erlebnis! Die Headspa-Behandlung war so entspannend. Ich komme definitiv wieder!", rating: 5 },
         { name: "Julia K.", avatar: "https://randomuser.me/api/portraits/women/68.jpg", text: "Endlich ein Permanent Make-up, das wirklich natürlich aussieht! Ich bin so happy mit dem Ergebnis. Die Beratung war super ehrlich und professionell – man fühlt sich direkt gut aufgehoben.", rating: 5 },
         { name: "Sophie H.", avatar: "https://randomuser.me/api/portraits/women/45.jpg", text: "Die besten Wimpernverlängerungen in Wiesbaden! Leicht, natürlich und lange haltbar.", rating: 5 },
@@ -110,6 +113,9 @@ const reviewsData = {
         { name: "Laura B.", avatar: "https://randomuser.me/api/portraits/women/65.jpg", text: "Einfach magisch! Die Kopfmassage war sehr entspannend & wirksam. Ich dachte immer, meine Kopfschmerzen seien chronisch, aber nach der Behandlung sind sie wie weggeblasen. Ich komme definitiv wieder!", rating: 5 }
     ],
     en: [
+        { name: "Lena T.", avatar: "https://randomuser.me/api/portraits/women/22.jpg", text: "After just two treatments, the dark blemishes on my shoulders have become noticeably lighter and my skin feels much smoother. Now I confidently wear off-shoulder clothing again. Thank you Smiling Studio for this rescue!", rating: 5 },
+        { name: "Nadia S.", avatar: "https://randomuser.me/api/portraits/women/56.jpg", text: "My skin feels immediately fresh, clean and well-cared for after the AquaFacial treatment – a great result at a fair price.", rating: 5 },
+        { name: "Daniela W.", avatar: "https://randomuser.me/api/portraits/women/29.jpg", text: "I brought my mother to the Hair-Detox treatment, and since then she has been sleeping much better. We are very satisfied and will definitely recommend you.", rating: 5 },
         { name: "Anna M.", avatar: "https://randomuser.me/api/portraits/women/44.jpg", text: "A wonderful experience! The headspa treatment was so relaxing. I'll definitely come back!", rating: 5 },
         { name: "Julia K.", avatar: "https://randomuser.me/api/portraits/women/68.jpg", text: "Finally a permanent make-up that really looks natural! I'm so happy with the result. The consultation was super honest and professional – you feel well taken care of right away.", rating: 5 },
         { name: "Sophie H.", avatar: "https://randomuser.me/api/portraits/women/45.jpg", text: "The best eyelash extensions in Wiesbaden! Light, natural and long-lasting.", rating: 5 },
