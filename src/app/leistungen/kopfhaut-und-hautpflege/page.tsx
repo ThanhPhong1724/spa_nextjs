@@ -46,8 +46,20 @@ const faqs = [
         answer: "Oxygen und Laser wirken synergetisch: Oxygen bereitet die Kopfhaut vor, verbessert Durchblutung und Zellmilieu. Laser liefert gezielte Energie direkt an die Haarwurzel. Diese Kombination sorgt dafür, dass Haarfollikel reaktiviert statt nur gepflegt werden und Behandlungen nachhaltiger und messbarer wirken."
     },
     {
-        question: "Für wen ist Hydro-Oxygen Scalp Glow geeignet?",
+        question: "Für wen ist Oxygen Scalp Detox geeignet?",
         answer: "Diese Anwendung eignet sich ideal bei trockener, empfindlicher oder unausgeglichener Kopfhaut sowie bei Spannungsgefühl, Juckreiz oder Produktablagerungen."
+    },
+    {
+        question: "Woher weiß ich, ob meine Haut für die Behandlung geeignet ist?",
+        answer: "Kontaktieren Sie uns gerne für eine kostenlose Beratung. Sie können uns vorab Bilder per WhatsApp senden, damit wir den aktuellen Hautzustand einschätzen und Sie individuell beraten können. Bei entzündeter Haut oder offenen Wunden empfehlen wir grundsätzlich, vorab einen Arzt aufzusuchen."
+    },
+    {
+        question: "Ich finde keinen Preis für Body Glow – warum?",
+        answer: "Jede Haut ist unterschiedlich. Nach Zusendung von Fotos werden die Dauer der Behandlung sowie der genaue Preis individuell berechnet und richten sich nach der Größe und dem Zustand des betroffenen Hautareals."
+    },
+    {
+        question: "Wie viele Body-Glow-Behandlungen sind notwendig?",
+        answer: "Der Erfolg hängt von verschiedenen Faktoren ab – wie Ernährung, Schlaf, Stress, Hautpflege-Routine sowie dem individuellen Hautzustand und der Hautstruktur. Unsere Expertin beraten Sie umfassend und erstellen einen individuellen Plan, der genau auf Ihre Haut abgestimmt ist. Bereits nach der ersten Sitzung sind sichtbare Verbesserungen erkennbar – dokumentiert durch eine professionelle Vorher-/Nachher-Hautanalyse."
     },
     {
         question: "Für wen ist Laser Hair Boost geeignet?",
@@ -129,7 +141,7 @@ export default function KopfhautPflegePage() {
                         </p>
                     </div>
 
-                    {/* Premium Treatment - Hydro-Oxygen Scalp Glow */}
+                    {/* Premium Treatment - Oxygen Scalp Detox */}
                     <div className="mb-12">
                         <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-[#2a1d18] group perspective-1000 border border-[#ff8b69]/20">
                             {/* Dynamic Background System */}
@@ -160,7 +172,7 @@ export default function KopfhautPflegePage() {
                                     </div>
                                     {/* Added pb-2 and leading-normal to prevent clipping of 'g' */}
                                     <h3 className="text-4xl md:text-6xl font-serif font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white via-[#ffe4d6] to-[#ffcaa6] drop-shadow-sm pb-2 leading-tight">
-                                        Hydro-Oxygen Scalp Glow
+                                        Oxygen Scalp Detox
                                     </h3>
                                     <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#ff8b69] to-transparent mb-6 opacity-80" />
                                     <p className="text-[#e8d5c4] text-xl md:text-2xl font-light tracking-wide max-w-2xl">
@@ -215,8 +227,8 @@ export default function KopfhautPflegePage() {
                                         <div className="text-center md:text-left">
                                             <h4 className="text-[#ff8b69] font-bold uppercase tracking-widest text-sm mb-2">Das Ergebnis</h4>
                                             <p className="text-white/95 text-lg md:text-2xl font-light leading-relaxed">
-                                                Tiefengereinigte, hydratisierte Kopfhaut und sichtbar glänzendes Haar. <br className="hidden md:block" />
-                                                <span className="text-[#ffcaa6] font-serif italic font-medium">Spürbar befreit und revitalisiert.</span>
+                                                Spürbar befreite, revitalisierte Kopfhaut – <br className="hidden md:block" />
+                                                <span className="text-[#ffcaa6] font-serif italic font-medium">für sichtbar kräftigeres und gesünder wirkendes Haar.</span>
                                             </p>
                                         </div>
                                     </div>
@@ -225,33 +237,90 @@ export default function KopfhautPflegePage() {
                         </div>
                     </div>
 
+                    {/* GlowMe Service Section */}
+                    <div className="mb-12 mt-12">
+                        <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-gradient-to-br from-[#f5ebe0] to-[#e8d5c4] border border-[#d4a373]/30">
+                            <div className="relative p-8 md:p-12">
+                                {/* Header */}
+                                <div className="flex flex-col items-center text-center mb-12">
+                                    <div className="inline-block mb-3 px-4 py-1 rounded-full border border-[#ff8b69]/40 bg-[#ff8b69]/10 text-[#ff8b69] text-xs font-serif tracking-[0.2em] uppercase">
+                                        Hautpflege Service
+                                    </div>
+                                    <h3 className="text-4xl md:text-6xl font-serif font-bold mb-4 text-[#5c4033]">
+                                        GlowMe
+                                    </h3>
+                                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#ff8b69] to-transparent mb-6 opacity-80" />
+                                    <p className="text-[#6b5344] text-lg md:text-xl max-w-2xl leading-relaxed">
+                                        Pflege auf einem neuen Level. Schluss mit rauer Haut, willkommen sanfte Seidigkeit.
+                                    </p>
+                                </div>
+
+                                {/* Treatment Steps */}
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                                    {[
+                                        {
+                                            step: "1",
+                                            title: "Sanftes Peeling",
+                                            desc: "Vorbereitung der Haut durch das sanfte Abtragen abgestorbener Hautschüppchen und mở đường für die Nährstoffe.",
+                                            descVi: "Chuẩn bị làn da bằng cách loại bỏ nhẹ nhàng tế bào chết và mở đường cho các dưỡng chất."
+                                        },
+                                        {
+                                            step: "2",
+                                            title: "Bubble Cleaning",
+                                            desc: "Tiefenreinigung mit Sauerstoff-Bläschen.",
+                                            descVi: "Làm sạch sâu tận gốc với bọt khí Oxy hoạt tính, giải phóng lỗ chân lông khỏi bã nhờn và tạp chất."
+                                        },
+                                        {
+                                            step: "3",
+                                            title: "Oxygen-Power",
+                                            desc: "Konzentrierter Sauerstoff zur Vitalisierung und Regeneration der Haut.",
+                                            descVi: "Tiếp sức cho làn da bằng Oxy tập trung, kích thích tái tạo tế bào và thúc đẩy quá trình hồi phục tự nhiên."
+                                        },
+                                        {
+                                            step: "4",
+                                            title: "EMS Nano-Crystals",
+                                            desc: "Nano-Kristalle & EMS-Impulse für die tiefe Wirkstoffaufnahme.",
+                                            descVi: "Công nghệ tối tân giúp đưa các hoạt chất nồng độ cao vào sâu trong da thông qua tinh thể Nano và xung điện EMS."
+                                        },
+                                        {
+                                            step: "5",
+                                            title: "Glow Light Treatment",
+                                            desc: "Unterstützt die Hautregeneration und stimuliert die Collagenproduktion.",
+                                            descVi: ""
+                                        },
+                                        {
+                                            step: "6",
+                                            title: "Purifying Finishing Care",
+                                            desc: "Abschlusspflege zur Beruhigung, Mattierung und zum Schutz vor neuen Unreinheiten.",
+                                            descVi: "Bước chăm sóc cuối cùng với các hoạt chất làm sạch, giúp làm dịu da, kiềm dầu và bảo vệ da khỏi các tạp chất mới."
+                                        }
+                                    ].map((item, i) => (
+                                        <div key={i} className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#e8d5c4]">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <div className="w-10 h-10 bg-[#ff8b69] rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                                                    {item.step}
+                                                </div>
+                                                <h4 className="font-serif font-bold text-lg text-[#5c4033]">{item.title}</h4>
+                                            </div>
+                                            <p className="text-[#6b5344] text-sm leading-relaxed">{item.desc}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     {/* Laser Hair Boost - CENTERED */}
                     <div className="bg-white rounded-3xl p-8 shadow-xl text-center">
-                        <h3 className="text-2xl md:text-4xl font-serif font-bold text-[#5c4033] mb-4">
-                            Laser Hair Boost – Growth Support & Density
-                        </h3>
-                        <p className="text-[#ff8b69] font-semibold text-lg md:text-xl mb-6 uppercase tracking-wide">
-                            Eine weltweit anerkannte Lösung gegen Haarausfall
-                        </p>
-                        <p className="text-[#6b5344] mb-8 max-w-3xl mx-auto leading-relaxed text-lg">
-                            Dünnes Haar und Haarausfall sind heute keine ästhetische Belastung mehr – weder für Männer noch für Frauen.
-                            Diese moderne Technologie wird weltweit erfolgreich eingesetzt und geschätzt.
-                        </p>
-
-                        <div className="bg-[#f5ebe0]/50 rounded-2xl p-8 mb-8 border border-[#e8d5c4]">
-                            <p className="text-[#5c4033] text-lg leading-relaxed max-w-4xl mx-auto">
-                                Eine exklusive Anwendung mit spezialisierter Gerätetechnologie, die reinen Sauerstoff mit fokussierter Laser-Energie kombiniert.
-                                Die aktivierende Behandlung wirkt Haarverlust entgegen, stärkt die Haarwurzelbasis und unterstützt sichtbar mehr Dichte und Vitalität.
-                            </p>
-                        </div>
-
                         {/* Expert Videos - Embedded */}
                         <div className="mb-6">
                             <h4 className="font-bold text-[#5c4033] mb-4 flex items-center gap-2">
-                                <svg className="w-5 h-5 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                {/* <svg className="w-5 h-5 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                                </svg>
-                                Expertenmeinungen und Studien:
+                                </svg> */}
+                                <h3 className="text-2xl md:text-4xl font-serif font-bold text-[#5c4033] mb-4 mx-auto">
+                                    Expertenmeinungen und Studien
+                                </h3>
                             </h4>
                             <div className="grid md:grid-cols-3 gap-6">
                                 <div className="rounded-xl overflow-hidden shadow-lg">

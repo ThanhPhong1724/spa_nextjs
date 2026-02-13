@@ -112,7 +112,7 @@ export default function LeistungenClient({ content }: LeistungenClientProps) {
                                     <div className="p-6 flex-1 flex flex-col">
                                         <h3 className="text-xl font-bold text-[#ff8b69] uppercase tracking-wide mb-2">{service.title}</h3>
                                         <div className="flex items-end gap-3 flex-1">
-                                            <p className="text-[#5c4033] font-medium text-sm flex-1">{service.description}</p>
+                                            <p className="text-[#5c4033] font-medium text-base flex-1">{service.description}</p>
                                             {/* Circular Arrow */}
                                             <span className="flex-shrink-0 w-10 h-10 rounded-full bg-[#ff8b69] flex items-center justify-center group-hover:bg-[#e87a5a] transition-colors">
                                                 <span className="material-symbols-outlined text-white">arrow_forward</span>
