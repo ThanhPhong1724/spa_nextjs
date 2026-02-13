@@ -159,8 +159,8 @@ export default function HeadspaPage() {
                                     />
                                 </div>
                                 <div className="p-6">
-                                    <h3 className="text-lg font-bold text-[#ff8b69] mb-3">{pkg.name}</h3>
-                                    <p className="text-[#6b5344] text-sm">{pkg.description}</p>
+                                    <h3 className="text-2xl font-bold text-[#ff8b69] mb-3">{pkg.name}</h3>
+                                    <p className="text-[#6b5344] text-base">{pkg.description}</p>
                                 </div>
                             </div>
                         ))}

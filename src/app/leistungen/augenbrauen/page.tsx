@@ -57,7 +57,7 @@ export default function AugenbrauenPage() {
                                     />
                                 </div>
                                 <div className="p-8">
-                                    <h3 className="text-xl font-bold text-[#ff8b69] mb-4">{service.title}</h3>
+                                    <h3 className="text-2xl font-bold text-[#ff8b69] mb-4">{service.title}</h3>
                                     <p className="text-[#6b5344]">{service.description}</p>
                                 </div>
                             </div>

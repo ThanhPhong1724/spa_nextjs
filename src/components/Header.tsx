@@ -74,7 +74,7 @@ export default function Header() {
 
                     {/* Right Actions */}
                     <div className="flex items-center gap-6">
-                        {/* Cart Button */}
+                        {/* Cart Button - Hidden
                         <button
                             onClick={() => setIsCartOpen(true)}
                             className={`p-1 relative transition-all hover:-translate-y-0.5 ${textColorClass} ${hoverColorClass}`}
@@ -89,6 +89,7 @@ export default function Header() {
                                 </span>
                             )}
                         </button>
+                        */}
 
                         {/* Language Switcher (Flags) */}
                         <div className="flex items-center gap-3 p-1">
