@@ -14,7 +14,7 @@ const courses = [
     },
     {
         id: "beauty-expert",
-        name: "HEADSPA",
+        name: "BEAUTY-TRIO",
         description: "Pediküre, Head Spa & Wimpernverlängerung – drei gefragte Services in einem Kurs.",
         duration: "7 Tage Intensiv",
         image: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop",
@@ -25,9 +25,9 @@ const courses = [
         id: "gruender-programm",
         name: "STUDIO BUSINESS MASTERY",
         description: "Meistere Marketing, Buchhaltungs-Know-how und Management – Expertise aus 15 Jahren Praxis.",
-        duration: "10 Tage + Business Coaching",
+        duration: "3 Tage",
         image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
-        href: "/schulung/gruender",
+        href: "/schulung/studiobussinessmastery",
         features: ["Business-Plan", "Social Media Power", "Fertige Website", "Steuer-Basics"]
     }
 ];
@@ -71,7 +71,12 @@ const faqs = [
     },
     {
         question: "Was lerne ich über die Gründung meines eigenen Studios?",
-        answer: "Wir bereiten Sie nicht nur fachlich, sondern auch unternehmerisch vor: Lernen aus unseren Fehlern der Anfangszeit, Profi-Marketing mit einem Marketing-Experten, Kundenakquise, Branding und erfolgreiche Marktpositionierung."
+        answer: (
+            <>
+                Sie lernen, Wettbewerber strategisch zu analysieren und sich klar zu positionieren.<br />
+                Wir bereiten Sie fachlich und unternehmerisch vor – mit Marketing, Kundenakquise, Branding und effizienter Studioführung bei optimierten Kosten.
+            </>
+        )
     }
 ];
 
@@ -128,8 +133,9 @@ export default function SchulungClient() {
             {/* Hero Section */}
             <section className="relative py-20 bg-gradient-to-br from-[#ff8b69] to-[#e87a5a] text-white">
                 <div className="max-w-6xl mx-auto px-6 text-center">
-                    <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 uppercase">
-                        Deine Beauty-Karriere: 15 Jahre Vorsprung ab Tag 1!
+                    <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 uppercase leading-tight md:leading-tight">
+                        Deine Beauty-Karriere
+                        <span className="block mt-3 md:mt-5">15 Jahre Vorsprung ab Tag 1!</span>
                     </h1>
                     <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
                         Wir lehren dich das Handwerk und das komplette System dahinter. Sichern dir einen krisensicheren Beruf, der dir langfristige Stabilität und echte Karrierechancen bietet. Keine Umwege, nur echte Praxis.
@@ -164,6 +170,8 @@ export default function SchulungClient() {
                     <p className="text-center text-[#666] mb-12 max-w-2xl mx-auto">
                         Wähle den Kurs, der zu deinen Zielen passt. Wir beraten dich persönlich und erstellen
                         eine Route, die auf deine Lebenssituation und dein Investment zugeschnitten ist.
+                        <br />
+                        <strong className="text-[#5c4033] mt-2 block">Kursbeginn und Dauer individuell anpassbar</strong>
                     </p>
 
                     <div className="grid md:grid-cols-3 gap-8 items-stretch">
@@ -224,23 +232,25 @@ export default function SchulungClient() {
             </section>
 
             {/* Self-Study Warning */}
-            <section className="py-16 bg-gradient-to-br from-[#5c4033] to-[#3d2a22] text-white">
+            <section className="py-16 bg-gradient-to-br from-[#a27450] to-[#a27450] text-white">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-2xl md:text-3xl font-serif font-bold mb-6">
-                        Selbststudium oder Profi-Ausbildung?
+                        Selbststudium oder Profi-Schulung?
                     </h2>
                     <p className="text-white/80 mb-6">
-                        Alles selbst zu lernen klingt günstig, kostet dich aber deine ersten Kunden und wertvolle Zeit.
-                        Ein schlechter Ruf am Anfang ist schwer zu reparieren.
+                        Selbststudium kosten dich Zeit, Kunden und
+                        deinen Ruf.
                     </p>
                     <p className="text-white/80 mb-6">
-                        Frage dich ehrlich: Hast du als Autodidakt wirklich die Qualität, um gegen Konkurrenten
-                        zu bestehen, die seit 10 oder 20 Jahren am Markt sind? Mit Halbwissen wirst du im
-                        Preis-Kampf untergehen.
+                        Zwei Stunden pro Behandlung? Kein rentables
+                        Business.
                     </p>
-                    <p className="text-[#ffb499] font-semibold text-lg">
-                        Mach es direkt richtig: Eine Profi-Ausbildung gibt dir das Werkzeug, um etablierte
-                        Mitbewerber nicht nur einzuholen, sondern zu überholen.
+                    <p className="text-white/80 mb-6">
+                        Ohne Struktur und Tempo kannst du gegen
+                        erfahrene Studios nicht bestehen.
+                    </p>
+                    <p className="text-white/80 mb-6">
+                        Eine Profi-Ausbildung macht dich konkurrenzfähig – von Anfang an
                     </p>
                 </div>
             </section>
@@ -262,7 +272,7 @@ export default function SchulungClient() {
                                     </span>
                                 </summary>
                                 <div className="px-6 pb-6 text-[#666] border-t border-[#ff8b69]/10">
-                                    <p className="pt-4">{faq.answer}</p>
+                                    <div className="pt-4">{faq.answer}</div>
                                 </div>
                             </details>
                         ))}

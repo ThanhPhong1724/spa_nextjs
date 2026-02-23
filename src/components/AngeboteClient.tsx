@@ -1,90 +1,116 @@
 "use client";
 
 import { useLanguage } from "@/contexts/LanguageContext";
+import Image from "next/image";
 
-type AngeboteClientProps = {
-    content?: any;
-};
+export default function AngeboteClient() {
+    const { t } = useLanguage();
 
-export default function AngeboteClient({ content }: AngeboteClientProps) {
-    const { language, t } = useLanguage();
+    const combos = [
+        {
+            title: "Combo 1",
+            image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=1000&fit=crop",
+        },
+        {
+            title: "Combo 2",
+            image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=1000&fit=crop",
+        },
+        {
+            title: "Combo 3",
+            image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&h=1000&fit=crop",
+        }
+    ];
 
-    // Helper to get dynamic or default value
-    const getOffer = (key: string, defaultData: any) => {
-        const offerContent = content?.[key] || {};
-
-        // Visibility Check (default to true if not set)
-        const isVisible = offerContent.visible !== false && offerContent.visible !== "false";
-
-        if (!isVisible) return null;
-
-        return {
-            title: language === 'de' ? (offerContent.title_de || defaultData.de.title) : (offerContent.title_en || defaultData.en.title),
-            desc: language === 'de' ? (offerContent.desc_de || defaultData.de.desc) : (offerContent.desc_en || defaultData.en.desc),
-            validUntil: offerContent.valid_until || defaultData.validUntil,
-            oldPrice: offerContent.old_price !== undefined ? offerContent.old_price : defaultData.oldPrice,
-            newPrice: offerContent.new_price !== undefined ? offerContent.new_price : defaultData.newPrice,
-            discount: offerContent.discount !== undefined ? offerContent.discount : defaultData.discount,
-        };
+    const handleDownload = (imageUrl: string, title: string) => {
+        // Fetch the image as a blob to bypass CORS download issues if possible, 
+        // or just use a standard anchor tag download
+        fetch(imageUrl)
+            .then(response => response.blob())
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `Angebot-${title}.jpg`;
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+                window.URL.revokeObjectURL(url);
+            })
+            .catch(err => {
+                console.error("Error downloading image:", err);
+                // Fallback to direct link
+                const link = document.createElement('a');
+                link.href = imageUrl;
+                link.download = `Angebot-${title}.jpg`;
+                link.target = "_blank";
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+            });
     };
-
-    const defaultOffer1 = {
-        de: { title: "Headspa + Wimpern Kombi", desc: "Komplette Entspannung mit Headspa und Wimpernverlängerung" },
-        en: { title: "Headspa + Lashes Combo", desc: "Complete relaxation with headspa and lash extensions" },
-        oldPrice: "180€", newPrice: "150€", validUntil: "31.03.2025"
-    };
-
-    const defaultOffer2 = {
-        de: { title: "Nageldesign Aktion", desc: "Maniküre mit Gel-Lack inklusive Design" },
-        en: { title: "Nail Design Special", desc: "Manicure with gel polish including design" },
-        oldPrice: "65€", newPrice: "50€", validUntil: "28.02.2025"
-    };
-
-    const defaultOffer3 = {
-        de: { title: "Neukundenrabatt", desc: "10% Rabatt auf die erste Behandlung" },
-        en: { title: "New Customer Discount", desc: "10% off your first treatment" },
-        discount: "10%", validUntil: "Unbegrenzt" // or "Unlimited" handled by CMS value
-    };
-
-    const offer1 = getOffer("offer_1", defaultOffer1);
-    const offer2 = getOffer("offer_2", defaultOffer2);
-    const offer3 = getOffer("offer_3", defaultOffer3);
-
-    const offers = [offer1, offer2, offer3].filter(Boolean); // Filter out nulls (hidden offers)
 
     return (
         <div className="min-h-screen bg-[#f5ebe0]">
-            {/* Hero - Light brown background */}
-            <section className="py-20 pt-44">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-[#ff8b69] text-4xl md:text-5xl font-bold">Entdecken Sie unsere exklusiven <br /> <br /> Kombi-Angebote!</h1>
-                </div>
-            </section>
+            <section className="pt-32 pb-16">
+                <div className="max-w-6xl mx-auto px-6">
+                    {/* Header */}
+                    <div className="text-center mb-16">
+                        <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#5c4033] mb-4 uppercase">
+                            Jetzt Vorteil sichern
+                        </h1>
+                    </div>
 
-            {/* Offers */}
-            <section className="py-8 pb-16">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-wrap justify-center gap-8">
-                        {offers.map((offer: any, index) => (
-                            <div key={index} className="w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                                <div className="bg-[#ff8b69] text-white p-4 text-center">
-                                    <span className="text-sm font-bold uppercase tracking-wide">{t("angebote.valid_until")}: {offer.validUntil}</span>
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold text-[#5c4033] mb-2">{offer.title}</h3>
-                                    <p className="text-[#6b5344] text-sm mb-4">{offer.desc}</p>
-
-                                    {offer.newPrice ? (
-                                        <div className="flex items-center gap-3">
-                                            {offer.oldPrice && <span className="text-[#8b7355] line-through">{offer.oldPrice}</span>}
-                                            <span className="text-2xl font-bold text-[#ff8b69]">{offer.newPrice}</span>
+                    {/* Combos Grid */}
+                    <div className="grid md:grid-cols-3 gap-8 mb-16">
+                        {combos.map((combo, index) => (
+                            <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2 border border-[#d4a373]/30">
+                                <div className="relative h-[400px] overflow-hidden">
+                                    <img
+                                        src={combo.image}
+                                        alt={combo.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end">
+                                        <div className="p-6 w-full text-center">
+                                            <h3 className="text-2xl font-serif font-bold text-white shadow-sm">{combo.title}</h3>
                                         </div>
-                                    ) : (
-                                        <span className="text-2xl font-bold text-[#ff8b69]">{offer.discount}</span>
-                                    )}
+                                    </div>
+                                </div>
+                                <div className="p-6 flex flex-col flex-grow bg-white items-center justify-center">
+                                    <button
+                                        onClick={() => handleDownload(combo.image, combo.title)}
+                                        className="w-full bg-[#ff8b69] text-white py-4 rounded-full font-bold hover:bg-[#e87a5a] transition-all flex items-center justify-center gap-2 group-hover:shadow-[0_0_15px_rgba(255,139,105,0.4)]"
+                                    >
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                        </svg>
+                                        Downloaden
+                                    </button>
                                 </div>
                             </div>
                         ))}
+                    </div>
+
+                    {/* Instruction Box */}
+                    <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 md:p-12 border border-[#ff8b69]/20 text-center max-w-4xl mx-auto shadow-xl">
+                        <h3 className="text-2xl font-serif font-bold text-[#5c4033] mb-8 relative inline-block">
+                            So funktioniert&apos;s
+                            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#ff8b69] to-transparent" />
+                        </h3>
+                        <div className="grid md:grid-cols-3 gap-8 text-left">
+                            <div className="flex flex-col items-center text-center">
+                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#ff8b69] to-[#d4a373] text-white flex items-center justify-center font-bold text-xl mb-4 shadow-md">1</div>
+                                <p className="text-[#6b5344] font-medium">Laden Sie das gewünschte Angebot als Bild herunter.</p>
+                            </div>
+                            <div className="flex flex-col items-center text-center">
+                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#ff8b69] to-[#d4a373] text-white flex items-center justify-center font-bold text-xl mb-4 shadow-md">2</div>
+                                <p className="text-[#6b5344] font-medium">Zeigen Sie das Bild bei Ihrem Termin im Studio vor.</p>
+                            </div>
+                            <div className="flex flex-col items-center text-center">
+                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#ff8b69] to-[#d4a373] text-white flex items-center justify-center font-bold text-xl mb-4 shadow-md">3</div>
+                                <p className="text-[#6b5344] font-medium">Lösen Sie den Gutschein ein und sparen Sie sofort!</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

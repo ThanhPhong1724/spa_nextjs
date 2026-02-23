@@ -31,7 +31,7 @@ const translations: Record<Language, Record<string, string>> = {
 
         // Studio Section
         "studio.title": "Ihr Ort für Entspannung & Schönheit",
-        "studio.subtitle": "Unser Studio",
+        "studio.subtitle": " ",
 
         // Services
         "services.title": "Unsere Leistungen",

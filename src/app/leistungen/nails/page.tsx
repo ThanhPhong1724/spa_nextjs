@@ -10,7 +10,7 @@ const getServices = (nagelImage: string, fusspflegeImage: string) => [
         image: nagelImage || "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop"
     },
     {
-        title: "FUSSPFLEGE",
+        title: "PREMIUM FUßPFLEGE",
         description: "Exklusive Fußpflege mit modernem Dampfgerät: Sanfte Tiefenentspannung, geöffnete Poren und maximale Pflegeaufnahme – für ein spürbar gepflegtes und entspanntes Hautgefühl.",
         image: fusspflegeImage || "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&h=400&fit=crop"
     }

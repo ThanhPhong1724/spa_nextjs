@@ -203,7 +203,7 @@ export default function GutscheinClient({ content }: GutscheinClientProps) {
                             Barzahlung
                         </div>
                         <h2 className="text-2xl md:text-3xl font-bold text-[#5c4033] mb-4">
-                            Möchten Sie einen Gutschein kaufen und bar bezahlen?
+                            Möchten Sie einen Gutschein abholen und bar bezahlen?
                         </h2>
                         <p className="text-[#5c4033]/70 text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
                             Senden Sie uns bitte eine Nachricht mit dem Namen des Empfängers und dem gewünschten Betrag.

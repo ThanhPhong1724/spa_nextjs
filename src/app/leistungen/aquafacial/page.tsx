@@ -88,13 +88,13 @@ export default function AquafacialPage() {
                         </p>
 
                         {/* 6 Keywords Grid */}
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-left">
                             {keywords.map((kw, i) => (
-                                <div key={i} className="bg-gradient-to-br from-[#ff8b69]/10 to-[#ff8b69]/5 rounded-2xl p-5 border border-[#ff8b69]/20 flex items-center gap-3 hover:shadow-md transition-shadow">
-                                    <div className="w-10 h-10 bg-[#ff8b69]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                                        <span className="material-symbols-outlined text-[#ff8b69] text-xl">{kw.icon}</span>
+                                <div key={i} className="bg-gradient-to-br from-[#ff8b69]/10 to-[#ff8b69]/5 rounded-2xl p-4 sm:p-5 border border-[#ff8b69]/20 flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-3 hover:shadow-md transition-shadow">
+                                    <div className="w-12 h-12 sm:w-10 sm:h-10 bg-white shadow-sm rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span className="material-symbols-outlined text-[#ff8b69] text-xl sm:text-lg">{kw.icon}</span>
                                     </div>
-                                    <span className="font-bold text-[#5c4033] text-sm">{kw.label}</span>
+                                    <span className="font-bold text-[#5c4033] text-sm md:text-[15px] leading-tight break-words hyphens-auto">{kw.label}</span>
                                 </div>
                             ))}
                         </div>

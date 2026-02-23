@@ -69,7 +69,10 @@ export default function PermanentMakeupPage() {
                         <div>
                             <h2 className="text-2xl font-bold text-[#5c4033] mb-6">Zeitlose Schönheit, jeden Tag.</h2>
                             <p className="text-[#6b5344] leading-relaxed mb-6">
-                                Wach auf und sei fertig! Dank 10-jähriger Expertise und kontinuierlicher Fortbildung bieten wir Ihnen die besten und sichersten Verfahren der Branche. Wir minimieren jedes Risiko und setzen auf innovative Methoden für ein täuschend echtes Finish. Qualität, die man sieht – präzise, langanhaltend und typgerecht.
+                                Wach auf und sei fertig!
+Dank 15-jähriger Expertise und kontinuierlicher Weiterbildung bieten wir dir die besten und sichersten Verfahren der Branche.
+Wir minimieren jedes Risiko und setzen auf innovative Methoden für ein täuschend echtes Finish.
+Qualität, die man sieht – präzise, langanhaltend und perfekt auf dich abgestimmt.
                             </p>
                             <ul className="text-[#6b5344] leading-relaxed space-y-2">
                                 <li className="flex items-start gap-2">

@@ -31,7 +31,7 @@ export default async function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`${libreBaskerville.variable} font-serif antialiased text-[#181611]`}>
+      <body className={`${libreBaskerville.variable} font-serif antialiased text-[#181611]`} suppressHydrationWarning>
         <Providers>
           <LayoutWrapper footerContent={await getPageContent('global')}>{children}</LayoutWrapper>
         </Providers>

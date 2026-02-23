@@ -88,7 +88,7 @@ export default function BeautyExpertClient() {
 
                             <div className="bg-white rounded-xl p-6 mb-6">
                                 <p className="text-[#555] mb-4">
-                                    Keine Lust auf jahrelanges Üben? Starte sofort durch! Diese drei Behandlungen gehören
+                                    Keine Lust auf langwieriges Üben? Starte sofort durch! Diese drei Behandlungen gehören
                                     aktuell zu den gefragtesten Services auf dem Markt.
                                 </p>
 

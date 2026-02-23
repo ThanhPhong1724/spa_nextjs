@@ -5,7 +5,7 @@ import Link from 'next/link';
 const courseInfo = {
     id: "nails-kurs",
     name: "Nails Profi-Kurs",
-    duration: "2 Kursstufen",
+    duration: "2 Kursstufen – zeitlich flexibel nach deinen Bedürfnissen",
     image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=500&fit=crop"
 };
 
@@ -32,7 +32,14 @@ const faqs = [
     },
     {
         question: "Muss ich mein eigenes Material für die Schulung kaufen?",
-        answer: "Nein, das ist das Besondere bei uns! Im Studio haben Sie Zugriff auf über 1.000 Farben und verschiedenste Profi-Geräte. Sie können alles testen, um herauszufinden, was Ihnen liegt. Das spart Ihnen später viel Geld."
+        answer: (
+            <>
+                Das ist unser besonderer Vorteil:<br />
+                Im Studio hast du Zugriff auf über 1.000 Farben und professionelle Geräte.<br />
+                Du kannst alles testen und herausfinden, was wirklich zu dir passt – das spart dir später viel Geld.<br /><br />
+                Alle Lernmaterialien stellen wir dir selbstverständlich zur Verfügung.
+            </>
+        )
     },
     {
         question: "Arbeiten wir an Übungshänden aus Plastik?",

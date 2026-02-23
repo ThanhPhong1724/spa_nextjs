@@ -84,7 +84,7 @@ const studioImages = [
 
 const servicesData = {
     de: [
-        { title: "PROFESSIONELLE KOPFHAUT/HAUTPFLEGE", description: "Moderne Technik. Pflege auf neuem Level. Sichtbare Ergebnisse.", image: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&h=400&fit=crop", href: "/leistungen/kopfhaut-und-hautpflege" },
+        { title: "INNOVATIVES TREATMENTS", description: "Moderne Technik. Pflege auf neuem Level. Sichtbare Ergebnisse.", image: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&h=400&fit=crop", href: "/leistungen/innovativetreatments" },
         { title: "AQUAFACIAL", description: "Tiefenreinigung, Hydration und Wirkstoffversorgung für sofort sichtbar strahlende Haut.", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop", href: "/leistungen/aquafacial" },
         { title: "HEADSPA", description: "Ganzheitliche Kopfhautpflege und Entspannung für Körper und Geist.", image: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fe9513e54-1c6e-47f0-ac94-bcdb746b35c8/watermark:F/width:706?csig=AAAAAAAAAAAAAAAAAAAAAIdrbMbBBNgoWD10-arFC-Ns2CydzrM1FPsMi17UF4Qp&exp=1769806112&osig=AAAAAAAAAAAAAAAAAAAAAAY6d1Fr1Ez2MAKUnwM0HTk4tBVumsEE7DwsVP-oTH4K&signer=media-rpc&x-canva-quality=screen", href: "/leistungen/headspa" },
         { title: "PERMANENT MAKE UP", description: "Natürliche Schönheit mit modernsten Techniken und höchster Präzision.", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop", href: "/leistungen/permanent-makeup" },
@@ -92,7 +92,7 @@ const servicesData = {
         { title: "WIMPERN", description: "Voluminöse Wimpern für einen ausdrucksstarken Blick.", image: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop", href: "/leistungen/wimpern" }
     ],
     en: [
-        { title: "SCALP & SKIN CARE", description: "Modern technology. Care on a new level. Visible results.", image: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&h=400&fit=crop", href: "/leistungen/kopfhaut-und-hautpflege" },
+        { title: "SCALP & SKIN CARE", description: "Modern technology. Care on a new level. Visible results.", image: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&h=400&fit=crop", href: "/leistungen/innovativetreatments" },
         { title: "AQUAFACIAL", description: "Deep cleansing, hydration and active ingredient delivery for instantly radiant skin.", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop", href: "/leistungen/aquafacial" },
         { title: "HEADSPA", description: "Holistic scalp care and relaxation for body and mind.", image: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fe9513e54-1c6e-47f0-ac94-bcdb746b35c8/watermark:F/width:706?csig=AAAAAAAAAAAAAAAAAAAAAIdrbMbBBNgoWD10-arFC-Ns2CydzrM1FPsMi17UF4Qp&exp=1769806112&osig=AAAAAAAAAAAAAAAAAAAAAAY6d1Fr1Ez2MAKUnwM0HTk4tBVumsEE7DwsVP-oTH4K&signer=media-rpc&x-canva-quality=screen", href: "/leistungen/headspa" },
         { title: "PERMANENT MAKE UP", description: "Natural beauty with state-of-the-art techniques and highest precision.", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop", href: "/leistungen/permanent-makeup" },
@@ -232,11 +232,11 @@ export default function HomeClient({ content }: HomeClientProps) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <h1 className="text-[#ff8b69] font-bold tracking-widest uppercase text-3xl">{t("studio.subtitle")}</h1>
-                        <h2 className="text-4xl md:text-5xl font-bold text-[#5c4033] mt-3">
+                        <h2 className="text-4xl md:text-5xl font-bold text-[#ff8b69] mt-3">
                             {t("studio.title")}
                         </h2>
                         <p className="text-[#6b5344] mt-6 max-w-3xl mx-auto leading-relaxed text-lg">
-                            Mit über 10 Jahren Erfahrung und kontinuierlicher Weiterbildung gewährleisten wir höchste Qualität und herausragende Ergebnisse. Genießen Sie den einzigartigen Service in einem Ambiente, das Ihnen ein Lächeln ins Gesicht zaubert.
+                            Mit über 10 Jahren Erfahrung und kontinuierlicher Weiterbildung gewährleisten wir höchste Qualität und herausragende Ergebnisse. <br /> Genießen Sie den einzigartigen Service in einem Ambiente, das Ihnen ein Lächeln ins Gesicht zaubert.
                         </p>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

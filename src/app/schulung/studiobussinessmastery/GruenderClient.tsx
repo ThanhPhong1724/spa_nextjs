@@ -5,7 +5,7 @@ import Link from 'next/link';
 const courseInfo = {
     id: "gruender-programm",
     name: "Studio Business Mastery",
-    duration: "10 Tage + Business Coaching",
+    duration: "3 Tag",
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop"
 };
 
@@ -42,6 +42,11 @@ const ClipboardIcon = () => (
 
 const benefits = [
     {
+        icon: <GlobeIcon />,
+        title: "Ready-to-Go Marketing",
+        description: "Du erhältst <strong>eine kostenlose Website und 15 fertige Social-Media-Posts</strong>, damit du sofort professionell sichtbar bist."
+    },
+    {
         icon: <ChartIcon />,
         title: "Maßgeschneiderte Strategieplanung",
         description: "Wir erstellen mit dir einen konkreten Business-Plan, der exakt auf deine persönlichen Ziele und dein verfügbares Investitionskapital zugeschnitten ist."
@@ -55,11 +60,6 @@ const benefits = [
         icon: <DeviceIcon />,
         title: "Social Media Power",
         description: "Meistere die Erstellung von Video-Content (Reels/TikTok), um eine echte Bindung zu deinen Kunden aufzubauen."
-    },
-    {
-        icon: <GlobeIcon />,
-        title: "Ready-to-Go Marketing",
-        description: "Du erhältst eine kostenlose Website und 15 fertige Social-Media-Posts, damit du sofort professionell sichtbar bist."
     },
     {
         icon: <ClipboardIcon />,
@@ -138,31 +138,10 @@ export default function GruenderClient() {
                             <div key={i} className="bg-[#f8f7f6] rounded-2xl p-6">
                                 <div className="text-[#ff8b69] mb-4">{benefit.icon}</div>
                                 <h3 className="text-lg font-bold text-[#5c4033] mb-3">{benefit.title}</h3>
-                                <p className="text-[#666] text-sm">{benefit.description}</p>
+                                <p className="text-[#666] text-sm" dangerouslySetInnerHTML={{ __html: benefit.description }}></p>
                             </div>
                         ))}
                     </div>
-                </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="py-16 bg-gradient-to-br from-[#ff8b69] to-[#e87a5a] text-white">
-                <div className="max-w-4xl mx-auto px-6 text-center">
-                    <h2 className="text-2xl md:text-3xl font-serif font-bold mb-6">
-                        Bereit, dein eigenes Beauty-Business zu starten?
-                    </h2>
-                    <p className="text-white/80 mb-8">
-                        Mit dem Expert-Gründerprogramm bekommst du nicht nur das Handwerk, sondern auch
-                        alle Business-Tools, die du für einen erfolgreichen Start brauchst.
-                    </p>
-                    <a
-                        href="https://wa.me/491638562022"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-white text-[#ff8b69] px-8 py-4 rounded-full font-bold text-lg hover:bg-white/90 transition-colors inline-flex items-center gap-2"
-                    >
-                        Jetzt anfragen
-                    </a>
                 </div>
             </section>
 

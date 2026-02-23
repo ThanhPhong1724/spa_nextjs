@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const servicesData = {
     de: [
-        { key: "kopfhautpflege", description: "Moderne Technik. Pflege auf neuem Level. Sichtbare Ergebnisse.", href: "/leistungen/kopfhaut-und-hautpflege" },
+        { key: "kopfhautpflege", description: "Moderne Technik. Pflege auf neuem Level. Sichtbare Ergebnisse.", href: "/leistungen/innovativetreatments" },
         { key: "aquafacial", description: "Tiefenreinigung, Hydration und Wirkstoffversorgung für sofort sichtbar strahlende Haut.", href: "/leistungen/aquafacial" },
         { key: "headspa", description: "Ganzheitliche Kopfhautpflege und Entspannung für Körper und Geist.", href: "/leistungen/headspa" },
         { key: "permanent", description: "Natürliche Schönheit mit modernsten Techniken und höchster Präzision.", href: "/leistungen/permanent-makeup" },
@@ -14,7 +14,7 @@ const servicesData = {
         { key: "augenbrauen", description: "Perfekte Augenbrauen durch Zupfen, Färben oder Laminieren.", href: "/leistungen/augenbrauen" }
     ],
     en: [
-        { key: "kopfhautpflege", description: "Modern technology. Care on a new level. Visible results.", href: "/leistungen/kopfhaut-und-hautpflege" },
+        { key: "kopfhautpflege", description: "Modern technology. Care on a new level. Visible results.", href: "/leistungen/innovativetreatments" },
         { key: "aquafacial", description: "Deep cleansing, hydration and active ingredient delivery for instantly radiant skin.", href: "/leistungen/aquafacial" },
         { key: "headspa", description: "Holistic scalp care and relaxation for body and mind.", href: "/leistungen/headspa" },
         { key: "permanent", description: "Natural beauty with state-of-the-art techniques and highest precision.", href: "/leistungen/permanent-makeup" },
@@ -37,7 +37,7 @@ const defaultImages = {
 const defaultTitles = {
     de: {
         headspa: "HEADSPA",
-        kopfhautpflege: "PROFESSIONELLE KOPFHAUT/HAUTPFLEGE",
+        kopfhautpflege: "INNOVATIVES TREATMENTS",
         aquafacial: "AQUAFACIAL",
         permanent: "PERMANENT MAKE UP",
         nails: "NAILS",
