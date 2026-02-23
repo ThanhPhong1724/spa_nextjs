@@ -113,35 +113,14 @@ export default function KopfhautPflegePage() {
                 </div>
             </section>
 
-            {/* Video Section with Typewriter */}
-            <section className="py-8">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                        <video
-                            key={videoUrl}
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="w-full h-64 md:h-96 object-cover"
-                        >
-                            <source src={videoUrl} type="video/mp4" />
-                        </video>
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#5c4033]/80 to-transparent flex items-end justify-center pb-8">
-                            <p className="text-white text-xl md:text-4xl font-medium text-center px-4">
-                                <TypeWriter text={typewriterText} />
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             {/* ===== Treatment Section ===== */}
             <section className="py-8">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <p className="text-[#5c4033] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                            Erlebe eine einzigartige Kombination aus kraftvoller Oxygen-Power, hochwirksamen EMS-Nano-Crystals und Licht Therapie, die deine Pflege auf ein neues Level hebt – für unreine Haut, vitale Kopfhaut und unterstütztes Haarwachstum.
+                            Erlebe eine einzigartige Kombination aus kraftvoller Oxygen-Power, hochwirksamen EMS-Nano-Crystals und Licht Therapie, die deine Pflege auf ein neues Level hebt <br /> für unreine Haut, vitale Kopfhaut und unterstütztes Haarwachstum.
                         </p>
                         <div className="mt-6 flex justify-center">
                             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#ff8b69] to-[#d4a373] text-white px-6 py-2.5 rounded-full font-bold shadow-md shadow-[#ff8b69]/20 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
@@ -180,9 +159,20 @@ export default function KopfhautPflegePage() {
                                         Oxygen Scalp Detox
                                     </h3>
                                     <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-white/40 to-transparent mb-5" />
-                                    <p className="text-white/90 text-xl font-serif tracking-widest max-w-2xl drop-shadow-sm">
-                                        The Ultimate Hair & Scalp Detox
-                                    </p>
+                                </div>
+
+                                {/* Oxygen Scalp Detox Video inside Card */}
+                                <div className="mb-10 w-full rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/10 relative z-10">
+                                    <video
+                                        key={videoUrl + "1"}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full aspect-video object-cover"
+                                    >
+                                        <source src={videoUrl} type="video/mp4" />
+                                    </video>
                                 </div>
 
                                 {/* Features Grid */}
@@ -244,18 +234,29 @@ export default function KopfhautPflegePage() {
                         <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-gradient-to-br from-[#f5ebe0] to-[#e8d5c4] border border-[#d4a373]/30">
                             <div className="relative p-8 md:p-12">
                                 {/* Header */}
-                                <div className="flex flex-col items-center text-center mb-12">
-                                    <div className="inline-block mb-3 px-4 py-1 rounded-full border border-[#ff8b69]/40 bg-[#ff8b69]/10 text-[#ff8b69] text-xs font-serif tracking-[0.2em] uppercase">
-                                        Advanced Treatment
-                                    </div>
+                                <div className="flex flex-col items-center text-center mb-10">
                                     <h3 className="text-4xl md:text-6xl font-serif font-bold mb-4 text-[#5c4033]">
                                         Scalp Microneedling
                                     </h3>
                                     <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#ff8b69] to-transparent mb-6 opacity-80" />
                                 </div>
 
+                                {/* Scalp Microneedling Video inside Card */}
+                                <div className="w-full rounded-3xl overflow-hidden shadow-xl border border-[#d4a373]/30 mb-10">
+                                    <video
+                                        key={videoUrl + "2"}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full aspect-video object-cover"
+                                    >
+                                        <source src={videoUrl} type="video/mp4" />
+                                    </video>
+                                </div>
+
                                 {/* Features */}
-                                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-4">
                                     {[
                                         { title: "Kopfhaut-Regeneration", icon: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" },
                                         { title: "Haarwachstum-Impuls", icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" },
@@ -281,54 +282,65 @@ export default function KopfhautPflegePage() {
                         <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-gradient-to-br from-[#f5ebe0] to-[#e8d5c4] border border-[#d4a373]/30">
                             <div className="relative p-8 md:p-12">
                                 {/* Header */}
-                                <div className="flex flex-col items-center text-center mb-12">
-                                    <div className="inline-block mb-3 px-4 py-1 rounded-full border border-[#ff8b69]/40 bg-[#ff8b69]/10 text-[#ff8b69] text-xs font-serif tracking-[0.2em] uppercase">
-                                        Hautpflege Service
-                                    </div>
+                                <div className="flex flex-col items-center text-center mb-10">
                                     <h3 className="text-4xl md:text-6xl font-serif font-bold mb-4 text-[#5c4033]">
                                         GlowMe
                                     </h3>
                                     <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#ff8b69] to-transparent mb-6 opacity-80" />
                                     <p className="text-[#6b5344] text-lg md:text-xl max-w-2xl leading-relaxed">
-                                        Pflege auf einem neuen Level. Schluss mit rauer Haut. Willkommen sanfte Seidigkeit.
+                                        Schluss mit rauer Haut. Willkommen sanfte Seidigkeit.
                                     </p>
                                 </div>
 
+                                {/* GlowMe Video inside Card */}
+                                <div className="w-full rounded-3xl overflow-hidden shadow-xl border border-[#d4a373]/30 mb-10">
+                                    <video
+                                        key={videoUrl + "3"}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full aspect-video object-cover"
+                                    >
+                                        <source src={videoUrl} type="video/mp4" />
+                                    </video>
+                                </div>
+
                                 {/* Treatment Steps */}
-                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-4">
                                     {[
                                         {
-                                            step: "1",
+                                            icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z", // Sparkles
                                             title: "Sanftes Peeling",
-                                            desc: "Vorbereitung der Haut durch das sanfte Abtragen abgestorbener Hautschüppchen und mở đường für die Nährstoffe.",
+                                            desc: "Entfernt Verhornungen, klärt die Poren und fördert die Hauterneuerung – ideal für raue Areale wie Oberarme, Oberschenkel oder Rücken.",
                                             descVi: "Chuẩn bị làn da bằng cách loại bỏ nhẹ nhàng tế bào chết và mở đường cho các dưỡng chất."
                                         },
                                         {
-                                            step: "2",
+                                            icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15", // Refresh / Bubble
                                             title: "Bubble Cleaning",
                                             desc: "Tiefenreinigung mit Sauerstoff-Bläschen.",
                                             descVi: "Làm sạch sâu tận gốc với bọt khí Oxy hoạt tính, giải phóng lỗ chân lông khỏi bã nhờn và tạp chất."
                                         },
                                         {
-                                            step: "3",
+                                            icon: "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z", // Cloud / Oxygen
                                             title: "Oxygen-Power",
                                             desc: "Konzentrierter Sauerstoff zur Vitalisierung und Regeneration der Haut.",
                                             descVi: "Tiếp sức cho làn da bằng Oxy tập trung, kích thích tái tạo tế bào và thúc đẩy quá trình hồi phục tự nhiên."
                                         },
                                         {
-                                            step: "4",
+                                            icon: "M13 10V3L4 14h7v7l9-11h-7z", // Lightning / EMS
                                             title: "EMS Nano-Crystals",
                                             desc: "Nano-Kristalle & EMS-Impulse für die tiefe Wirkstoffaufnahme.",
                                             descVi: "Công nghệ tối tân giúp đưa các hoạt chất nồng độ cao vào sâu trong da thông qua tinh thể Nano và xung điện EMS."
                                         },
                                         {
-                                            step: "5",
+                                            icon: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707", // Sun / Light
                                             title: "Glow Light Treatment",
                                             desc: "Unterstützt die Hautregeneration und stimuliert die Collagenproduktion.",
                                             descVi: ""
                                         },
                                         {
-                                            step: "6",
+                                            icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", // Shield Check / Purifying
                                             title: "Purifying Finishing Care",
                                             desc: "Abschlusspflege zur Beruhigung, Mattierung und zum Schutz vor neuen Unreinheiten.",
                                             descVi: "Bước chăm sóc cuối cùng với các hoạt chất làm sạch, giúp làm dịu da, kiềm dầu và bảo vệ da khỏi các tạp chất mới."
@@ -336,8 +348,10 @@ export default function KopfhautPflegePage() {
                                     ].map((item, i) => (
                                         <div key={i} className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#e8d5c4]">
                                             <div className="flex items-center gap-3 mb-4">
-                                                <div className="w-10 h-10 bg-[#ff8b69] rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-                                                    {item.step}
+                                                <div className="w-10 h-10 bg-gradient-to-br from-[#ff8b69] to-[#d4a373] shadow-inner rounded-full flex items-center justify-center text-white flex-shrink-0">
+                                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
+                                                    </svg>
                                                 </div>
                                                 <h4 className="font-serif font-bold text-lg text-[#5c4033]">{item.title}</h4>
                                             </div>
@@ -366,7 +380,7 @@ export default function KopfhautPflegePage() {
                                     <iframe
                                         width="100%"
                                         height="200"
-                                        src="https://www.youtube.com/embed/QRus_P-EewA"
+                                        src="https://www.youtube.com/embed/ULct2YaC9do"
                                         title="Wirksamkeit bestätigt"
                                         frameBorder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -379,7 +393,7 @@ export default function KopfhautPflegePage() {
                                     <iframe
                                         width="100%"
                                         height="200"
-                                        src="https://www.youtube.com/embed/f3cwKKKhHi4"
+                                        src="https://www.youtube.com/embed/7i8WdexpTmk"
                                         title="Technologie erklärt"
                                         frameBorder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
