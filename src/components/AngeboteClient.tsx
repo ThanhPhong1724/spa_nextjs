@@ -3,7 +3,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import Image from "next/image";
 
-export default function AngeboteClient() {
+export default function AngeboteClient({ content }: { content?: Record<string, any> }) {
     const { t } = useLanguage();
 
     const combos = [

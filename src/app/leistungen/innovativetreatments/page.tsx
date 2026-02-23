@@ -141,7 +141,7 @@ export default function KopfhautPflegePage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <p className="text-[#5c4033] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                            Erlebe eine einzigartige Kombination aus kraftvoller Oxygen-Power, hochwirksamen EMS-Nano-Crystals und Laser, die deine Pflege auf ein neues Level hebt – für unreine Haut, vitale Kopfhaut und unterstütztes Haarwachstum.
+                            Erlebe eine einzigartige Kombination aus kraftvoller Oxygen-Power, hochwirksamen EMS-Nano-Crystals und Licht Therapie, die deine Pflege auf ein neues Level hebt – für unreine Haut, vitale Kopfhaut und unterstütztes Haarwachstum.
                         </p>
                         <div className="mt-6 flex justify-center">
                             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#ff8b69] to-[#d4a373] text-white px-6 py-2.5 rounded-full font-bold shadow-md shadow-[#ff8b69]/20 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
