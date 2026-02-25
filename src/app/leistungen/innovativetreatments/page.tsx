@@ -120,7 +120,7 @@ export default function KopfhautPflegePage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <p className="text-[#5c4033] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                            Erlebe eine einzigartige Kombination aus kraftvoller Oxygen-Power, hochwirksamen EMS-Nano-Crystals und Licht Therapie, die deine Pflege auf ein neues Level hebt <br /> für unreine Haut, vitale Kopfhaut und unterstütztes Haarwachstum.
+                            Erlebe eine einzigartige Kombination aus kraftvoller Oxygen-Power, hochwirksamen EMS-Nano-Crystals und Licht Therapie, die deine Pflege auf ein neues Level hebt <br /> <strong> für unreine Haut, vitale Kopfhaut und unterstütztes Haarwachstum.</strong>
                         </p>
                         <div className="mt-6 flex justify-center">
                             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#ff8b69] to-[#d4a373] text-white px-6 py-2.5 rounded-full font-bold shadow-md shadow-[#ff8b69]/20 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
@@ -145,11 +145,11 @@ export default function KopfhautPflegePage() {
 
                             {/* Ribbon Badge - Top Right Corner */}
                             <div className="absolute top-0 right-0 w-40 h-40 overflow-hidden z-20 pointer-events-none">
-                                <div className="absolute top-[30px] right-[-50px] w-[200px] bg-gradient-to-r from-[#ffb499] to-[#df7e5e] text-white font-bold text-[10px] uppercase tracking-[0.15em] py-2 text-center transform rotate-45 shadow-md border-y border-white/30">
+                                {/* <div className="absolute top-[30px] right-[-50px] w-[200px] bg-gradient-to-r from-[#ffb499] to-[#df7e5e] text-white font-bold text-[10px] uppercase tracking-[0.15em] py-2 text-center transform rotate-45 shadow-md border-y border-white/30">
                                     Premium
                                     <br />
                                     Treatment
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="relative p-8 md:p-12 text-white">
@@ -453,6 +453,33 @@ export default function KopfhautPflegePage() {
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* A4 Info Image + Download */}
+            <section className="py-16 bg-[#f5ebe0]">
+                <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 className="text-3xl font-bold text-[#5c4033] mb-8 font-serif">Informationsblatt</h2>
+                    <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#d4a373]/20 p-4">
+                        <div className="relative w-full" style={{ aspectRatio: '210 / 297' }}>
+                            <img
+                                src="/images/innovative-treatments-info.jpg"
+                                alt="Innovative Treatments – Informationsblatt"
+                                className="w-full h-full object-contain rounded-xl"
+                                onError={(e) => { (e.target as HTMLImageElement).src = 'https://placehold.co/630x891/f5ebe0/5c4033?text=Innovative+Treatments%0AInformationsblatt%0A(A4)'; }}
+                            />
+                        </div>
+                    </div>
+                    <a
+                        href="/images/innovative-treatments-info.jpg"
+                        download="Innovative-Treatments-Informationsblatt.jpg"
+                        className="inline-flex items-center gap-2 mt-8 bg-gradient-to-r from-[#ff8b69] to-[#d4a373] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Download
+                    </a>
                 </div>
             </section>
         </div>

@@ -18,7 +18,7 @@ html {
   --color-primary: var(--primary);
   --color-background: var(--background-light);
   --color-foreground: var(--text-main);
-  --font-serif: 'Libre Baskerville', serif;
+  --font-serif: 'Montserrat', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,7 +31,7 @@ html {
 body {
   background: var(--background-light);
   color: var(--text-main);
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

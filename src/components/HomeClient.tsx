@@ -84,7 +84,7 @@ const studioImages = [
 
 const servicesData = {
     de: [
-        { title: "INNOVATIVES TREATMENTS", description: "Moderne Technik. Pflege auf neuem Level. Sichtbare Ergebnisse.", image: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&h=400&fit=crop", href: "/leistungen/innovativetreatments" },
+        { title: "INNOVATIVE TREATMENTS", description: "Moderne Technik. Pflege auf neuem Level. Sichtbare Ergebnisse.", image: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&h=400&fit=crop", href: "/leistungen/innovativetreatments" },
         { title: "AQUAFACIAL", description: "Tiefenreinigung, Hydration und Wirkstoffversorgung für sofort sichtbar strahlende Haut.", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop", href: "/leistungen/aquafacial" },
         { title: "HEADSPA", description: "Ganzheitliche Kopfhautpflege und Entspannung für Körper und Geist.", image: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fe9513e54-1c6e-47f0-ac94-bcdb746b35c8/watermark:F/width:706?csig=AAAAAAAAAAAAAAAAAAAAAIdrbMbBBNgoWD10-arFC-Ns2CydzrM1FPsMi17UF4Qp&exp=1769806112&osig=AAAAAAAAAAAAAAAAAAAAAAY6d1Fr1Ez2MAKUnwM0HTk4tBVumsEE7DwsVP-oTH4K&signer=media-rpc&x-canva-quality=screen", href: "/leistungen/headspa" },
         { title: "PERMANENT MAKE UP", description: "Natürliche Schönheit mit modernsten Techniken und höchster Präzision.", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop", href: "/leistungen/permanent-makeup" },
@@ -236,7 +236,7 @@ export default function HomeClient({ content }: HomeClientProps) {
                             {t("studio.title")}
                         </h2>
                         <p className="text-[#6b5344] mt-6 max-w-3xl mx-auto leading-relaxed text-lg">
-                            Mit über 10 Jahren Erfahrung und kontinuierlicher Weiterbildung gewährleisten wir höchste Qualität und herausragende Ergebnisse. <br /> Genießen Sie den einzigartigen Service in einem Ambiente, das Ihnen ein Lächeln ins Gesicht zaubert.
+                            Mit 15 HOME Jahren Erfahrung und kontinuierlicher Weiterbildung gewährleisten wir höchste Qualität und herausragende Ergebnisse. <br /> Genießen Sie den einzigartigen Service in einem Ambiente, das Ihnen ein Lächeln ins Gesicht zaubert.
                         </p>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

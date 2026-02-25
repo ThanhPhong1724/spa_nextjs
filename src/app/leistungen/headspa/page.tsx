@@ -54,13 +54,13 @@ const getRelaxGlowPackages = (packageImages: string[]) => [
         image: packageImages[0] || "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop"
     },
     {
-        name: "Headspa Essential",
+        name: "Headspa Essential (60 Min.)",
         description: "Basispaket mit Kopfhautpflege, Kopfmassage, Haarsauna und Dekolleté-Massage – für ganzheitliche Entspannung und Pflege.",
         image: packageImages[1] || "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop"
     },
     {
-        name: "Headspa Deluxe",
-        description: "Ein exklusives Premium-Treatment, das intensive Kopfhautpflege mit einer tiefenentspannenden Nacken- und Schultermassage mit warmen Hot Stones verbindet.",
+        name: "Headspa Deluxe (90 Min.)",
+        description: "Inklusive Hot-Stone-Nackenmassage, Gesichts-Tiefenreinigung und Lichttherapie für Klärung und Regeneration der Haut.",
         image: packageImages[2] || "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&h=400&fit=crop"
     },
     {

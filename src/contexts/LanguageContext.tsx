@@ -113,6 +113,8 @@ const translations: Record<Language, Record<string, string>> = {
         "pricelist.faq_a1": "In der Regel sind 2–3 Tage im Voraus noch Termine verfügbar. Vor Feiertagen oder Urlaubszeiten empfehlen wir, mindestens 1 Woche vorher zu buchen. Wir sind sehr flexibel und versuchen immer, die beste Lösung für unsere Kundinnen und Kunden zu finden.",
         "pricelist.faq_q2": "Ich kann meinen Termin nicht wahrnehmen. Wie storniere oder verschiebe ich ihn?",
         "pricelist.faq_a2": "Bitte informieren Sie uns so früh wie möglich. Eine kostenfreie Stornierung oder Umbuchung ist bis 24 Stunden vor dem Termin möglich. Bei kurzfristigeren Absagen berechnen wir 50% des Behandlungspreises.",
+        "pricelist.faq_q3": "Werde ich vor der Behandlung ausführlich beraten?",
+        "pricelist.faq_a3": "Ja. Vor jeder Behandlung erhalten Sie eine umfassende Beratung. Ein Aufklärungsbogen stellt sicher, dass Nebenwirkungen, Verhaltensregeln sowie relevante Angaben zu Medikamenten oder bestehenden Erkrankungen berücksichtigt werden.",
 
         // News Page
         "news.title": "Neuigkeiten",
@@ -250,6 +252,8 @@ const translations: Record<Language, Record<string, string>> = {
         "pricelist.faq_a1": "Usually, appointments are available 2–3 days in advance. Before holidays or vacation periods, we recommend booking at least 1 week in advance. We are very flexible and always try to find the best solution for our customers.",
         "pricelist.faq_q2": "I cannot keep my appointment. How do I cancel or reschedule?",
         "pricelist.faq_a2": "Please inform us as soon as possible. Free cancellation or rescheduling is possible up to 24 hours before the appointment. For cancellations on shorter notice, we charge 50% of the treatment price.",
+        "pricelist.faq_q3": "Will I receive a detailed consultation before the treatment?",
+        "pricelist.faq_a3": "Yes. Before every treatment, you will receive a comprehensive consultation. An informed consent form ensures that side effects, behavioral guidelines, and relevant information about medications or existing conditions are taken into account.",
 
         // News Page
         "news.title": "News",

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Libre_Baskerville } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import Providers from "@/components/Providers";
 
-const libreBaskerville = Libre_Baskerville({
-  weight: ["400", "700"],
+const montserrat = Montserrat({
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-serif",
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-montserrat",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default async function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`${libreBaskerville.variable} font-serif antialiased text-[#181611]`} suppressHydrationWarning>
+      <body className={`${montserrat.variable} font-sans antialiased text-[#181611]`} style={{ fontFamily: 'var(--font-montserrat), sans-serif' }} suppressHydrationWarning>
         <Providers>
           <LayoutWrapper footerContent={await getPageContent('global')}>{children}</LayoutWrapper>
         </Providers>

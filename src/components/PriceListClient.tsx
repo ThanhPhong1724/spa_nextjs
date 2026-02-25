@@ -75,6 +75,10 @@ export default function PriceListClient({ content }: PriceListClientProps) {
                             question={t("pricelist.faq_q2")}
                             answer={t("pricelist.faq_a2")}
                         />
+                        <FAQItem
+                            question={t("pricelist.faq_q3")}
+                            answer={t("pricelist.faq_a3")}
+                        />
                     </div>
                 </div>
             </section>

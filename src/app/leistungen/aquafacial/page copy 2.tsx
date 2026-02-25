@@ -38,79 +38,63 @@ const faqs = [
     }
 ];
 
+const keywords = [
+    { label: "Premium-Selfcare-Moment", icon: "spa" },
+    { label: "Modernstes 15-in-1-System", icon: "precision_manufacturing" },
+    { label: "Präzise Hautanalyse", icon: "monitor_heart" },
+    { label: "Profi-Tiefenreinigung", icon: "water_drop" },
+    { label: "Intensive Wirkstoffversorgung", icon: "science" },
+    { label: "Sofort sichtbarer Glow", icon: "auto_awesome" },
+];
+
 export default function AquafacialPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
 
     return (
         <div className="min-h-screen bg-[#f5ebe0]">
-            {/* Section 1: Highlight - Hautanalyse & Glow-Technologie (Two-Column) */}
-            <section className="pt-44 pb-12">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="bg-gradient-to-br from-white to-[#faf4ef] rounded-3xl shadow-xl border border-[#d4a373]/20 overflow-hidden">
-                        <div className="grid md:grid-cols-2 items-center">
-                            {/* Left: Text */}
-                            <div className="p-8 md:p-12">
-                                <div className="inline-flex items-center gap-2 bg-[#ff8b69]/10 text-[#ff8b69] px-5 py-2 rounded-full font-semibold text-sm mb-6 border border-[#ff8b69]/20">
-                                    <span>✨</span>
-                                    <span>Exklusives Highlight</span>
-                                </div>
-                                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#5c4033] mb-6 leading-tight">
-                                    Hautanalyse &<br />Glow-Technologie
-                                </h2>
-                                <p className="text-[#6b5344] text-lg leading-relaxed">
-                                    Starten Sie mit einer professionellen Hautanalyse – für Klarheit über Ihren Hautzustand und für gezielte & wirksame Pflege.
-                                </p>
-                            </div>
-                            {/* Right: Image */}
-                            <div className="h-64 md:h-full min-h-[320px]">
-                                <img
-                                    src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=500&fit=crop"
-                                    alt="Hautanalyse & Glow-Technologie"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
+            {/* Hero */}
+            <section className="pt-44 pb-4">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h1 className="text-[#ff8b69] text-4xl md:text-5xl font-bold uppercase tracking-wide">AQUAFACIAL</h1>
+                </div>
+            </section>
+
+            {/* Image Area */}
+            <section className="py-8">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="rounded-2xl overflow-hidden shadow-xl bg-[#e8d5c4] h-64 md:h-96 flex items-center justify-center">
+                        <div className="text-center text-[#5c4033]/40">
+                            <span className="material-symbols-outlined text-6xl mb-2">image</span>
+                            <p className="text-lg font-medium">Bild wird hier hinzugefügt</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Section 2: AQUAFACIAL Main Content */}
-            <section className="pb-12">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-10">
-                        <h1 className="text-[#ff8b69] text-4xl md:text-6xl font-bold uppercase tracking-wide mb-4">AQUAFACIAL</h1>
-                        <p className="text-[#5c4033] text-2xl md:text-3xl font-serif font-bold">
-                            Maximale Wirkung – kein Verzicht.
+            {/* Introduction */}
+            <section className="py-12">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl text-center">
+                        <p className="text-xl md:text-2xl text-[#5c4033] leading-relaxed mb-8">
+                            Jede schöne Haut, jede Ausstrahlung und selbst die hochwertigste Pflege wirken nur auf <strong className="text-[#ff8b69]">gründlich gereinigter Haut</strong>.
                         </p>
-                    </div>
-
-                    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-[#d4a373]/20">
-                        <p className="text-[#5c4033] text-lg md:text-xl leading-relaxed text-center mb-10">
-                            Verstopfte Poren blockieren Ihre Pflegeerfolge.<br />
-                            Erleben Sie die <strong className="text-[#ff8b69]">10 Funktionen</strong> modernster Technologie für Ihren perfekten Glow:
+                        <p className="text-[#6b5344] text-lg mb-10 leading-relaxed max-w-3xl mx-auto">
+                            Wir vereinen High-Tech und individuelle Analyse für ein sofort frisches, verfeinertes Hautbild. Gönn dir diesen Moment – denn Selbstliebe beginnt mit bewusster Pflege.
                         </p>
 
-                        {/* 10 Feature Items – Elegant Two-Column List */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4 max-w-3xl mx-auto">
-                            {[
-                                "Haut Analyse",
-                                "Sanfte Exfoliation",
-                                "Tiefenreinigung",
-                                "Porenverfeinerung",
-                                "Lifting",
-                                "Straffung",
-                                "Sauerstoff-Boost",
-                                "Feuchtigkeits-Boost",
-                                "Milderung feiner Linien",
-                                "Optimierte Wirkstoffaufnahme",
-                            ].map((item, i) => (
-                                <div key={i} className="flex items-center gap-3 py-3 border-b border-[#e8d5c4]/60 group hover:border-[#ff8b69]/40 transition-colors">
-                                    <div className="w-7 h-7 bg-gradient-to-br from-[#ff8b69] to-[#d4a373] rounded-full flex items-center justify-center flex-shrink-0 shadow-sm group-hover:scale-110 transition-transform">
-                                        <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                                        </svg>
+                        {/* Tagline */}
+                        <p className="text-[#ff8b69] font-semibold text-base italic mb-10">
+                            Für Frauen, die wissen: Selbstpflege ist Selbstliebe – mit klar sichtbarem Ergebnis.
+                        </p>
+
+                        {/* 6 Keywords Grid */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-left">
+                            {keywords.map((kw, i) => (
+                                <div key={i} className="bg-gradient-to-br from-[#ff8b69]/10 to-[#ff8b69]/5 rounded-2xl p-4 sm:p-5 border border-[#ff8b69]/20 flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-3 hover:shadow-md transition-shadow">
+                                    <div className="w-12 h-12 sm:w-10 sm:h-10 bg-white shadow-sm rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span className="material-symbols-outlined text-[#ff8b69] text-xl sm:text-lg">{kw.icon}</span>
                                     </div>
-                                    <span className="text-[#5c4033] font-semibold text-base">{item}</span>
+                                    <span className="font-bold text-[#5c4033] text-sm md:text-[15px] leading-tight break-words hyphens-auto">{kw.label}</span>
                                 </div>
                             ))}
                         </div>
@@ -156,7 +140,7 @@ export default function AquafacialPage() {
             {/* A4 Info Image + Download */}
             <section className="py-16 bg-[#f5ebe0]">
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    {/* <h2 className="text-3xl font-bold text-[#5c4033] mb-8 font-serif">Informationsblatt</h2> */}
+                    <h2 className="text-3xl font-bold text-[#5c4033] mb-8 font-serif">Informationsblatt</h2>
                     <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#d4a373]/20 p-4">
                         <div className="relative w-full" style={{ aspectRatio: '210 / 297' }}>
                             <img

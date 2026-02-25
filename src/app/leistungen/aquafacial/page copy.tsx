@@ -43,40 +43,27 @@ export default function AquafacialPage() {
 
     return (
         <div className="min-h-screen bg-[#f5ebe0]">
-            {/* Section 1: Highlight - Hautanalyse & Glow-Technologie (Two-Column) */}
+            {/* Section 1: Highlight - Hautanalyse & Glow-Technologie */}
             <section className="pt-44 pb-12">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="bg-gradient-to-br from-white to-[#faf4ef] rounded-3xl shadow-xl border border-[#d4a373]/20 overflow-hidden">
-                        <div className="grid md:grid-cols-2 items-center">
-                            {/* Left: Text */}
-                            <div className="p-8 md:p-12">
-                                <div className="inline-flex items-center gap-2 bg-[#ff8b69]/10 text-[#ff8b69] px-5 py-2 rounded-full font-semibold text-sm mb-6 border border-[#ff8b69]/20">
-                                    <span>✨</span>
-                                    <span>Exklusives Highlight</span>
-                                </div>
-                                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#5c4033] mb-6 leading-tight">
-                                    Hautanalyse &<br />Glow-Technologie
-                                </h2>
-                                <p className="text-[#6b5344] text-lg leading-relaxed">
-                                    Starten Sie mit einer professionellen Hautanalyse – für Klarheit über Ihren Hautzustand und für gezielte & wirksame Pflege.
-                                </p>
-                            </div>
-                            {/* Right: Image */}
-                            <div className="h-64 md:h-full min-h-[320px]">
-                                <img
-                                    src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=500&fit=crop"
-                                    alt="Hautanalyse & Glow-Technologie"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="bg-gradient-to-br from-white to-[#faf4ef] rounded-3xl p-8 md:p-12 shadow-xl border border-[#d4a373]/20 text-center">
+                        <div className="inline-flex items-center gap-2 bg-[#ff8b69]/10 text-[#ff8b69] px-5 py-2 rounded-full font-semibold text-sm mb-6 border border-[#ff8b69]/20">
+                            <span>✨</span>
+                            <span>Exklusives Highlight</span>
                         </div>
+                        <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#5c4033] mb-6">
+                            Hautanalyse & Glow-Technologie
+                        </h2>
+                        <p className="text-[#6b5344] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                            Starten Sie mit einer professionellen Hautanalyse – für Klarheit über Ihren Hautzustand und für gezielte & wirksame Pflege.
+                        </p>
                     </div>
                 </div>
             </section>
 
             {/* Section 2: AQUAFACIAL Main Content */}
             <section className="pb-12">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10">
                         <h1 className="text-[#ff8b69] text-4xl md:text-6xl font-bold uppercase tracking-wide mb-4">AQUAFACIAL</h1>
                         <p className="text-[#5c4033] text-2xl md:text-3xl font-serif font-bold">
@@ -90,27 +77,22 @@ export default function AquafacialPage() {
                             Erleben Sie die <strong className="text-[#ff8b69]">10 Funktionen</strong> modernster Technologie für Ihren perfekten Glow:
                         </p>
 
-                        {/* 10 Feature Items – Elegant Two-Column List */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4 max-w-3xl mx-auto">
+                        {/* 5 Feature Items */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
                             {[
-                                "Haut Analyse",
-                                "Sanfte Exfoliation",
-                                "Tiefenreinigung",
-                                "Porenverfeinerung",
-                                "Lifting",
-                                "Straffung",
-                                "Sauerstoff-Boost",
-                                "Feuchtigkeits-Boost",
-                                "Milderung feiner Linien",
-                                "Optimierte Wirkstoffaufnahme",
+                                { icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", label: "Analyse & sanfte Exfoliation" },
+                                { icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z", label: "Tiefenreinigung & Porenverfeinerung" },
+                                { icon: "M5 10l7-7m0 0l7 7m-7-7v18", label: "Lifting & Straffung" },
+                                { icon: "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z", label: "Sauerstoff- & Feuchtigkeits-Boost" },
+                                { icon: "M13 10V3L4 14h7v7l9-11h-7z", label: "Milderung feiner Linien & optimierte Wirkstoffaufnahme" },
                             ].map((item, i) => (
-                                <div key={i} className="flex items-center gap-3 py-3 border-b border-[#e8d5c4]/60 group hover:border-[#ff8b69]/40 transition-colors">
-                                    <div className="w-7 h-7 bg-gradient-to-br from-[#ff8b69] to-[#d4a373] rounded-full flex items-center justify-center flex-shrink-0 shadow-sm group-hover:scale-110 transition-transform">
-                                        <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                <div key={i} className="bg-gradient-to-br from-[#ff8b69]/10 to-[#ff8b69]/5 rounded-2xl p-5 border border-[#ff8b69]/20 flex items-center gap-4 hover:shadow-md transition-shadow group">
+                                    <div className="w-11 h-11 bg-gradient-to-br from-[#ff8b69] to-[#d4a373] rounded-full flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform">
+                                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
                                         </svg>
                                     </div>
-                                    <span className="text-[#5c4033] font-semibold text-base">{item}</span>
+                                    <span className="font-bold text-[#5c4033] text-sm md:text-[15px] leading-snug">{item.label}</span>
                                 </div>
                             ))}
                         </div>
@@ -156,7 +138,7 @@ export default function AquafacialPage() {
             {/* A4 Info Image + Download */}
             <section className="py-16 bg-[#f5ebe0]">
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    {/* <h2 className="text-3xl font-bold text-[#5c4033] mb-8 font-serif">Informationsblatt</h2> */}
+                    <h2 className="text-3xl font-bold text-[#5c4033] mb-8 font-serif">Informationsblatt</h2>
                     <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#d4a373]/20 p-4">
                         <div className="relative w-full" style={{ aspectRatio: '210 / 297' }}>
                             <img

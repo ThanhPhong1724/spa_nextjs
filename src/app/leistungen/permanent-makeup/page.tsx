@@ -70,9 +70,9 @@ export default function PermanentMakeupPage() {
                             <h2 className="text-2xl font-bold text-[#5c4033] mb-6">Zeitlose Schönheit, jeden Tag.</h2>
                             <p className="text-[#6b5344] leading-relaxed mb-6">
                                 Wach auf und sei fertig!
-Dank 15-jähriger Expertise und kontinuierlicher Weiterbildung bieten wir dir die besten und sichersten Verfahren der Branche.
-Wir minimieren jedes Risiko und setzen auf innovative Methoden für ein täuschend echtes Finish.
-Qualität, die man sieht – präzise, langanhaltend und perfekt auf dich abgestimmt.
+                                Dank 15-jähriger Expertise und kontinuierlicher Weiterbildung bieten wir dir die besten und sichersten Verfahren der Branche.
+                                Wir minimieren jedes Risiko und setzen auf innovative Methoden für ein täuschend echtes Finish.
+                                Qualität, die man sieht – präzise, langanhaltend und perfekt auf dich abgestimmt.
                             </p>
                             <ul className="text-[#6b5344] leading-relaxed space-y-2">
                                 <li className="flex items-start gap-2">
@@ -168,6 +168,33 @@ Qualität, die man sieht – präzise, langanhaltend und perfekt auf dich abgest
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* A4 Info Image + Download */}
+            <section className="py-16 bg-[#f5ebe0]">
+                <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 className="text-3xl font-bold text-[#5c4033] mb-8 font-serif">Informationsblatt</h2>
+                    <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#d4a373]/20 p-4">
+                        <div className="relative w-full" style={{ aspectRatio: '210 / 297' }}>
+                            <img
+                                src="/images/permanent-makeup-info.jpg"
+                                alt="Permanent Make Up – Informationsblatt"
+                                className="w-full h-full object-contain rounded-xl"
+                                onError={(e) => { (e.target as HTMLImageElement).src = 'https://placehold.co/630x891/f5ebe0/5c4033?text=Permanent+Make+Up%0AInformationsblatt%0A(A4)'; }}
+                            />
+                        </div>
+                    </div>
+                    <a
+                        href="/images/permanent-makeup-info.jpg"
+                        download="Permanent-MakeUp-Informationsblatt.jpg"
+                        className="inline-flex items-center gap-2 mt-8 bg-gradient-to-r from-[#ff8b69] to-[#d4a373] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Download
+                    </a>
                 </div>
             </section>
 
