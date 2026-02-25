@@ -97,7 +97,7 @@ const faqs: { question: string, answer: React.ReactNode }[] = [
 
 export default function KopfhautPflegePage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
-    const [heroTitle] = useState("INNOVATIVES TREATMENTS");
+    const [heroTitle] = useState("INNOVATIVE TREATMENTS");
     const [videoUrl] = useState("https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4");
     const [typewriterText] = useState("Entspannung für Körper und Geist");
 
@@ -107,7 +107,7 @@ export default function KopfhautPflegePage() {
             <section className="pt-44 pb-4">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-[#ff8b69] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide">
-                        <span className="block sm:inline">INNOVATIVES</span>{" "}
+                        <span className="block sm:inline">INNOVATIVE</span>{" "}
                         <span className="block sm:inline">TREATMENTS</span>
                     </h1>
                 </div>

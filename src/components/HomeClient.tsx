@@ -236,7 +236,7 @@ export default function HomeClient({ content }: HomeClientProps) {
                             {t("studio.title")}
                         </h2>
                         <p className="text-[#6b5344] mt-6 max-w-3xl mx-auto leading-relaxed text-lg">
-                            Mit 15 HOME Jahren Erfahrung und kontinuierlicher Weiterbildung gewährleisten wir höchste Qualität und herausragende Ergebnisse. <br /> Genießen Sie den einzigartigen Service in einem Ambiente, das Ihnen ein Lächeln ins Gesicht zaubert.
+                            Mit 15 Jahren Erfahrung und kontinuierlicher Weiterbildung gewährleisten wir höchste Qualität und herausragende Ergebnisse. <br /> Genießen Sie den einzigartigen Service in einem Ambiente, das Ihnen ein Lächeln ins Gesicht zaubert.
                         </p>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

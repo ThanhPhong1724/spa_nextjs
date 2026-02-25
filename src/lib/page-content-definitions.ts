@@ -33,7 +33,7 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
                 fields: [
                     { name: "address", label: "Address", type: "text", defaultValue: "Dotzheimerstr. 68 65197 Wiesbaden" },
                     { name: "phone", label: "Phone Number", type: "text", defaultValue: "0163 8562022" },
-                    { name: "email", label: "Email Address", type: "text", defaultValue: "info@smiling-studio.de" },
+                    { name: "email", label: "Email Address", type: "text", defaultValue: "info@smilingstudio.de" },
                     { name: "whatsapp", label: "WhatsApp Number", type: "text", defaultValue: "0163 8562022" },
                 ]
             },

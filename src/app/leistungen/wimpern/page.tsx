@@ -130,7 +130,7 @@ export default function WimpernPage() {
             {/* A4 Info Image + Download */}
             <section className="py-16 bg-[#f5ebe0]">
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl font-bold text-[#5c4033] mb-8 font-serif">Informationsblatt</h2>
+
                     <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#d4a373]/20 p-4">
                         <div className="relative w-full" style={{ aspectRatio: '210 / 297' }}>
                             <img

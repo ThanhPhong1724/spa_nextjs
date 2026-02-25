@@ -97,7 +97,7 @@ const faqs: { question: string, answer: React.ReactNode }[] = [
 
 export default function KopfhautPflegePage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
-    const [heroTitle] = useState("INNOVATIVES TREATMENTS");
+    const [heroTitle] = useState("INNOVATIVE TREATMENTS");
     const [videoUrl] = useState("https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4");
     const [typewriterText] = useState("Entspannung für Körper und Geist");
 
@@ -107,7 +107,7 @@ export default function KopfhautPflegePage() {
             <section className="pt-44 pb-4">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-[#ff8b69] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide">
-                        <span className="block sm:inline">INNOVATIVES</span>{" "}
+                        <span className="block sm:inline">INNOVATIVE</span>{" "}
                         <span className="block sm:inline">TREATMENTS</span>
                     </h1>
                 </div>
@@ -123,7 +123,7 @@ export default function KopfhautPflegePage() {
                             Erlebe eine einzigartige Kombination aus kraftvoller Oxygen-Power, hochwirksamen EMS-Nano-Crystals und Licht Therapie, die deine Pflege auf ein neues Level hebt <br /> <strong> für unreine Haut, vitale Kopfhaut und unterstütztes Haarwachstum.</strong>
                         </p>
                         <div className="mt-6 flex justify-center">
-                            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#ff8b69] to-[#d4a373] text-white px-6 py-2.5 rounded-full font-bold shadow-md shadow-[#ff8b69]/20 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+                            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#ff8b69] to-[#d4a373] text-white px-6 py-2.5 rounded-full font-bold shadow-md shadow-[#ff8b69]/20">
                                 <svg className="w-5 h-5 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                                 </svg>

@@ -37,7 +37,7 @@ const defaultImages = {
 const defaultTitles = {
     de: {
         headspa: "HEADSPA",
-        kopfhautpflege: "INNOVATIVES TREATMENTS",
+        kopfhautpflege: "INNOVATIVE TREATMENTS",
         aquafacial: "AQUAFACIAL",
         permanent: "PERMANENT MAKE UP",
         nails: "NAILS",
