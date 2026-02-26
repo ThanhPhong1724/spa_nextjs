@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import { revalidateTag } from "next/cache";
 
 // Force dynamic rendering - no caching
 export const dynamic = 'force-dynamic';
@@ -81,6 +82,14 @@ export async function POST(request: Request) {
                 content: JSON.stringify(content),
             },
         });
+
+        // Invalidate server-side cache so pages reflect changes immediately
+        try {
+            // @ts-expect-error - Next.js 16.1.1 beta type mismatch
+            revalidateTag('page-content');
+        } catch (e) {
+            // Cache revalidation is best-effort
+        }
 
         return NextResponse.json(updatedContent);
     } catch (error) {

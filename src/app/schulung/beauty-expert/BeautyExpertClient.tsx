@@ -1,13 +1,14 @@
 "use client";
 
 import Link from 'next/link';
+import { usePageContent } from "@/hooks/usePageContent";
 
 const courseInfo = {
     id: "beauty-expert",
     name: "Head-to-Toe Beauty Expert",
     subtitle: "Pediküre, Head Spa & Wimpernverlängerung",
     duration: "7 Tage Intensiv",
-    image: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&h=500&fit=crop"
+    defaultImage: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&h=500&fit=crop"
 };
 
 // SVG Icons
@@ -49,6 +50,8 @@ const modules = [
 ];
 
 export default function BeautyExpertClient() {
+    const { content: pageContent } = usePageContent("schulung_beauty_page");
+    const heroImage = pageContent?.hero?.image || courseInfo.defaultImage;
 
     return (
         <main className="pt-24 bg-[#f5ebe0]">
@@ -67,7 +70,7 @@ export default function BeautyExpertClient() {
                     <div className="grid md:grid-cols-2 gap-12 items-start">
                         <div>
                             <img
-                                src={courseInfo.image}
+                                src={heroImage}
                                 alt="Beauty Expert Kurs"
                                 className="rounded-2xl shadow-lg w-full"
                             />

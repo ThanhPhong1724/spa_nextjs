@@ -1,12 +1,13 @@
 "use client";
 
 import Link from 'next/link';
+import { usePageContent } from "@/hooks/usePageContent";
 
 const courseInfo = {
     id: "gruender-programm",
     name: "Studio Business Mastery",
     duration: "3 Tag",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop"
+    defaultImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop"
 };
 
 // SVG Icon components
@@ -69,6 +70,8 @@ const benefits = [
 ];
 
 export default function GruenderClient() {
+    const { content: pageContent } = usePageContent("schulung_business_page");
+    const heroImage = pageContent?.hero?.image || courseInfo.defaultImage;
 
     return (
         <main className="pt-24 bg-[#f5ebe0]">
@@ -87,7 +90,7 @@ export default function GruenderClient() {
                     <div className="grid md:grid-cols-2 gap-12 items-start">
                         <div>
                             <img
-                                src={courseInfo.image}
+                                src={heroImage}
                                 alt="Gründerprogramm"
                                 className="rounded-2xl shadow-lg w-full"
                             />

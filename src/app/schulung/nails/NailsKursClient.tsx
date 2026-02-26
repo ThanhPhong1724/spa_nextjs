@@ -1,12 +1,13 @@
 "use client";
 
 import Link from 'next/link';
+import { usePageContent } from "@/hooks/usePageContent";
 
 const courseInfo = {
     id: "nails-kurs",
     name: "Nails Profi-Kurs",
     duration: "2 Kursstufen – zeitlich flexibel nach deinen Bedürfnissen",
-    image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=500&fit=crop"
+    defaultImage: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=500&fit=crop"
 };
 
 const faqs = [
@@ -48,6 +49,9 @@ const faqs = [
 ];
 
 export default function NailsKursClient() {
+    const { content: pageContent } = usePageContent("schulung_nails_page");
+    const heroImage = pageContent?.hero?.image || courseInfo.defaultImage;
+    const extraImage = pageContent?.hero?.extra_image || "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800&h=400&fit=crop";
 
     return (
         <main className="pt-24 bg-[#f5ebe0]">
@@ -66,12 +70,12 @@ export default function NailsKursClient() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
                             <img
-                                src={courseInfo.image}
+                                src={heroImage}
                                 alt="Nails Kurs"
                                 className="rounded-2xl shadow-lg w-full"
                             />
                             <img
-                                src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800&h=400&fit=crop"
+                                src={extraImage}
                                 alt="Nails Praxis"
                                 className="rounded-2xl shadow-lg w-full mt-4"
                             />

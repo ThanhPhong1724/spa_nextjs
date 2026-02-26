@@ -36,39 +36,47 @@ function RevealOnScroll({ children, delay = 0, className = "" }: { children: Rea
     );
 }
 
-// Typewriter Effect Component
+// Typewriter Effect Component - uses ref to avoid hydration/browser-extension conflicts
 function TypeWriter({ text, className = "" }: { text: string; className?: string }) {
-    const [displayText, setDisplayText] = useState("");
-    const [isDeleting, setIsDeleting] = useState(false);
+    const textRef = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
-        const typeSpeed = isDeleting ? 50 : 100;
-        const pauseTime = isDeleting ? 500 : 2000;
+        let displayText = "";
+        let isDeleting = false;
+        let timeoutId: ReturnType<typeof setTimeout>;
 
-        if (!isDeleting && displayText === text) {
-            // Finished typing, wait then start deleting
-            const timeout = setTimeout(() => setIsDeleting(true), pauseTime);
-            return () => clearTimeout(timeout);
-        } else if (isDeleting && displayText === "") {
-            // Finished deleting, start typing again
-            const timeout = setTimeout(() => setIsDeleting(false), pauseTime);
-            return () => clearTimeout(timeout);
+        function tick() {
+            const typeSpeed = isDeleting ? 50 : 100;
+            const pauseTime = isDeleting ? 500 : 2000;
+
+            if (!isDeleting && displayText === text) {
+                timeoutId = setTimeout(() => { isDeleting = true; tick(); }, pauseTime);
+                return;
+            } else if (isDeleting && displayText === "") {
+                timeoutId = setTimeout(() => { isDeleting = false; tick(); }, pauseTime);
+                return;
+            }
+
+            if (isDeleting) {
+                displayText = text.substring(0, displayText.length - 1);
+            } else {
+                displayText = text.substring(0, displayText.length + 1);
+            }
+
+            if (textRef.current) {
+                textRef.current.textContent = displayText;
+            }
+
+            timeoutId = setTimeout(tick, typeSpeed);
         }
 
-        const timeout = setTimeout(() => {
-            if (isDeleting) {
-                setDisplayText(text.substring(0, displayText.length - 1));
-            } else {
-                setDisplayText(text.substring(0, displayText.length + 1));
-            }
-        }, typeSpeed);
-
-        return () => clearTimeout(timeout);
-    }, [displayText, isDeleting, text]);
+        tick();
+        return () => clearTimeout(timeoutId);
+    }, [text]);
 
     return (
-        <span className={className}>
-            {displayText}
+        <span className={className} suppressHydrationWarning>
+            <span ref={textRef} suppressHydrationWarning></span>
             <span className="animate-pulse">|</span>
         </span>
     );
@@ -131,19 +139,11 @@ type HomeClientProps = {
 export default function HomeClient({ content }: HomeClientProps) {
     const { language, t } = useLanguage();
     const servicesContent = content?.services_section || {};
-    const services = servicesData[language].map((service, index) => {
-        // Map index to specific dynamic keys
-        let dynamicImage = service.image; // default
-        if (index === 0) dynamicImage = servicesContent.headspa || service.image;
-        if (index === 1) dynamicImage = servicesContent.permanent || service.image;
-        if (index === 2) dynamicImage = servicesContent.nails || service.image;
-        if (index === 3) dynamicImage = servicesContent.lashes || service.image;
-
-        return {
-            ...service,
-            image: dynamicImage
-        };
-    });
+    const imageKeys = ['innovative', 'aquafacial', 'headspa', 'permanent', 'nails', 'lashes'];
+    const services = servicesData[language].map((service, index) => ({
+        ...service,
+        image: servicesContent[imageKeys[index]] || service.image
+    }));
     const reviews = reviewsData[language];
 
     // Dynamic Content with Fallbacks
@@ -171,7 +171,7 @@ export default function HomeClient({ content }: HomeClientProps) {
     return (
         <div className="min-h-screen">
             {/* Hero Section with Video */}
-            <section className="relative w-full h-screen min-h-[700px] overflow-hidden">
+            <section className="relative w-full h-[100svh] min-h-[500px] md:min-h-[700px] overflow-hidden">
                 {/* Video Background */}
                 <video
                     autoPlay
@@ -179,7 +179,8 @@ export default function HomeClient({ content }: HomeClientProps) {
                     muted
                     playsInline
                     preload="none"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    suppressHydrationWarning
                 >
                     <source src={heroVideo} type="video/mp4" />
                 </video>
@@ -189,8 +190,8 @@ export default function HomeClient({ content }: HomeClientProps) {
 
                 {/* Content - Positioned lower to not cover video focus */}
                 <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end items-start pb-32">
-                    <div className="max-w-2xl">
-                        <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-6 whitespace-nowrap">
+                    <div className="w-full">
+                        <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6 md:whitespace-nowrap">
                             <TypeWriter text="Willkommen bei Smiling Studio" />
                         </h1>
                         {/* <p className="text-xl md:text-2xl text-[#d4a373] font-medium mb-8 leading-relaxed">

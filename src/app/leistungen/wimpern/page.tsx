@@ -2,85 +2,53 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
-const getServices = (verlangerungImage: string, welleImage: string) => [
-    {
-        title: "Wimpernverlängerung",
-        description: "Typgerechte Wimpernverlängerung für mehr Volumen und einen frischen, eleganten Blick.",
-        image: verlangerungImage || "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop"
-    },
-    {
-        title: "Wimpernwelle (Wimpernlifting)",
-        description: "Ideal bei langen Naturwimpern: Ein Lifting, das ohne Wimpernzange auskommt und eure natürliche Schönheit betont.",
-        image: welleImage || "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop"
-    }
-];
-
-const faqs = [
-    {
-        question: "Warum sollten Sie unser Studio wählen?",
-        answer: "Über 10 Jahre Erfahrung, eine große Auswahl an ultrafeinen bis modischen Wimpernarten, sorgfältige Beratung zur passenden Augenform und Technik, die Ihre Naturwimpern schützt. Bei uns gilt: schön, leicht und haltbar – aber niemals schädlich für Ihre echten Wimpern."
-    },
-    {
-        question: "Was macht eine gute Wimpernverlängerung aus?",
-        answer: "Eine hochwertige Verlängerung ist: schön geformt, leicht und reizfrei, sieht auch nach 3–4 Wochen noch ordentlich aus – nicht chaotisch, ca. 50% bleiben erhalten, und das Wichtigste: Ihre Naturwimpern bleiben gesund und unbeschädigt."
-    },
-    {
-        question: "Wie entferne ich Wimpernverlängerungen richtig?",
-        answer: "Nicht selbst ziehen! Wir nutzen einen professionellen Remover, der den Kleber sanft auflöst – schnell, ohne Reizung und ohne Verlust der Naturwimpern."
-    },
-    {
-        question: "Brauche ich Mascara bei Extensions?",
-        answer: "Nein. Mascara verklebt die Extensions und beim Abschminken wird die Klebequalität beeinträchtigt, wodurch sowohl die Haltbarkeit als auch die Form der Wimpern beeinflusst werden."
-    },
-    {
-        question: "Wie lange hält eine Wimpernwelle (Wimpernlifting)?",
-        answer: "Eine Wimpernwelle hält im Durchschnitt ca. 4 Wochen, je nach Haarstruktur und Pflege."
-    }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function WimpernPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
-    const [menuImage, setMenuImage] = useState<string | null>(null);
+    const [infoSheetImage, setInfoSheetImage] = useState("/images/wimpern-info.jpg");
     const [heroTitle, setHeroTitle] = useState("WIMPERN");
     const [verlangerungImage, setVerlangerungImage] = useState("");
     const [welleImage, setWelleImage] = useState("");
+    const { t } = useLanguage();
 
     useEffect(() => {
         fetch("/api/page-content?pageKey=wimpern_page")
             .then(res => res.json())
             .then(data => {
                 if (data.hero?.title_de) setHeroTitle(data.hero.title_de);
-                if (data.menu_image?.image) setMenuImage(data.menu_image.image);
+                if (data.info_sheet?.image) setInfoSheetImage(data.info_sheet.image);
                 if (data.service_images?.verlangerung_image) setVerlangerungImage(data.service_images.verlangerung_image);
                 if (data.service_images?.welle_image) setWelleImage(data.service_images.welle_image);
             })
             .catch(() => { });
     }, []);
 
-    const services = getServices(verlangerungImage, welleImage);
+    const services = [
+        { title: t("wimpern.s1_title"), description: t("wimpern.s1_desc"), image: verlangerungImage || "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop" },
+        { title: t("wimpern.s2_title"), description: t("wimpern.s2_desc"), image: welleImage || "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop" },
+    ];
+
+    const faqs = Array.from({ length: 5 }, (_, i) => ({
+        question: t(`wimpern.faq_q${i + 1}`),
+        answer: t(`wimpern.faq_a${i + 1}`),
+    }));
 
     return (
         <div className="min-h-screen bg-[#f5ebe0]">
-            {/* Hero - Coral Theme */}
             <section className="pt-44 pb-4">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-[#ff8b69] text-4xl md:text-5xl font-bold uppercase tracking-wide">{heroTitle}</h1>
                 </div>
             </section>
 
-            {/* Services */}
             <section className="pt-13 pb-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
                         {services.map((service) => (
                             <div key={service.title} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group">
                                 <div className="h-48 overflow-hidden">
-                                    <img
-                                        src={service.image}
-                                        alt={service.title}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                    />
+                                    <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                                 </div>
                                 <div className="p-6">
                                     <h3 className="text-2xl font-bold text-[#ff8b69] mb-2">{service.title}</h3>
@@ -92,31 +60,17 @@ export default function WimpernPage() {
                 </div>
             </section>
 
-            {/* FAQ Section */}
             <section className="py-16 bg-white">
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl font-bold text-[#ff8b69] text-center mb-8">
-                        Häufig gestellte Fragen
-                    </h2>
+                    <h2 className="text-4xl font-bold text-[#ff8b69] text-center mb-8">{t("common.faq_title")}</h2>
                     <div className="space-y-4">
                         {faqs.map((faq, index) => (
-                            <div
-                                key={index}
-                                className="bg-white rounded-xl overflow-hidden shadow-sm border border-[#ff8b69]/20 transition-all hover:shadow-md"
-                            >
-                                <button
-                                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                                    className={`w-full px-6 py-4 flex items-center justify-between text-left transition-colors duration-300 ${openFaq === index ? "bg-[#e8d5c4]" : "bg-white hover:bg-[#faf4ef]"
-                                        }`}
-                                >
+                            <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm border border-[#ff8b69]/20 transition-all hover:shadow-md">
+                                <button onClick={() => setOpenFaq(openFaq === index ? null : index)} className={`w-full px-6 py-4 flex items-center justify-between text-left transition-colors duration-300 ${openFaq === index ? "bg-[#e8d5c4]" : "bg-white hover:bg-[#faf4ef]"}`}>
                                     <span className="font-bold text-[#5c4033]">{faq.question}</span>
-                                    <span className={`material-symbols-outlined transition-transform duration-300 flex-shrink-0 ${openFaq === index ? "rotate-180 text-[#5c4033]" : "text-[#ff8b69]"
-                                        }`}>
-                                        expand_more
-                                    </span>
+                                    <span className={`material-symbols-outlined transition-transform duration-300 flex-shrink-0 ${openFaq === index ? "rotate-180 text-[#5c4033]" : "text-[#ff8b69]"}`}>expand_more</span>
                                 </button>
-                                <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openFaq === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                                    }`}>
+                                <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openFaq === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
                                     <div className="px-6 py-4 border-t border-[#ff8b69]/10">
                                         <p className="text-[#6b5344] leading-relaxed">{faq.answer}</p>
                                     </div>
@@ -127,33 +81,19 @@ export default function WimpernPage() {
                 </div>
             </section>
 
-            {/* A4 Info Image + Download */}
             <section className="py-16 bg-[#f5ebe0]">
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
                     <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#d4a373]/20 p-4">
                         <div className="relative w-full" style={{ aspectRatio: '210 / 297' }}>
-                            <img
-                                src="/images/wimpern-info.jpg"
-                                alt="Wimpern – Informationsblatt"
-                                className="w-full h-full object-contain rounded-xl"
-                                onError={(e) => { (e.target as HTMLImageElement).src = 'https://placehold.co/630x891/f5ebe0/5c4033?text=Wimpern%0AInformationsblatt%0A(A4)'; }}
-                            />
+                            <img src={infoSheetImage} alt="Wimpern – Informationsblatt" className="w-full h-full object-contain rounded-xl" onError={(e) => { (e.target as HTMLImageElement).src = 'https://placehold.co/630x891/f5ebe0/5c4033?text=Wimpern%0AInformationsblatt%0A(A4)'; }} />
                         </div>
                     </div>
-                    <a
-                        href="/images/wimpern-info.jpg"
-                        download="Wimpern-Informationsblatt.jpg"
-                        className="inline-flex items-center gap-2 mt-8 bg-gradient-to-r from-[#ff8b69] to-[#d4a373] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-                    >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                        </svg>
-                        Download
+                    <a href={infoSheetImage} download="Wimpern-Informationsblatt.jpg" className="inline-flex items-center gap-2 mt-8 bg-gradient-to-r from-[#ff8b69] to-[#d4a373] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                        {t("common.download")}
                     </a>
                 </div>
             </section>
-
         </div>
     );
 }

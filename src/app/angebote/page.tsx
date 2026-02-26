@@ -4,7 +4,7 @@ import AngeboteClient from "@/components/AngeboteClient";
 
 
 export default async function AngebotePage() {
-    const content = await getPageContent("offers_page");
+    const content = await getPageContent("angebote_page");
 
     return <AngeboteClient content={content} />;
 }

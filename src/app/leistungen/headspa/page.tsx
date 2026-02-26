@@ -1,39 +1,50 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-// Typewriter Effect Component
+// Typewriter Effect Component - uses ref to avoid hydration/browser-extension conflicts
 function TypeWriter({ text, className = "" }: { text: string; className?: string }) {
-    const [displayText, setDisplayText] = useState("");
-    const [isDeleting, setIsDeleting] = useState(false);
+    const textRef = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
-        const typeSpeed = isDeleting ? 50 : 100;
-        const pauseTime = isDeleting ? 500 : 2000;
+        let displayText = "";
+        let isDeleting = false;
+        let timeoutId: ReturnType<typeof setTimeout>;
 
-        if (!isDeleting && displayText === text) {
-            const timeout = setTimeout(() => setIsDeleting(true), pauseTime);
-            return () => clearTimeout(timeout);
-        } else if (isDeleting && displayText === "") {
-            const timeout = setTimeout(() => setIsDeleting(false), pauseTime);
-            return () => clearTimeout(timeout);
+        function tick() {
+            const typeSpeed = isDeleting ? 50 : 100;
+            const pauseTime = isDeleting ? 500 : 2000;
+
+            if (!isDeleting && displayText === text) {
+                timeoutId = setTimeout(() => { isDeleting = true; tick(); }, pauseTime);
+                return;
+            } else if (isDeleting && displayText === "") {
+                timeoutId = setTimeout(() => { isDeleting = false; tick(); }, pauseTime);
+                return;
+            }
+
+            if (isDeleting) {
+                displayText = text.substring(0, displayText.length - 1);
+            } else {
+                displayText = text.substring(0, displayText.length + 1);
+            }
+
+            if (textRef.current) {
+                textRef.current.textContent = displayText;
+            }
+
+            timeoutId = setTimeout(tick, typeSpeed);
         }
 
-        const timeout = setTimeout(() => {
-            if (isDeleting) {
-                setDisplayText(text.substring(0, displayText.length - 1));
-            } else {
-                setDisplayText(text.substring(0, displayText.length + 1));
-            }
-        }, typeSpeed);
-
-        return () => clearTimeout(timeout);
-    }, [displayText, isDeleting, text]);
+        tick();
+        return () => clearTimeout(timeoutId);
+    }, [text]);
 
     return (
-        <span className={className}>
-            {displayText}
+        <span className={className} suppressHydrationWarning>
+            <span ref={textRef} suppressHydrationWarning></span>
             <span className="animate-pulse">|</span>
         </span>
     );
@@ -46,48 +57,12 @@ const SpaIcon = () => (
     </svg>
 );
 
-// ===== RELAX & GLOW PACKAGES (with images) =====
-const getRelaxGlowPackages = (packageImages: string[]) => [
-    {
-        name: "Signature Asian Head Calm",
-        description: "Durch die gezielte Stimulation traditioneller Druckpunkte lösen wir tief sitzende Blockaden und Verspannungen. Ideal für Stressabbau, mentale Klarheit und ganzheitliches Wohlbefinden.",
-        image: packageImages[0] || "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop"
-    },
-    {
-        name: "Headspa Essential (60 Min.)",
-        description: "Basispaket mit Kopfhautpflege, Kopfmassage, Haarsauna und Dekolleté-Massage – für ganzheitliche Entspannung und Pflege.",
-        image: packageImages[1] || "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop"
-    },
-    {
-        name: "Headspa Deluxe (90 Min.)",
-        description: "Inklusive Hot-Stone-Nackenmassage, Gesichts-Tiefenreinigung und Lichttherapie für Klärung und Regeneration der Haut.",
-        image: packageImages[2] || "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&h=400&fit=crop"
-    },
-    {
-        name: "Headspa Together",
-        description: "Gemeinsam entspannen und genießen – das Headspa-Erlebnis für zwei, ob Freundinnen, Mutter & Tochter oder als Paar.",
-        image: packageImages[4] || "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=400&fit=crop"
-    }
-];
-
-// ===== FAQ =====
-const faqs = [
-    {
-        question: "Warum unser Headspa?",
-        answer: "Ein exklusives, ganzheitliches Headspa-Konzept – von professioneller Kopfhautpflege bis zu tiefgehender Entspannung in stilvollem Ambiente, auch als Erlebnis für zwei."
-    },
-    {
-        question: "Was macht unsere Kopfmassage besonders?",
-        answer: "Unsere Kopfmassage folgt den Prinzipien der asiatischen Naturheilkunde und verbindet achtsame Berührungen mit gezielten Druckpunkten – für spürbare Entspannung und neues inneres Gleichgewicht."
-    }
-];
-
 export default function HeadspaPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
     const [heroTitle, setHeroTitle] = useState("HEADSPA");
     const [videoUrl, setVideoUrl] = useState("https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4");
-    const [typewriterText, setTypewriterText] = useState("Entspannung für Körper und Geist");
     const [packageImages, setPackageImages] = useState<string[]>([]);
+    const { t } = useLanguage();
 
     // Fetch CMS content
     useEffect(() => {
@@ -96,14 +71,12 @@ export default function HeadspaPage() {
             .then(data => {
                 if (data.hero?.title_de) setHeroTitle(data.hero.title_de);
                 if (data.hero?.video_url) setVideoUrl(data.hero.video_url);
-                if (data.hero?.typewriter_text_de) setTypewriterText(data.hero.typewriter_text_de);
                 if (data.package_images) {
                     const images = [
                         data.package_images.package1_image,
                         data.package_images.package2_image,
                         data.package_images.package3_image,
                         data.package_images.package4_image,
-                        data.package_images.package5_image,
                     ].filter(Boolean);
                     setPackageImages(images);
                 }
@@ -111,7 +84,33 @@ export default function HeadspaPage() {
             .catch((err) => console.error('Fetch error:', err));
     }, []);
 
-    const relaxGlowPackages = getRelaxGlowPackages(packageImages);
+    const relaxGlowPackages = [
+        {
+            name: t("headspa.pkg1_name"),
+            description: t("headspa.pkg1_desc"),
+            image: packageImages[0] || "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop"
+        },
+        {
+            name: t("headspa.pkg2_name"),
+            description: t("headspa.pkg2_desc"),
+            image: packageImages[1] || "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop"
+        },
+        {
+            name: t("headspa.pkg3_name"),
+            description: t("headspa.pkg3_desc"),
+            image: packageImages[2] || "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&h=400&fit=crop"
+        },
+        {
+            name: t("headspa.pkg4_name"),
+            description: t("headspa.pkg4_desc"),
+            image: packageImages[3] || "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=400&fit=crop"
+        }
+    ];
+
+    const faqs = Array.from({ length: 2 }, (_, i) => ({
+        question: t(`headspa.faq_q${i + 1}`),
+        answer: t(`headspa.faq_a${i + 1}`),
+    }));
 
     return (
         <div className="min-h-screen bg-[#f5ebe0]">
@@ -138,7 +137,7 @@ export default function HeadspaPage() {
                         </video>
                         <div className="absolute inset-0 bg-gradient-to-t from-[#5c4033]/80 to-transparent flex items-end justify-center pb-8">
                             <p className="text-white text-xl md:text-4xl font-medium text-center px-4">
-                                <TypeWriter text={typewriterText} />
+                                <TypeWriter text={t("headspa.typewriter")} />
                             </p>
                         </div>
                     </div>
@@ -172,7 +171,7 @@ export default function HeadspaPage() {
             <section className="py-16 bg-white">
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-4xl font-bold text-[#ff8b69] text-center mb-8">
-                        Häufig gestellte Fragen
+                        {t("common.faq_title")}
                     </h2>
                     <div className="space-y-4">
                         {faqs.map((faq, index) => (

@@ -26,18 +26,20 @@ export default function NewsDetailContent({ post }: { post: Post }) {
     return (
         <div className="min-h-screen pb-16 bg-[#f5ebe0]">
             {/* Hero */}
-            <div className="relative h-[400px] w-full">
+            <div className="relative h-[450px] w-full flex items-center justify-center mt-20 md:mt-0">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url('${post.image}')` }}
                 />
-                <div className="absolute inset-0 bg-[#5c4033]/60" />
-                <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 text-white max-w-4xl mx-auto">
-                    <div className="flex items-center gap-4 mb-4 text-sm font-bold uppercase tracking-widest">
-                        <span className="bg-[#d4a373] text-white px-3 py-1 rounded-full">{post.category}</span>
-                        <span>{format(new Date(post.createdAt), "MMM d, yyyy")}</span>
+                <div className="absolute inset-0 bg-gradient-to-b from-[#5c4033]/80 via-[#5c4033]/50 to-[#5c4033]/80" />
+                <div className="relative z-10 w-full px-6 pt-24 md:pt-32 pb-12 text-white max-w-5xl mx-auto text-center flex flex-col items-center">
+                    <div className="flex items-center justify-center gap-4 mb-6 text-sm font-bold uppercase tracking-widest">
+                        <span className="bg-[#d4a373] text-white px-4 py-1.5 rounded-full shadow-lg">{post.category}</span>
+                        <span className="text-[#e2bca8] drop-shadow-md">{format(new Date(post.createdAt), "MMM d, yyyy")}</span>
                     </div>
-                    <h1 className="text-3xl md:text-5xl font-bold leading-tight">{displayTitle}</h1>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-xl text-white">
+                        {displayTitle}
+                    </h1>
                 </div>
             </div>
 

@@ -101,8 +101,10 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
             {
                 key: "services_section",
                 label: "Services Images",
-                description: "The background images for the 4 service cards.",
+                description: "The background images for the 6 service cards on the home page.",
                 fields: [
+                    { name: "innovative", label: "Innovative Treatments Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&h=400&fit=crop" },
+                    { name: "aquafacial", label: "Aquafacial Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop" },
                     { name: "headspa", label: "Headspa Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop" },
                     { name: "permanent", label: "Permanent Make Up Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop" },
                     { name: "nails", label: "Nails Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop" },
@@ -118,8 +120,18 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
             {
                 key: "service_cards",
                 label: "Service Cards",
-                description: "Manage images and titles for the service cards on the main Services page.",
+                description: "Manage images and titles for the 7 service cards on the main Services page.",
                 fields: [
+                    // Innovative Treatments (Kopfhautpflege)
+                    { name: "kopfhautpflege_image", label: "Innovative Treatments Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&h=400&fit=crop" },
+                    { name: "kopfhautpflege_title_de", label: "Innovative Treatments Title (DE)", type: "text", defaultValue: "INNOVATIVE TREATMENTS" },
+                    { name: "kopfhautpflege_title_en", label: "Innovative Treatments Title (EN)", type: "text", defaultValue: "SCALP & SKIN CARE" },
+
+                    // Aquafacial
+                    { name: "aquafacial_image", label: "Aquafacial Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop" },
+                    { name: "aquafacial_title_de", label: "Aquafacial Title (DE)", type: "text", defaultValue: "AQUAFACIAL" },
+                    { name: "aquafacial_title_en", label: "Aquafacial Title (EN)", type: "text", defaultValue: "AQUAFACIAL" },
+
                     // Headspa
                     { name: "headspa_image", label: "Headspa Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop" },
                     { name: "headspa_title_de", label: "Headspa Title (DE)", type: "text", defaultValue: "HEADSPA" },
@@ -162,53 +174,6 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
             }
         ]
     },
-    offers_page: {
-        key: "offers_page",
-        label: "Offers (Angebote)",
-        sections: [
-            {
-                key: "offer_1",
-                label: "Offer Card 1",
-                fields: [
-                    { name: "visible", label: "Show this offer?", type: "boolean", defaultValue: "true" },
-                    { name: "valid_until", label: "Valid Until", type: "text", defaultValue: "31.03.2025" },
-                    { name: "title_de", label: "Title (DE)", type: "text", defaultValue: "Headspa + Wimpern Kombi" },
-                    { name: "title_en", label: "Title (EN)", type: "text", defaultValue: "Headspa + Lashes Combo" },
-                    { name: "desc_de", label: "Description (DE)", type: "textarea", defaultValue: "Komplette Entspannung mit Headspa und Wimpernverlängerung" },
-                    { name: "desc_en", label: "Description (EN)", type: "textarea", defaultValue: "Complete relaxation with headspa and lash extensions" },
-                    { name: "old_price", label: "Old Price (e.g. 180€)", type: "text", defaultValue: "180€" },
-                    { name: "new_price", label: "New Price (e.g. 150€)", type: "text", defaultValue: "150€" },
-                ]
-            },
-            {
-                key: "offer_2",
-                label: "Offer Card 2",
-                fields: [
-                    { name: "visible", label: "Show this offer?", type: "boolean", defaultValue: "true" },
-                    { name: "valid_until", label: "Valid Until", type: "text", defaultValue: "28.02.2025" },
-                    { name: "title_de", label: "Title (DE)", type: "text", defaultValue: "Nageldesign Aktion" },
-                    { name: "title_en", label: "Title (EN)", type: "text", defaultValue: "Nail Design Special" },
-                    { name: "desc_de", label: "Description (DE)", type: "textarea", defaultValue: "Maniküre mit Gel-Lack inklusive Design" },
-                    { name: "desc_en", label: "Description (EN)", type: "textarea", defaultValue: "Manicure with gel polish including design" },
-                    { name: "old_price", label: "Old Price", type: "text", defaultValue: "65€" },
-                    { name: "new_price", label: "New Price", type: "text", defaultValue: "50€" },
-                ]
-            },
-            {
-                key: "offer_3",
-                label: "Offer Card 3",
-                fields: [
-                    { name: "visible", label: "Show this offer?", type: "boolean", defaultValue: "true" },
-                    { name: "valid_until", label: "Valid Until", type: "text", defaultValue: "Unbegrenzt" },
-                    { name: "title_de", label: "Title (DE)", type: "text", defaultValue: "Neukundenrabatt" },
-                    { name: "title_en", label: "Title (EN)", type: "text", defaultValue: "New Customer Discount" },
-                    { name: "desc_de", label: "Description (DE)", type: "textarea", defaultValue: "10% Rabatt auf die erste Behandlung" },
-                    { name: "desc_en", label: "Description (EN)", type: "textarea", defaultValue: "10% off your first treatment" },
-                    { name: "discount", label: "Discount Display (e.g. 10%)", type: "text", defaultValue: "10%" },
-                ]
-            }
-        ]
-    },
     giftcard_page: {
         key: "giftcard_page",
         label: "Gift Card Page",
@@ -242,22 +207,12 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
             {
                 key: "package_images",
                 label: "Package Images",
-                description: "Images for the 6 Headspa packages displayed on the page.",
+                description: "Images for the 4 Headspa packages displayed on the page.",
                 fields: [
                     { name: "package1_image", label: "Signature Asian Head Calm Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop" },
                     { name: "package2_image", label: "Headspa Essential Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop" },
                     { name: "package3_image", label: "Headspa Deluxe Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&h=400&fit=crop" },
-                    { name: "package4_image", label: "Headspa Signature Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=600&h=400&fit=crop" },
-                    { name: "package5_image", label: "Headspa Detox Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" },
-                    { name: "package6_image", label: "Headspa Together Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=400&fit=crop" },
-                ]
-            },
-            {
-                key: "menu_image",
-                label: "Price Menu Image",
-                description: "The pricing/menu image shown on the page.",
-                fields: [
-                    { name: "image", label: "Menu Image", type: "image", defaultValue: "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/" },
+                    { name: "package4_image", label: "Headspa Together Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=400&fit=crop" },
                 ]
             }
         ]
@@ -287,11 +242,11 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
                 ]
             },
             {
-                key: "menu_image",
-                label: "Price Menu Image",
-                description: "The pricing/menu image shown on the page.",
+                key: "info_sheet",
+                label: "Information Sheet (A4 Image)",
+                description: "The A4 info sheet image and download link.",
                 fields: [
-                    { name: "image", label: "Menu Image", type: "image", defaultValue: "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/" },
+                    { name: "image", label: "Info Sheet Image", type: "image", defaultValue: "/images/permanent-makeup-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
                 ]
             }
         ]
@@ -316,14 +271,6 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
                 fields: [
                     { name: "nagelmodellage_image", label: "Nagelmodellage Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop" },
                     { name: "fusspflege_image", label: "Fusspflege Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&h=400&fit=crop" },
-                ]
-            },
-            {
-                key: "menu_image",
-                label: "Price Menu Image",
-                description: "The pricing/menu image shown on the page.",
-                fields: [
-                    { name: "image", label: "Menu Image", type: "image", defaultValue: "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/" },
                 ]
             }
         ]
@@ -351,11 +298,11 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
                 ]
             },
             {
-                key: "menu_image",
-                label: "Price Menu Image",
-                description: "The pricing/menu image shown on the page.",
+                key: "info_sheet",
+                label: "Information Sheet (A4 Image)",
+                description: "The A4 info sheet image and download link.",
                 fields: [
-                    { name: "image", label: "Menu Image", type: "image", defaultValue: "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/" },
+                    { name: "image", label: "Info Sheet Image", type: "image", defaultValue: "/images/wimpern-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
                 ]
             }
         ]
@@ -381,13 +328,133 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
                     { name: "zupfen_image", label: "Zupfen & Färben Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=400&fit=crop" },
                     { name: "laminieren_image", label: "Laminieren Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop" },
                 ]
+            }
+        ]
+    },
+    aquafacial_page: {
+        key: "aquafacial_page",
+        label: "Aquafacial Page",
+        sections: [
+            {
+                key: "hero",
+                label: "Hero Image",
+                description: "The main image displayed at the top of the Aquafacial page.",
+                fields: [
+                    { name: "image", label: "Hero Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=500&fit=crop" },
+                ]
             },
             {
-                key: "menu_image",
-                label: "Price Menu Image",
-                description: "The pricing/menu image shown on the page.",
+                key: "info_sheet",
+                label: "Information Sheet (A4 Image)",
+                description: "The A4 info sheet image and download link.",
                 fields: [
-                    { name: "image", label: "Menu Image", type: "image", defaultValue: "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/" },
+                    { name: "image", label: "Info Sheet Image", type: "image", defaultValue: "/images/aquafacial-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
+                ]
+            }
+        ]
+    },
+    innovative_treatments_page: {
+        key: "innovative_treatments_page",
+        label: "Innovative Treatments Page",
+        sections: [
+            {
+                key: "hero",
+                label: "Treatment Videos",
+                description: "The 3 treatment videos on the Innovative Treatments page.",
+                fields: [
+                    { name: "video_url", label: "Oxygen Scalp Detox Video", type: "video", defaultValue: "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4", helperText: "Video for the Oxygen Scalp Detox section" },
+                    { name: "microneedling_video", label: "Scalp Microneedling Video", type: "video", defaultValue: "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4", helperText: "Video for the Microneedling section" },
+                    { name: "glowme_video", label: "GlowMe Video", type: "video", defaultValue: "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4", helperText: "Video for the GlowMe section" },
+                ]
+            },
+            {
+                key: "expert_videos",
+                label: "Expert Videos (YouTube)",
+                description: "The 3 YouTube embed videos in the Expert Opinions section.",
+                fields: [
+                    { name: "video1_url", label: "Expert Video 1 URL", type: "text", defaultValue: "https://www.youtube.com/embed/ULct2YaC9do", helperText: "YouTube embed URL (e.g. https://www.youtube.com/embed/VIDEO_ID)" },
+                    { name: "video2_url", label: "Expert Video 2 URL", type: "text", defaultValue: "https://www.youtube.com/embed/7i8WdexpTmk" },
+                    { name: "video3_url", label: "Expert Video 3 URL", type: "text", defaultValue: "https://www.youtube.com/embed/693XjyHcxOE" },
+                ]
+            },
+            {
+                key: "info_sheet",
+                label: "Information Sheet (A4 Image)",
+                description: "The A4 info sheet image and download link.",
+                fields: [
+                    { name: "image", label: "Info Sheet Image", type: "image", defaultValue: "/images/innovative-treatments-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
+                ]
+            }
+        ]
+    },
+    schulung_page: {
+        key: "schulung_page",
+        label: "Schulung (Training) Page",
+        sections: [
+            {
+                key: "course_images",
+                label: "Course Card Images",
+                description: "Images for the 3 course cards on the main Schulung page.",
+                fields: [
+                    { name: "nails_image", label: "Nails Profi-Kurs Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop" },
+                    { name: "beauty_image", label: "Beauty-Trio Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop" },
+                    { name: "business_image", label: "Studio Business Mastery Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" },
+                ]
+            }
+        ]
+    },
+    schulung_nails_page: {
+        key: "schulung_nails_page",
+        label: "Schulung – Nails Kurs",
+        sections: [
+            {
+                key: "hero",
+                label: "Hero Image",
+                fields: [
+                    { name: "image", label: "Course Hero Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=500&fit=crop" },
+                    { name: "extra_image", label: "Extra Section Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800&h=400&fit=crop" },
+                ]
+            }
+        ]
+    },
+    schulung_beauty_page: {
+        key: "schulung_beauty_page",
+        label: "Schulung – Beauty Expert",
+        sections: [
+            {
+                key: "hero",
+                label: "Hero Image",
+                fields: [
+                    { name: "image", label: "Course Hero Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&h=500&fit=crop" },
+                ]
+            }
+        ]
+    },
+    schulung_business_page: {
+        key: "schulung_business_page",
+        label: "Schulung – Studio Business Mastery",
+        sections: [
+            {
+                key: "hero",
+                label: "Hero Image",
+                fields: [
+                    { name: "image", label: "Course Hero Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop" },
+                ]
+            }
+        ]
+    },
+    angebote_page: {
+        key: "angebote_page",
+        label: "Angebote – Combo Images",
+        sections: [
+            {
+                key: "combo_images",
+                label: "Combo Card Images",
+                description: "The 3 combo/offer images displayed as downloadable cards on the Angebote page.",
+                fields: [
+                    { name: "combo1_image", label: "Combo 1 Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=1000&fit=crop" },
+                    { name: "combo2_image", label: "Combo 2 Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=1000&fit=crop" },
+                    { name: "combo3_image", label: "Combo 3 Image", type: "image", defaultValue: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&h=1000&fit=crop" },
                 ]
             }
         ]

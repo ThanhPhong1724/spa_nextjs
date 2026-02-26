@@ -1,84 +1,8 @@
 "use client";
 
 import Link from 'next/link';
-
-const courses = [
-    {
-        id: "nails-kurs",
-        name: "NAILS PROFI-KURS",
-        description: "Detail-Training mit 100% Praxis an echten Modellen. Teste über 1.000 Farben und Profi-Equipment.",
-        duration: "2 Kursstufen",
-        image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop",
-        href: "/schulung/nails",
-        features: ["100% Praxis", "1.000+ Farben testen", "Individuelle Technik", "Profi-Speed Training"]
-    },
-    {
-        id: "beauty-expert",
-        name: "BEAUTY-TRIO",
-        description: "Pediküre, Head Spa & Wimpernverlängerung – drei gefragte Services in einem Kurs.",
-        duration: "7 Tage Intensiv",
-        image: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop",
-        href: "/schulung/beauty-expert",
-        features: ["3 Services in 1", "Sofort profitabel", "Größere Zielgruppe", "Maximale Bindung"]
-    },
-    {
-        id: "gruender-programm",
-        name: "STUDIO BUSINESS MASTERY",
-        description: "Meistere Marketing, Buchhaltungs-Know-how und Management – Expertise aus 15 Jahren Praxis.",
-        duration: "3 Tage",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
-        href: "/schulung/studiobussinessmastery",
-        features: ["Business-Plan", "Social Media Power", "Fertige Website", "Steuer-Basics"]
-    }
-];
-
-const faqs = [
-    {
-        question: "Warum ein Handwerk?",
-        answer: "Weil du damit die volle Kontrolle über dein Leben hast: KI-sicher (Handwerk ist echte Kunst), krisensicher (keine Angst vor Kurzarbeit), flexibel für die Familie, finanzielles Plus als Zusatzeinkommen, und überall gefragt mit deinem Zertifikat."
-    },
-    {
-        question: "Warum unsere Schulung?",
-        answer: "Wir verkaufen keine Theorie, sondern deine Abkürzung zum Erfolg. Profitiere von 15 Jahren Markterfahrung, individuelle Technik statt starres Schema F, modernes Business-Know-how inklusive Social-Media-Marketing, und Innovation statt Stillstand mit Trends wie Original Head Spa."
-    },
-    {
-        question: "Wer ist für diese Programme geeignet?",
-        answer: "Unsere Schulungen richten sich an Quereinsteiger (berufliche Neuorientierung), Beauty-Profis (Portfolio erweitern), und nebenberufliche Gründer (flexibles Zusatzeinkommen). Egal ob Vollzeit-Karriere oder zweites Standbein."
-    },
-    {
-        question: "Brauche ich besonderes Talent oder Begabung?",
-        answer: "Nein! Erfolg basiert zu 90% auf Technik, Übung und Präzision. Unsere Programme sind so aufgebaut, dass wir Ihnen die handwerklichen Fähigkeiten Schritt für Schritt beibringen. Mit Geduld und professioneller Anleitung kann jeder diese Kunst erlernen."
-    },
-    {
-        question: "Ich bin schon etwas älter. Kann ich noch erfolgreich gründen?",
-        answer: "Definitiv ja! In der Beauty-Branche zählen Erfahrung, Empathie und Professionalität oft mehr als das Alter. Reife Persönlichkeiten strahlen oft Ruhe und Vertrauenswürdigkeit aus, die Kunden sehr schätzen. Es ist nie zu spät!"
-    },
-    {
-        question: "Kann ich Online- und Offline-Lernen kombinieren?",
-        answer: "Ja, wir bieten flexible Lernmodelle an. Theoretische Grundlagen können bequem online erarbeitet werden. Praktische Module finden offline in unserem Studio statt, da die feine Handarbeit direkte Korrektur erfordert."
-    },
-    {
-        question: "Was passiert, wenn ich während des Kurses krank werde?",
-        answer: "Wir verstehen, dass unvorhersehbare Dinge passieren können. Bei wichtigen Gründen (z.B. Krankheit) bieten wir nach Absprache die Möglichkeit, den Kurs zu unterbrechen und später fortzusetzen."
-    },
-    {
-        question: "Gibt es eine Rückerstattung?",
-        answer: "Sobald der Kurs begonnen und Lehrmaterialien ausgehändigt wurden, ist eine Rückerstattung in der Regel ausgeschlossen. Wir empfehlen vorab ein Beratungsgespräch, um sicherzustellen, dass der Kurs perfekt zu Ihren Zielen passt."
-    },
-    {
-        question: "Wie funktioniert die Jobvermittlung?",
-        answer: "Jobvermittlung bedeutet bei uns: Networking (breites Netzwerk an Partner-Studios) und Existenzgründung (Tipps zu Marketing, Preisgestaltung und Kundenakquise für Selbstständige)."
-    },
-    {
-        question: "Was lerne ich über die Gründung meines eigenen Studios?",
-        answer: (
-            <>
-                Sie lernen, Wettbewerber strategisch zu analysieren und sich klar zu positionieren.<br />
-                Wir bereiten Sie fachlich und unternehmerisch vor – mit Marketing, Kundenakquise, Branding und effizienter Studioführung bei optimierten Kosten.
-            </>
-        )
-    }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { usePageContent } from "@/hooks/usePageContent";
 
 // SVG Icon components for premium look
 const ShieldIcon = () => (
@@ -117,16 +41,53 @@ const BadgeIcon = () => (
     </svg>
 );
 
-const benefits = [
-    { icon: <ShieldIcon />, title: "Maximale Praxis", desc: "Unbegrenztes Üben an Modellen, bis jeder Handgriff sitzt." },
-    { icon: <CurrencyIcon />, title: "Schluss mit Fehlkäufen", desc: "Wir zeigen dir genau, was du wirklich brauchst. Vermeide 100% typische Anfängerfehler." },
-    { icon: <LinkIcon />, title: "Best-Preis-Netzwerk", desc: "Zugriff auf unsere Netzwerke für Profi-Zubehör – garantiert beste Preise und höchste Qualität." },
-    { icon: <ChartIcon />, title: "Business & Media Skills", desc: "Von Steuer-Basics und Studio-Verwaltung bis zur perfekten Social-Media-Präsentation." },
-    { icon: <TrendingIcon />, title: "Karriere-Boost", desc: "Wir unterstützen dich bei der Jobsuche oder deiner Gründung." },
-    { icon: <BadgeIcon />, title: "Unser Versprechen", desc: "Wir haben die Fehler der letzten 15 Jahre gemacht, damit DU sie nicht machen musst." }
-];
-
 export default function SchulungClient() {
+    const { t } = useLanguage();
+    const { content: pageContent } = usePageContent("schulung_page");
+
+    const benefits = [
+        { icon: <ShieldIcon />, title: t("schulung.b1_title"), desc: t("schulung.b1_desc") },
+        { icon: <CurrencyIcon />, title: t("schulung.b2_title"), desc: t("schulung.b2_desc") },
+        { icon: <LinkIcon />, title: t("schulung.b3_title"), desc: t("schulung.b3_desc") },
+        { icon: <ChartIcon />, title: t("schulung.b4_title"), desc: t("schulung.b4_desc") },
+        { icon: <TrendingIcon />, title: t("schulung.b5_title"), desc: t("schulung.b5_desc") },
+        { icon: <BadgeIcon />, title: t("schulung.b6_title"), desc: t("schulung.b6_desc") }
+    ];
+
+    const courses = [
+        {
+            id: "nails-kurs",
+            name: t("schulung.c1_name"),
+            description: t("schulung.c1_desc"),
+            duration: t("schulung.c1_dur"),
+            image: pageContent?.course_images?.nails_image || "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop",
+            href: "/schulung/nails",
+            features: [t("schulung.c1_f1"), t("schulung.c1_f2"), t("schulung.c1_f3"), t("schulung.c1_f4")]
+        },
+        {
+            id: "beauty-expert",
+            name: t("schulung.c2_name"),
+            description: t("schulung.c2_desc"),
+            duration: t("schulung.c2_dur"),
+            image: pageContent?.course_images?.beauty_image || "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=400&fit=crop",
+            href: "/schulung/beauty-expert",
+            features: [t("schulung.c2_f1"), t("schulung.c2_f2"), t("schulung.c2_f3"), t("schulung.c2_f4")]
+        },
+        {
+            id: "gruender-programm",
+            name: t("schulung.c3_name"),
+            description: t("schulung.c3_desc"),
+            duration: t("schulung.c3_dur"),
+            image: pageContent?.course_images?.business_image || "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+            href: "/schulung/studiobussinessmastery",
+            features: [t("schulung.c3_f1"), t("schulung.c3_f2"), t("schulung.c3_f3"), t("schulung.c3_f4")]
+        }
+    ];
+
+    const faqs = Array.from({ length: 10 }, (_, i) => ({
+        question: t(`schulung.faq_q${i + 1}`),
+        answer: t(`schulung.faq_a${i + 1}`),
+    }));
 
     return (
         <main className="pt-24 bg-[#f5ebe0]">
@@ -134,11 +95,11 @@ export default function SchulungClient() {
             <section className="relative py-20 bg-gradient-to-br from-[#ff8b69] to-[#e87a5a] text-white">
                 <div className="max-w-6xl mx-auto px-6 text-center">
                     <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 uppercase leading-tight md:leading-tight">
-                        Deine Beauty-Karriere
-                        <span className="block mt-3 md:mt-5">15 Jahre Vorsprung ab Tag 1!</span>
+                        {t("schulung.hero_title")}
+                        <span className="block mt-3 md:mt-5">{t("schulung.hero_title2")}</span>
                     </h1>
                     <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
-                        Wir lehren dich das Handwerk und das komplette System dahinter. Sichern dir einen krisensicheren Beruf, der dir langfristige Stabilität und echte Karrierechancen bietet. Keine Umwege, nur echte Praxis.
+                        {t("schulung.hero_desc")}
                     </p>
                 </div>
             </section>
@@ -147,7 +108,7 @@ export default function SchulungClient() {
             <section className="py-16 bg-white">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-3xl font-serif font-bold text-[#5c4033] text-center mb-12 uppercase">
-                        Dein Erfolgspaket
+                        {t("schulung.benefits_title")}
                     </h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {benefits.map((item, i) => (
@@ -165,13 +126,12 @@ export default function SchulungClient() {
             <section className="py-16">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-3xl font-serif font-bold text-[#5c4033] text-center mb-4 uppercase">
-                        Unsere Kurse
+                        {t("schulung.courses_title")}
                     </h2>
                     <p className="text-center text-[#666] mb-12 max-w-2xl mx-auto">
-                        Wähle den Kurs, der zu deinen Zielen passt. Wir beraten dich persönlich und erstellen
-                        eine Route, die auf deine Lebenssituation und dein Investment zugeschnitten ist.
+                        {t("schulung.courses_desc")}
                         <br />
-                        <strong className="text-[#5c4033] mt-2 block">Kursbeginn und Dauer individuell anpassbar</strong>
+                        <strong className="text-[#5c4033] mt-2 block">{t("schulung.courses_note")}</strong>
                     </p>
 
                     <div className="grid md:grid-cols-3 gap-8 items-stretch">
@@ -210,7 +170,7 @@ export default function SchulungClient() {
                                             href={course.href}
                                             className="flex-1 text-center border border-[#ff8b69] text-[#ff8b69] py-2 rounded-full text-sm font-medium hover:bg-[#ff8b69] hover:text-white transition-colors"
                                         >
-                                            Details
+                                            {t("schulung.details")}
                                         </Link>
                                         <a
                                             href="https://wa.me/491638562022"
@@ -221,7 +181,7 @@ export default function SchulungClient() {
                                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                                             </svg>
-                                            Kontakt
+                                            {t("schulung.contact")}
                                         </a>
                                     </div>
                                 </div>
@@ -235,23 +195,12 @@ export default function SchulungClient() {
             <section className="py-16 bg-gradient-to-br from-[#a27450] to-[#a27450] text-white">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-2xl md:text-3xl font-serif font-bold mb-6">
-                        Selbststudium oder Profi-Schulung?
+                        {t("schulung.selfstudy_title")}
                     </h2>
-                    <p className="text-white/80 mb-6">
-                        Selbststudium kosten dich Zeit, Kunden und
-                        deinen Ruf.
-                    </p>
-                    <p className="text-white/80 mb-6">
-                        Zwei Stunden pro Behandlung? Kein rentables
-                        Business.
-                    </p>
-                    <p className="text-white/80 mb-6">
-                        Ohne Struktur und Tempo kannst du gegen
-                        erfahrene Studios nicht bestehen.
-                    </p>
-                    <p className="text-white/80 mb-6">
-                        Eine Profi-Ausbildung macht dich konkurrenzfähig – von Anfang an
-                    </p>
+                    <p className="text-white/80 mb-6">{t("schulung.selfstudy_1")}</p>
+                    <p className="text-white/80 mb-6">{t("schulung.selfstudy_2")}</p>
+                    <p className="text-white/80 mb-6">{t("schulung.selfstudy_3")}</p>
+                    <p className="text-white/80 mb-6">{t("schulung.selfstudy_4")}</p>
                 </div>
             </section>
 
@@ -259,7 +208,7 @@ export default function SchulungClient() {
             <section className="py-16 bg-white">
                 <div className="max-w-4xl mx-auto px-6">
                     <h2 className="text-3xl font-serif font-bold text-[#5c4033] text-center mb-12">
-                        FAQ – Häufig gestellte Fragen
+                        {t("schulung.faq_title")}
                     </h2>
 
                     <div className="space-y-4">
@@ -280,7 +229,7 @@ export default function SchulungClient() {
 
                     {/* WhatsApp CTA */}
                     <div className="mt-12 text-center">
-                        <p className="text-[#666] mb-4">Haben Sie weitere Fragen?</p>
+                        <p className="text-[#666] mb-4">{t("schulung.more_questions")}</p>
                         <a
                             href="https://wa.me/491638562022"
                             target="_blank"
@@ -290,7 +239,7 @@ export default function SchulungClient() {
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                             </svg>
-                            Kontaktieren Sie uns per WhatsApp!
+                            {t("schulung.whatsapp_cta")}
                         </a>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useCallback, useEffect } from "react";
+import { useRef, useCallback, useEffect, useState } from "react";
 
 interface RichTextEditorProps {
     value: string;
@@ -10,6 +10,8 @@ interface RichTextEditorProps {
 
 export default function RichTextEditor({ value, onChange, placeholder }: RichTextEditorProps) {
     const editorRef = useRef<HTMLDivElement>(null);
+    const textAreaRef = useRef<HTMLTextAreaElement>(null);
+    const [isHtmlMode, setIsHtmlMode] = useState(false);
     const isFocused = useRef(false);
 
     const execCommand = useCallback((command: string, value?: string) => {
@@ -73,6 +75,8 @@ export default function RichTextEditor({ value, onChange, placeholder }: RichTex
         { divider: true },
         { icon: "link", command: "link", title: "Insert Link", onClick: insertLink },
         { icon: "link_off", command: "unlink", title: "Remove Link" },
+        { divider: true },
+        { icon: "code", title: "Toggle HTML Source", onClick: () => setIsHtmlMode(!isHtmlMode) },
     ];
 
     return (
@@ -104,24 +108,35 @@ export default function RichTextEditor({ value, onChange, placeholder }: RichTex
             </div>
 
             {/* Editor Area */}
-            <div
-                ref={editorRef}
-                contentEditable
-                onInput={handleInput}
-                onPaste={handlePaste}
-                className="min-h-[300px] p-4 outline-none prose prose-sm max-w-none
-                    [&_h3]:text-lg [&_h3]:font-bold [&_h3]:my-3
-                    [&_p]:my-2
-                    [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2
-                    [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2
-                    [&_blockquote]:border-l-4 [&_blockquote]:border-[#eeb32b] [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-[#555]
-                    [&_a]:text-[#eeb32b] [&_a]:underline"
-                suppressContentEditableWarning
-            />
+            {isHtmlMode ? (
+                <textarea
+                    ref={textAreaRef}
+                    value={value}
+                    onChange={(e) => onChange(e.target.value)}
+                    className="w-full min-h-[300px] p-4 outline-none font-mono text-sm bg-[#1e1e1e] text-[#d4d4d4] resize-y"
+                    placeholder="Enter raw HTML here..."
+                />
+            ) : (
+                <div
+                    ref={editorRef}
+                    contentEditable
+                    onInput={handleInput}
+                    onPaste={handlePaste}
+                    className="min-h-[300px] p-4 outline-none prose prose-sm max-w-none
+                        [&_h3]:text-lg [&_h3]:font-bold [&_h3]:my-3
+                        [&_p]:my-2
+                        [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2
+                        [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2
+                        [&_blockquote]:border-l-4 [&_blockquote]:border-[#eeb32b] [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-[#555]
+                        [&_a]:text-[#eeb32b] [&_a]:underline"
+                    suppressContentEditableWarning
+                />
+            )}
 
             {/* Help Text */}
-            <div className="p-2 bg-[#f8f7f6] border-t border-[#e6e2db] text-xs text-[#897d61]">
-                Tip: Select text and use toolbar buttons to format. Works like Word!
+            <div className="p-2 bg-[#f8f7f6] border-t border-[#e6e2db] text-xs text-[#897d61] flex justify-between">
+                <span>Tip: Select text and use toolbar buttons to format. Works like Word!</span>
+                {isHtmlMode && <span className="font-bold text-[#eeb32b]">Editing in HTML Mode</span>}
             </div>
         </div>
     );

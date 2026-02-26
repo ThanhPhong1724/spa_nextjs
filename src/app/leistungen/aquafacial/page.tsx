@@ -2,44 +2,26 @@
 
 import { useState } from "react";
 import Link from "next/link";
-
-const faqs = [
-    {
-        question: "Was ist eine Hautanalyse?",
-        answer: "Bei der Hautanalyse wird Ihre Haut gemessen und analysiert – z. B. hinsichtlich Fettgehalt, Glanz, Pigmentierung und Hautunreinheiten. Die Ergebnisse helfen, Pflege, Produkte und Behandlungen gezielt auszuwählen und deren Wirkung messbar zu machen. Die Hautanalyse kann auch separat gebucht werden."
-    },
-    {
-        question: "Warum ist diese Behandlung sinnvoll?",
-        answer: "Die tägliche Reinigung entfernt oberflächliche Verschmutzungen, erreicht jedoch nicht die verhornte Hautschicht, die wie eine Barriere wirkt und die Aufnahme von Pflegeprodukten mindert.\n\nMit High-Tech-Elementen wie Bubble Cleaning, EMS Nano-Crystal, Oxygen und Thermo-Rollern wird die Haut intensiv gepflegt. Durch eine präzise Hautanalyse erhalten Sie individuelle Empfehlungen für Pflege, Produkte und Ernährung – für nachhaltige Ergebnisse.\n\nEin besonderes Erlebnis für Frauen und Männer, die ihre Haut, ihre Ausstrahlung wertschätzen und sich bewusst etwas Gutes tun möchten. ✨"
-    },
-    {
-        question: "Sind Ergebnisse sichtbar?",
-        answer: "JA! Direkt nach der Behandlung folgt der Scan. Erlebe den Vorher-Nachher-Beweis live auf dem Monitor. Ein sichtbares Resultat – Maximale Transparenz für eine Investition – Einfach preiswert."
-    },
-    {
-        question: "Ist die Behandlung schmerzhaft?",
-        answer: "Nein. AquaFacial ist angenehm und entspannend."
-    },
-    {
-        question: "Wie oft sollte AquaFacial durchgeführt werden?",
-        answer: "Je nach Hautzustand alle 3–4 Wochen oder nach individueller Empfehlung."
-    },
-    {
-        question: "Für welche Hauttypen ist AquaFacial geeignet?",
-        answer: "Für alle Hauttypen, auch für empfindliche Haut. Die Behandlung sowie die verwendeten Produkte werden individuell auf den Hauttyp abgestimmt – basierend auf einer Hautanalyse vor der Behandlung."
-    },
-    {
-        question: "Warum gibt es zwei Pakete BALANCE & ADVANCED?",
-        answer: "Ganz einfach: Deine Haut ist individuell. Nach unserer präzisen Hautanalyse empfehlen wir dir genau die intensiven Schritte, die du wirklich brauchst – sei es ein intensives Peeling oder eine Lichttherapie. Da nicht jede Haut sofort für intensive Treatments bereit ist, starten wir immer mit dem Essential-Paket. So garantieren wir maximale Sicherheit und beste Ergebnisse."
-    },
-    {
-        question: "Was unterscheidet die Bubble-Cleaning-Funktion von herkömmlichen Porenreinigern?",
-        answer: "Die professionelle Bubble-Cleaning-Technologie arbeitet mit präzise regulierter Saugstärke und Geschwindigkeit, individuell angepasst an jeden Hauttyp. Gleichzeitig werden während der Reinigung pflegende Wirkstoffe zugeführt. So wird die Haut gründlich gereinigt, ohne sie auszutrocknen oder das Feuchtigkeitsgleichgewicht zu stören – im Gegensatz zu vielen handelsüblichen Geräten."
-    }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { usePageContent } from "@/hooks/usePageContent";
 
 export default function AquafacialPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
+    const { t } = useLanguage();
+    const { content: pageContent } = usePageContent("aquafacial_page");
+    const heroImage = pageContent?.hero?.image || "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=500&fit=crop";
+    const infoSheetImage = pageContent?.info_sheet?.image || "/images/aquafacial-info.jpg";
+
+    const features = [
+        t("aquafacial.f1"), t("aquafacial.f2"), t("aquafacial.f3"), t("aquafacial.f4"),
+        t("aquafacial.f5"), t("aquafacial.f6"), t("aquafacial.f7"), t("aquafacial.f8"),
+        t("aquafacial.f9"), t("aquafacial.f10"),
+    ];
+
+    const faqs = Array.from({ length: 8 }, (_, i) => ({
+        question: t(`aquafacial.faq_q${i + 1}`),
+        answer: t(`aquafacial.faq_a${i + 1}`),
+    }));
 
     return (
         <div className="min-h-screen bg-[#f5ebe0]">
@@ -52,19 +34,19 @@ export default function AquafacialPage() {
                             <div className="p-8 md:p-12">
                                 <div className="inline-flex items-center gap-2 bg-[#ff8b69]/10 text-[#ff8b69] px-5 py-2 rounded-full font-semibold text-sm mb-6 border border-[#ff8b69]/20">
                                     <span>✨</span>
-                                    <span>Exklusives Highlight</span>
+                                    <span>{t("aquafacial.badge")}</span>
                                 </div>
-                                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#5c4033] mb-6 leading-tight">
-                                    Hautanalyse &<br />Glow-Technologie
+                                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#5c4033] mb-6 leading-tight whitespace-pre-line">
+                                    {t("aquafacial.highlight_title")}
                                 </h2>
                                 <p className="text-[#6b5344] text-lg leading-relaxed">
-                                    Starten Sie mit einer professionellen Hautanalyse – für Klarheit über Ihren Hautzustand und für gezielte & wirksame Pflege.
+                                    {t("aquafacial.highlight_desc")}
                                 </p>
                             </div>
                             {/* Right: Image */}
                             <div className="h-64 md:h-full min-h-[320px]">
                                 <img
-                                    src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=500&fit=crop"
+                                    src={heroImage}
                                     alt="Hautanalyse & Glow-Technologie"
                                     className="w-full h-full object-cover"
                                 />
@@ -80,30 +62,21 @@ export default function AquafacialPage() {
                     <div className="text-center mb-10">
                         <h1 className="text-[#ff8b69] text-4xl md:text-6xl font-bold uppercase tracking-wide mb-4">AQUAFACIAL</h1>
                         <p className="text-[#5c4033] text-2xl md:text-3xl font-serif font-bold">
-                            Maximale Wirkung – kein Verzicht.
+                            {t("aquafacial.slogan")}
                         </p>
                     </div>
 
                     <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-[#d4a373]/20">
                         <p className="text-[#5c4033] text-lg md:text-xl leading-relaxed text-center mb-10">
-                            Verstopfte Poren blockieren Ihre Pflegeerfolge.<br />
-                            Erleben Sie die <strong className="text-[#ff8b69]">10 Funktionen</strong> modernster Technologie für Ihren perfekten Glow:
+                            {t("aquafacial.intro")}<br />
+                            {t("aquafacial.intro2").split("{0}")[0]}
+                            <strong className="text-[#ff8b69]">{t("aquafacial.intro2").split("{0}")[1]?.split("{1}")[0]}</strong>
+                            {t("aquafacial.intro2").split("{1}")[1]}
                         </p>
 
                         {/* 10 Feature Items – Elegant Two-Column List */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4 max-w-3xl mx-auto">
-                            {[
-                                "Haut Analyse",
-                                "Sanfte Exfoliation",
-                                "Tiefenreinigung",
-                                "Porenverfeinerung",
-                                "Lifting",
-                                "Straffung",
-                                "Sauerstoff-Boost",
-                                "Feuchtigkeits-Boost",
-                                "Milderung feiner Linien",
-                                "Optimierte Wirkstoffaufnahme",
-                            ].map((item, i) => (
+                            {features.map((item, i) => (
                                 <div key={i} className="flex items-center gap-3 py-3 border-b border-[#e8d5c4]/60 group hover:border-[#ff8b69]/40 transition-colors">
                                     <div className="w-7 h-7 bg-gradient-to-br from-[#ff8b69] to-[#d4a373] rounded-full flex items-center justify-center flex-shrink-0 shadow-sm group-hover:scale-110 transition-transform">
                                         <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -122,7 +95,7 @@ export default function AquafacialPage() {
             <section className="py-16 bg-white">
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-4xl font-bold text-[#ff8b69] text-center mb-8">
-                        Häufig gestellte Fragen
+                        {t("common.faq_title")}
                     </h2>
                     <div className="space-y-4">
                         {faqs.map((faq, index) => (
@@ -156,11 +129,10 @@ export default function AquafacialPage() {
             {/* A4 Info Image + Download */}
             <section className="py-16 bg-[#f5ebe0]">
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    {/* <h2 className="text-3xl font-bold text-[#5c4033] mb-8 font-serif">Informationsblatt</h2> */}
                     <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#d4a373]/20 p-4">
                         <div className="relative w-full" style={{ aspectRatio: '210 / 297' }}>
                             <img
-                                src="/images/aquafacial-info.jpg"
+                                src={infoSheetImage}
                                 alt="Aquafacial – Informationsblatt"
                                 className="w-full h-full object-contain rounded-xl"
                                 onError={(e) => { (e.target as HTMLImageElement).src = 'https://placehold.co/630x891/f5ebe0/5c4033?text=Aquafacial%0AInformationsblatt%0A(A4)'; }}
@@ -168,14 +140,14 @@ export default function AquafacialPage() {
                         </div>
                     </div>
                     <a
-                        href="/images/aquafacial-info.jpg"
+                        href={infoSheetImage}
                         download="Aquafacial-Informationsblatt.jpg"
                         className="inline-flex items-center gap-2 mt-8 bg-gradient-to-r from-[#ff8b69] to-[#d4a373] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
-                        Download
+                        {t("common.download")}
                     </a>
                 </div>
             </section>
