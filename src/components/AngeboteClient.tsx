@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { usePageContent } from "@/hooks/usePageContent";
+import { handleDownloadImage } from "@/lib/utils";
 import Image from "next/image";
 
 export default function AngeboteClient({ content }: { content?: Record<string, any> }) {
@@ -24,28 +25,7 @@ export default function AngeboteClient({ content }: { content?: Record<string, a
     ];
 
     const handleDownload = (imageUrl: string, title: string) => {
-        fetch(imageUrl)
-            .then(response => response.blob())
-            .then(blob => {
-                const url = window.URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = `Angebot-${title}.jpg`;
-                document.body.appendChild(link);
-                link.click();
-                link.remove();
-                window.URL.revokeObjectURL(url);
-            })
-            .catch(err => {
-                console.error("Error downloading image:", err);
-                const link = document.createElement('a');
-                link.href = imageUrl;
-                link.download = `Angebot-${title}.jpg`;
-                link.target = "_blank";
-                document.body.appendChild(link);
-                link.click();
-                link.remove();
-            });
+        handleDownloadImage(imageUrl, `Angebot-${title}.jpg`);
     };
 
     return (

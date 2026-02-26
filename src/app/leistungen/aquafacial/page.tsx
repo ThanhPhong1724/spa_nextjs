@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { usePageContent } from "@/hooks/usePageContent";
+import { handleDownloadImage } from "@/lib/utils";
 
 export default function AquafacialPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -139,16 +140,13 @@ export default function AquafacialPage() {
                             />
                         </div>
                     </div>
-                    <a
-                        href={infoSheetImage}
-                        download="Aquafacial-Informationsblatt.jpg"
+                    <button
+                        onClick={() => handleDownloadImage(infoSheetImage, "Aquafacial-Informationsblatt.jpg")}
                         className="inline-flex items-center gap-2 mt-8 bg-gradient-to-r from-[#ff8b69] to-[#d4a373] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                     >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                        </svg>
+                        <span className="material-symbols-outlined">download</span>
                         {t("common.download")}
-                    </a>
+                    </button>
                 </div>
             </section>
         </div>
