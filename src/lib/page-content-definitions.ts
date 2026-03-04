@@ -67,7 +67,8 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
                 label: "Hero Section (Video)",
                 description: "The main video/image shown at the top of the home page.",
                 fields: [
-                    { name: "videoUrl", label: "Video URL", type: "video", helperText: "Direct link to video file (mp4) or YouTube/Vimeo link.", defaultValue: "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4" },
+                    { name: "videoUrl", label: "Video URL (Desktop)", type: "video", helperText: "Direct link to video file (mp4) or YouTube/Vimeo link.", defaultValue: "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4" },
+                    { name: "mobileVideoUrl", label: "Video URL (Mobile)", type: "video", helperText: "Video optimized for mobile/portrait viewing.", defaultValue: "/videos/hero-mobile.mp4" },
                     { name: "fallbackImage", label: "Fallback Image", type: "image", helperText: "Shown while video loads or on mobile if video is disabled." },
                     { name: "titleDe", label: "Title (DE)", type: "text", defaultValue: "Willkommen im Smiling Studio" },
                     { name: "titleEn", label: "Title (EN)", type: "text", defaultValue: "Welcome to Smiling Studio" },

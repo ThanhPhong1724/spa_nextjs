@@ -151,6 +151,7 @@ export default function HomeClient({ content }: HomeClientProps) {
     const welcome = content?.welcome || {};
 
     const heroVideo = hero.videoUrl || "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4";
+    const heroMobileVideo = hero.mobileVideoUrl || "/videos/hero-mobile.mp4";
     const heroTitle = language === 'de' ? (hero.titleDe || t("hero.welcome")) : (hero.titleEn || t("hero.welcome"));
     const heroSubtitle = language === 'de' ? (hero.subtitleDe || t("hero.studio")) : (hero.subtitleEn || t("hero.studio"));
     const heroDesc = language === 'de' ? (hero.descDe || t("hero.description")) : (hero.descEn || t("hero.description"));
@@ -172,17 +173,29 @@ export default function HomeClient({ content }: HomeClientProps) {
         <div className="min-h-screen">
             {/* Hero Section with Video */}
             <section className="relative w-full h-[100svh] min-h-[500px] md:min-h-[700px] overflow-hidden">
-                {/* Video Background */}
+                {/* Video Background - Desktop */}
                 <video
                     autoPlay
                     loop
                     muted
                     playsInline
                     preload="none"
-                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    className="absolute inset-0 w-full h-full object-cover object-center hidden md:block"
                     suppressHydrationWarning
                 >
                     <source src={heroVideo} type="video/mp4" />
+                </video>
+                {/* Video Background - Mobile */}
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="none"
+                    className="absolute inset-0 w-full h-full object-cover object-center md:hidden"
+                    suppressHydrationWarning
+                >
+                    <source src={heroMobileVideo} type="video/mp4" />
                 </video>
 
                 {/* Overlay */}
