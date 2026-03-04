@@ -175,11 +175,12 @@ export default function HomeClient({ content }: HomeClientProps) {
             <section className="relative w-full h-[100svh] min-h-[500px] md:min-h-[700px] overflow-hidden">
                 {/* Video Background - Desktop */}
                 <video
+                    key={`desktop-${heroVideo}`}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    preload="none"
+                    preload="metadata"
                     className="absolute inset-0 w-full h-full object-cover object-center hidden md:block"
                     suppressHydrationWarning
                 >
@@ -187,11 +188,12 @@ export default function HomeClient({ content }: HomeClientProps) {
                 </video>
                 {/* Video Background - Mobile */}
                 <video
+                    key={`mobile-${heroMobileVideo}`}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    preload="none"
+                    preload="auto"
                     className="absolute inset-0 w-full h-full object-cover object-center md:hidden"
                     suppressHydrationWarning
                 >
