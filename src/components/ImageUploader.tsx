@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useId } from "react";
 import { useToast } from "./Toast";
 
 interface ImageUploaderProps {
@@ -14,6 +14,7 @@ export default function ImageUploader({ value, onChange, label = "Image" }: Imag
     const [isUploading, setIsUploading] = useState(false);
     const [mode, setMode] = useState<"url" | "upload">("url");
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const inputId = useId();
 
     const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -102,10 +103,10 @@ export default function ImageUploader({ value, onChange, label = "Image" }: Imag
                         accept="image/jpeg,image/png,image/gif,image/webp"
                         onChange={handleFileUpload}
                         className="hidden"
-                        id="image-upload"
+                        id={inputId}
                     />
                     <label
-                        htmlFor="image-upload"
+                        htmlFor={inputId}
                         className={`flex items-center justify-center gap-3 w-full px-4 py-6 rounded-xl border-2 border-dashed cursor-pointer transition-all
                             ${isUploading
                                 ? "border-[#eeb32b] bg-[#eeb32b]/10"
