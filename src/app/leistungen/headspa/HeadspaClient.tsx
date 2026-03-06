@@ -144,7 +144,7 @@ export default function HeadspaClient({ content }: { content?: any }) {
                                     />
                                 </div>
                                 <div className="p-6">
-                                    <h3 className="text-2xl font-bold text-[#ff8b69] mb-3">{pkg.name}</h3>
+                                    <h3 className="text-2xl font-bold text-[#ff8b69] mb-3 whitespace-pre-line">{pkg.name}</h3>
                                     <p className="text-[#6b5344] text-base">{pkg.description}</p>
                                 </div>
                             </div>

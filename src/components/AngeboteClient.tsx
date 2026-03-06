@@ -16,10 +16,10 @@ export default function AngeboteClient({ content }: { content?: Record<string, a
             title: "Combo 2",
             image: content?.combo_images?.combo2_image || "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=1000&fit=crop",
         },
-        {
-            title: "Combo 3",
-            image: content?.combo_images?.combo3_image || "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&h=1000&fit=crop",
-        }
+        // {
+        //     title: "Combo 3",
+        //     image: content?.combo_images?.combo3_image || "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&h=1000&fit=crop",
+        // }
     ];
 
     const handleDownload = (imageUrl: string, title: string) => {
@@ -38,7 +38,7 @@ export default function AngeboteClient({ content }: { content?: Record<string, a
                     </div>
 
                     {/* Combos Grid */}
-                    <div className="grid md:grid-cols-3 gap-8 mb-16">
+                    <div className="grid md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
                         {combos.map((combo, index) => (
                             <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2 border border-[#d4a373]/30">
                                 <div className="relative h-[500px] overflow-hidden">
