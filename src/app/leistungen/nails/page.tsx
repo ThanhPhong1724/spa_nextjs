@@ -45,7 +45,7 @@ export default function NailsPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         {services.map((service) => (
                             <div key={service.title} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group">
-                                <div className="h-64 overflow-hidden">
+                                <div className="h-[400px] overflow-hidden">
                                     <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                                 </div>
                                 <div className="p-8">
