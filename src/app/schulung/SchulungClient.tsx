@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { usePageContent } from "@/hooks/usePageContent";
 
 // SVG Icon components for premium look
 const ShieldIcon = () => (
@@ -41,9 +40,8 @@ const BadgeIcon = () => (
     </svg>
 );
 
-export default function SchulungClient() {
+export default function SchulungClient({ content: pageContent }: { content?: any }) {
     const { t } = useLanguage();
-    const { content: pageContent } = usePageContent("schulung_page");
 
     const benefits = [
         { icon: <ShieldIcon />, title: t("schulung.b1_title"), desc: t("schulung.b1_desc") },

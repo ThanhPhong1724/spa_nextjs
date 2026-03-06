@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { usePageContent } from "@/hooks/usePageContent";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const courseInfo = {
     id: "gruender-programm",
@@ -69,8 +69,8 @@ const benefits = [
     }
 ];
 
-export default function GruenderClient() {
-    const { content: pageContent } = usePageContent("schulung_business_page");
+export default function GruenderClient({ content: pageContent }: { content?: any }) {
+    const { t } = useLanguage();
     const heroImage = pageContent?.hero?.image || courseInfo.defaultImage;
 
     return (

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { usePageContent } from "@/hooks/usePageContent";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const courseInfo = {
     id: "beauty-expert",
@@ -49,8 +49,8 @@ const modules = [
     }
 ];
 
-export default function BeautyExpertClient() {
-    const { content: pageContent } = usePageContent("schulung_beauty_page");
+export default function BeautyExpertClient({ content: pageContent }: { content?: any }) {
+    const { t } = useLanguage();
     const heroImage = pageContent?.hero?.image || courseInfo.defaultImage;
 
     return (

@@ -5,6 +5,9 @@ export const metadata = {
     description: "Business-Coaching für Beauty-Profis. Lerne nicht nur das Handwerk, sondern meistere das Geschäft dahinter.",
 };
 
-export default function GruenderPage() {
-    return <GruenderClient />;
+import { getPageContent } from "@/lib/get-page-content";
+
+export default async function GruenderPage() {
+    const content = await getPageContent("schulung_business_page");
+    return <GruenderClient content={content} />;
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { usePageContent } from "@/hooks/usePageContent";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const courseInfo = {
     id: "nails-kurs",
@@ -48,8 +48,8 @@ const faqs = [
     }
 ];
 
-export default function NailsKursClient() {
-    const { content: pageContent } = usePageContent("schulung_nails_page");
+export default function NailsKursClient({ content: pageContent }: { content?: any }) {
+    const { t } = useLanguage();
     const heroImage = pageContent?.hero?.image || courseInfo.defaultImage;
     const extraImage = pageContent?.hero?.extra_image || "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800&h=400&fit=crop";
 

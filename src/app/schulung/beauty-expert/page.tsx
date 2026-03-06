@@ -5,6 +5,9 @@ export const metadata = {
     description: "Pediküre, Head Spa & Wimpernverlängerung in einem Kurs. 7 Tage Intensiv-Training.",
 };
 
-export default function BeautyExpertPage() {
-    return <BeautyExpertClient />;
+import { getPageContent } from "@/lib/get-page-content";
+
+export default async function BeautyExpertPage() {
+    const content = await getPageContent("schulung_beauty_page");
+    return <BeautyExpertClient content={content} />;
 }
