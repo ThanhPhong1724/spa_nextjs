@@ -43,17 +43,13 @@ export default function AngeboteClient({ content }: { content?: Record<string, a
                     <div className="grid md:grid-cols-3 gap-8 mb-16">
                         {combos.map((combo, index) => (
                             <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2 border border-[#d4a373]/30">
-                                <div className="relative h-[400px] overflow-hidden">
+                                <div className="relative h-[550px] overflow-hidden">
                                     <img
                                         src={combo.image}
                                         alt={combo.title}
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end">
-                                        <div className="p-6 w-full text-center">
-                                            <h3 className="text-2xl font-serif font-bold text-white shadow-sm">{combo.title}</h3>
-                                        </div>
-                                    </div>
+                                    {/* Removed the dark gradient overlay and title text as requested */}
                                 </div>
                                 <div className="p-6 flex flex-col flex-grow bg-white items-center justify-center">
                                     <button
