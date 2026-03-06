@@ -1,26 +1,24 @@
 "use client";
 
 import { useLanguage } from "@/contexts/LanguageContext";
-import { usePageContent } from "@/hooks/usePageContent";
 import { handleDownloadImage } from "@/lib/utils";
 import Image from "next/image";
 
 export default function AngeboteClient({ content }: { content?: Record<string, any> }) {
     const { t } = useLanguage();
-    const { content: pageContent } = usePageContent("angebote_page");
 
     const combos = [
         {
             title: "Combo 1",
-            image: pageContent?.combo_images?.combo1_image || "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=1000&fit=crop",
+            image: content?.combo_images?.combo1_image || "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=1000&fit=crop",
         },
         {
             title: "Combo 2",
-            image: pageContent?.combo_images?.combo2_image || "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=1000&fit=crop",
+            image: content?.combo_images?.combo2_image || "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=1000&fit=crop",
         },
         {
             title: "Combo 3",
-            image: pageContent?.combo_images?.combo3_image || "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&h=1000&fit=crop",
+            image: content?.combo_images?.combo3_image || "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&h=1000&fit=crop",
         }
     ];
 
