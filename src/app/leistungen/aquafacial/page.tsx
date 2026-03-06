@@ -8,10 +8,12 @@ import { handleDownloadImage } from "@/lib/utils";
 
 export default function AquafacialPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
-    const { t } = useLanguage();
+    const { language, t } = useLanguage();
     const { content: pageContent } = usePageContent("aquafacial_page");
     const heroImage = pageContent?.hero?.image || "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=500&fit=crop";
-    const infoSheetImage = pageContent?.info_sheet?.image || "/images/aquafacial-info.jpg";
+    const infoSheetImageDe = pageContent?.info_sheet?.image || "/images/aquafacial-info.jpg";
+    const infoSheetImageEn = pageContent?.info_sheet?.image_en || infoSheetImageDe;
+    const infoSheetImage = language === 'en' ? infoSheetImageEn : infoSheetImageDe;
 
     const features = [
         t("aquafacial.f1"), t("aquafacial.f2"), t("aquafacial.f3"), t("aquafacial.f4"),

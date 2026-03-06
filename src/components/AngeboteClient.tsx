@@ -43,7 +43,7 @@ export default function AngeboteClient({ content }: { content?: Record<string, a
                     <div className="grid md:grid-cols-3 gap-8 mb-16">
                         {combos.map((combo, index) => (
                             <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2 border border-[#d4a373]/30">
-                                <div className="relative h-[550px] overflow-hidden">
+                                <div className="relative h-[500px] overflow-hidden">
                                     <img
                                         src={combo.image}
                                         alt={combo.title}

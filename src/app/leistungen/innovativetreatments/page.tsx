@@ -62,8 +62,10 @@ export default function KopfhautPflegePage() {
     const expertVideo1 = content?.expert_videos?.video1_url || "https://www.youtube.com/embed/ULct2YaC9do";
     const expertVideo2 = content?.expert_videos?.video2_url || "https://www.youtube.com/embed/7i8WdexpTmk";
     const expertVideo3 = content?.expert_videos?.video3_url || "https://www.youtube.com/embed/693XjyHcxOE";
-    const infoSheetImage = content?.info_sheet?.image || "/images/innovative-treatments-info.jpg";
-    const { t } = useLanguage();
+    const infoSheetImageDe = content?.info_sheet?.image || "/images/innovative-treatments-info.jpg";
+    const infoSheetImageEn = content?.info_sheet?.image_en || infoSheetImageDe;
+    const { language, t } = useLanguage();
+    const infoSheetImage = language === 'en' ? infoSheetImageEn : infoSheetImageDe;
 
     const faqs = Array.from({ length: 10 }, (_, i) => ({
         question: t(`it.faq_q${i + 1}`),

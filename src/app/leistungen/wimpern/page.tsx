@@ -7,18 +7,22 @@ import { handleDownloadImage } from "@/lib/utils";
 
 export default function WimpernPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
-    const [infoSheetImage, setInfoSheetImage] = useState("/images/wimpern-info.jpg");
+    const [infoSheetImageDe, setInfoSheetImageDe] = useState("/images/wimpern-info.jpg");
+    const [infoSheetImageEn, setInfoSheetImageEn] = useState("/images/wimpern-info.jpg");
     const [heroTitle, setHeroTitle] = useState("WIMPERN");
     const [verlangerungImage, setVerlangerungImage] = useState("");
     const [welleImage, setWelleImage] = useState("");
-    const { t } = useLanguage();
+    const { language, t } = useLanguage();
+
+    const infoSheetImage = language === 'en' ? infoSheetImageEn : infoSheetImageDe;
 
     useEffect(() => {
         fetch("/api/page-content?pageKey=wimpern_page")
             .then(res => res.json())
             .then(data => {
                 if (data.hero?.title_de) setHeroTitle(data.hero.title_de);
-                if (data.info_sheet?.image) setInfoSheetImage(data.info_sheet.image);
+                if (data.info_sheet?.image) setInfoSheetImageDe(data.info_sheet.image);
+                if (data.info_sheet?.image_en) setInfoSheetImageEn(data.info_sheet.image_en);
                 if (data.service_images?.verlangerung_image) setVerlangerungImage(data.service_images.verlangerung_image);
                 if (data.service_images?.welle_image) setWelleImage(data.service_images.welle_image);
             })

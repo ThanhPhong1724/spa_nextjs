@@ -7,13 +7,16 @@ import { handleDownloadImage } from "@/lib/utils";
 
 export default function PermanentMakeupPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
-    const [infoSheetImage, setInfoSheetImage] = useState("/images/permanent-makeup-info.jpg");
+    const [infoSheetImageDe, setInfoSheetImageDe] = useState("/images/permanent-makeup-info.jpg");
+    const [infoSheetImageEn, setInfoSheetImageEn] = useState("/images/permanent-makeup-info.jpg");
     const [heroTitle, setHeroTitle] = useState("PERMANENT MAKE UP");
     const [videoUrl, setVideoUrl] = useState("https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4");
     const [browsImage, setBrowsImage] = useState("https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=400&fit=crop");
     const [lipsImage, setLipsImage] = useState("https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=600&h=400&fit=crop");
     const [eyesImage, setEyesImage] = useState("https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&h=400&fit=crop");
-    const { t } = useLanguage();
+    const { language, t } = useLanguage();
+
+    const infoSheetImage = language === 'en' ? infoSheetImageEn : infoSheetImageDe;
 
     useEffect(() => {
         fetch("/api/page-content?pageKey=permanent_makeup_page", { cache: 'no-store' })
@@ -21,7 +24,8 @@ export default function PermanentMakeupPage() {
             .then(data => {
                 if (data.hero?.title_de) setHeroTitle(data.hero.title_de);
                 if (data.hero?.video_url) setVideoUrl(data.hero.video_url);
-                if (data.info_sheet?.image) setInfoSheetImage(data.info_sheet.image);
+                if (data.info_sheet?.image) setInfoSheetImageDe(data.info_sheet.image);
+                if (data.info_sheet?.image_en) setInfoSheetImageEn(data.info_sheet.image_en);
                 if (data.service_images?.brows_image) setBrowsImage(data.service_images.brows_image);
                 if (data.service_images?.lips_image) setLipsImage(data.service_images.lips_image);
                 if (data.service_images?.eyes_image) setEyesImage(data.service_images.eyes_image);

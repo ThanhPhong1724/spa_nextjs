@@ -170,7 +170,8 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
                 label: "Menu Image",
                 description: "The main image showing the price list/menu.",
                 fields: [
-                    { name: "image", label: "Price List Image", type: "image", defaultValue: "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/" },
+                    { name: "image", label: "Price List Image (DE)", type: "image", defaultValue: "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/" },
+                    { name: "image_en", label: "Price List Image (EN)", type: "image", defaultValue: "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/" },
                 ]
             }
         ]
@@ -247,7 +248,8 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
                 label: "Information Sheet (A4 Image)",
                 description: "The A4 info sheet image and download link.",
                 fields: [
-                    { name: "image", label: "Info Sheet Image", type: "image", defaultValue: "/images/permanent-makeup-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
+                    { name: "image", label: "Info Sheet Image (DE)", type: "image", defaultValue: "/images/permanent-makeup-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
+                    { name: "image_en", label: "Info Sheet Image (EN)", type: "image", defaultValue: "/images/permanent-makeup-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
                 ]
             }
         ]
@@ -303,7 +305,8 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
                 label: "Information Sheet (A4 Image)",
                 description: "The A4 info sheet image and download link.",
                 fields: [
-                    { name: "image", label: "Info Sheet Image", type: "image", defaultValue: "/images/wimpern-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
+                    { name: "image", label: "Info Sheet Image (DE)", type: "image", defaultValue: "/images/wimpern-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
+                    { name: "image_en", label: "Info Sheet Image (EN)", type: "image", defaultValue: "/images/wimpern-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
                 ]
             }
         ]
@@ -349,7 +352,8 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
                 label: "Information Sheet (A4 Image)",
                 description: "The A4 info sheet image and download link.",
                 fields: [
-                    { name: "image", label: "Info Sheet Image", type: "image", defaultValue: "/images/aquafacial-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
+                    { name: "image", label: "Info Sheet Image (DE)", type: "image", defaultValue: "/images/aquafacial-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
+                    { name: "image_en", label: "Info Sheet Image (EN)", type: "image", defaultValue: "/images/aquafacial-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
                 ]
             }
         ]
@@ -383,7 +387,8 @@ export const PAGE_CONTENT_DEFINITIONS: Record<string, PageDefinition> = {
                 label: "Information Sheet (A4 Image)",
                 description: "The A4 info sheet image and download link.",
                 fields: [
-                    { name: "image", label: "Info Sheet Image", type: "image", defaultValue: "/images/innovative-treatments-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
+                    { name: "image", label: "Info Sheet Image (DE)", type: "image", defaultValue: "/images/innovative-treatments-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
+                    { name: "image_en", label: "Info Sheet Image (EN)", type: "image", defaultValue: "/images/innovative-treatments-info.jpg", helperText: "A4 informational image (JPG or PNG)" },
                 ]
             }
         ]

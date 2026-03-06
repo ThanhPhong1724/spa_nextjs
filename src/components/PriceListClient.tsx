@@ -36,9 +36,11 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export default function PriceListClient({ content }: PriceListClientProps) {
-    const { t } = useLanguage();
+    const { language, t } = useLanguage();
 
-    const menuImage = content?.menu_image?.image || "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/";
+    const menuImageDe = content?.menu_image?.image || "https://vipcorel.com/attachments/hanos-skincare-beauty-dep-thach-thuc-thoi-gian-png.793/";
+    const menuImageEn = content?.menu_image?.image_en || menuImageDe;
+    const menuImage = language === 'en' ? menuImageEn : menuImageDe;
 
     return (
         <div className="min-h-screen bg-[#f5ebe0]">
