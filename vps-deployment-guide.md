@@ -20,8 +20,8 @@ Có 2 cách để mở màn hình đen (Terminal/Console) điều khiển VPS:
 **Cách 2 (Khuyên dùng):** Mở ứng dụng **Command Prompt (CMD)** hoặc **PowerShell** trên máy tính Windows của bạn và gõ:
 
 ```bash
-ssh root@14.225.220.50
-smilingnailswiesbaden@gmail.com
+ssh root@14.225.220.50.
+smilingnailswiesbaden@gmailcom
 Ss123456788@
 
 ```
@@ -205,6 +205,15 @@ Nếu web hiện ra chễm chệ đẹp đẽ, xin chúc mừng, bạn đã tự
 ```bash
 cd spa_nextjs
 git pull origin main
+# 1. Xóa các thư mục build và thư viện cũ
+rm -rf .next node_modules package-lock.json
+
+# 2. Cài đặt lại toàn bộ thư viện từ đầu (sẽ mất khoảng 1-2 phút)
+npm install
+
+# 3. Build lại project (Không cần dùng biến môi trường nữa)
+npm run build
+
 npm run build
 pm2 restart spa-salon
 ```
