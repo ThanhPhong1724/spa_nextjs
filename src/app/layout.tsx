@@ -13,7 +13,12 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Smiling Studio",
-  description: "A sanctuary of peace in the heart of the city. Premium spa and salon services.",
+  description: "Innovative Beauty & Head Spa Treatments – einzigartig in Wiesbaden. Ein Erlebnis, das man einmal probiert und garantiert mit einem Lächeln verlässt.",
+  icons: {
+    icon: '/logo.jpg',
+    shortcut: '/logo.jpg',
+    apple: '/logo.jpg',
+  },
 };
 
 import { getPageContent } from "@/lib/get-page-content";
