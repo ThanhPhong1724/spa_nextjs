@@ -80,8 +80,8 @@ export default function NewsList({ posts: initialPosts }: { posts: Post[] }) {
     return (
         <section className="pb-20">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="mb-8 flex justify-end">
-                    <div className="relative w-full md:w-1/3">
+                <div className="mb-12 flex justify-center">
+                    <div className="relative w-full max-w-2xl">
                         <input
                             type="text"
                             placeholder={language === 'en' ? 'Search news...' : 'Neuigkeiten durchsuchen...'}
