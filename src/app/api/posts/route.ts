@@ -8,8 +8,17 @@ export async function GET(request: Request) {
     try {
         const { searchParams } = new URL(request.url);
         const status = searchParams.get("status");
+        const search = searchParams.get("search");
 
-        const where = status ? { status } : {};
+        const where: any = status ? { status } : {};
+        if (search) {
+            where.OR = [
+                { title: { contains: search, mode: 'insensitive' } },
+                { titleEn: { contains: search, mode: 'insensitive' } },
+                { content: { contains: search, mode: 'insensitive' } },
+                { contentEn: { contains: search, mode: 'insensitive' } }
+            ];
+        }
 
         const page = parseInt(searchParams.get("page") || "1");
         const limit = parseInt(searchParams.get("limit") || "100"); // Default high limit for backward compatibility if not specified

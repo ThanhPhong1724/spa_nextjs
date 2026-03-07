@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { format } from "date-fns";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Post = {
     id: number;
@@ -21,12 +21,44 @@ export default function NewsList({ posts: initialPosts }: { posts: Post[] }) {
     const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(initialPosts.length === 6);
 
+    const [searchQuery, setSearchQuery] = useState("");
+    const [isSearching, setIsSearching] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(async () => {
+            if (searchQuery.trim() === "") {
+                setPosts(initialPosts);
+                setPage(1);
+                setHasMore(initialPosts.length === 6);
+                setIsSearching(false);
+                return;
+            }
+
+            setIsSearching(true);
+            try {
+                const res = await fetch(`/api/posts?status=published&page=1&limit=6&search=${encodeURIComponent(searchQuery)}`);
+                const results = await res.json();
+                if (Array.isArray(results)) {
+                    setPosts(results);
+                    setPage(1);
+                    setHasMore(results.length === 6);
+                }
+            } catch (error) {
+                console.error("Search failed:", error);
+            } finally {
+                setIsSearching(false);
+            }
+        }, 500);
+
+        return () => clearTimeout(timer);
+    }, [searchQuery, initialPosts]);
+
     const loadMore = async () => {
         if (loading) return;
         setLoading(true);
         try {
             const nextPage = page + 1;
-            const res = await fetch(`/api/posts?status=published&page=${nextPage}&limit=6`);
+            const res = await fetch(`/api/posts?status=published&page=${nextPage}&limit=6${searchQuery ? `&search=${encodeURIComponent(searchQuery)}` : ''}`);
             const newPosts = await res.json();
 
             if (Array.isArray(newPosts)) {
@@ -48,6 +80,25 @@ export default function NewsList({ posts: initialPosts }: { posts: Post[] }) {
     return (
         <section className="pb-20">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="mb-8 flex justify-end">
+                    <div className="relative w-full md:w-1/3">
+                        <input
+                            type="text"
+                            placeholder={language === 'en' ? 'Search news...' : 'Neuigkeiten durchsuchen...'}
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="w-full pl-4 pr-10 py-3 rounded-xl border border-[#d4a373]/30 bg-white/50 focus:bg-white focus:outline-none focus:border-[#ff8b69] focus:ring-1 focus:ring-[#ff8b69] transition-all placeholder-[#6b5344]/50 text-[#5c4033]"
+                        />
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#ff8b69]">
+                            {isSearching ? (
+                                <span className="animate-spin w-5 h-5 border-2 border-[#ff8b69] border-t-transparent rounded-full block"></span>
+                            ) : (
+                                <span className="material-symbols-outlined">search</span>
+                            )}
+                        </div>
+                    </div>
+                </div>
+
                 {posts.length === 0 ? (
                     <div className="text-center py-12">
                         <p className="text-[#6b5344] text-lg">{t("news.no_posts")}</p>
