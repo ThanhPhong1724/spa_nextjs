@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from 'next/link';
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -9,47 +10,84 @@ const courseInfo = {
     duration: "2 Kursstufen – zeitlich flexibel nach deinen Bedürfnissen",
     defaultImage: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=500&fit=crop"
 };
-
 const faqs = [
     {
         question: 'Was wird bei der "Individuellen Technik" genau angeboten?',
-        answer: "Jeder Mensch ist einzigartig – das gilt auch für deine Handhaltung und Arbeitsweise. Nach 15 Jahren Erfahrung wissen wir: Es gibt nicht nur einen Weg zum Erfolg. Wir bieten dir eine Vielfalt an Methoden an, damit du diejenige wählen kannst, die sich für dich natürlich anfühlt. Beispiel: Beim Zeichnen von French Nails lassen wir dich 5 verschiedene Techniken ausprobieren."
+        answer: (
+            <>
+                Jeder Mensch ist einzigartig – das gilt auch für Ihre Handhaltung und Arbeitsweise.<br />
+                Nach 15 Jahren Erfahrung wissen wir: Es gibt nicht nur einen Weg zum Erfolg.<br />
+                Wir bieten Ihnen eine Vielfalt an Methoden, damit Sie genau die Technik wählen können, die sich für Sie natürlich und richtig anfühlt.<br />
+                Beispiel: Beim Zeichnen von French Nails lassen wir Sie fünf verschiedene Techniken ausprobieren – damit Sie Ihren eigenen Stil entwickeln können.
+            </>
+        )
     },
     {
         question: "Ich übe viel, aber das Ergebnis wird nicht schön. Fehlt mir das Talent?",
-        answer: "In diesem Moment ist ein professioneller Mentor entscheidend. Oft liegt es nicht am mangelnden Talent, sondern an falschen Bewegungsabläufen, dem falschen Werkzeug oder ungeeignetem Arbeitsmaterial. Wir erkennen diese kleinen Fehler sofort und zeigen dir einen einfacheren, effektiveren Weg."
+        answer: (
+            <>
+                In diesem Moment ist ein professioneller Mentor entscheidend. Oft liegt es nicht am mangelnden Talent, sondern an falschen Bewegungsabläufen, dem falschen Werkzeug oder ungeeignetem Arbeitsmaterial. Wir erkennen diese kleinen Fehler sofort und zeigen ihnen einen einfacheren, effektiveren Weg.
+            </>
+        )
     },
     {
         question: "Es gibt so viele kostenlose Videos im Netz. Warum lohnt sich trotzdem ein Kurs?",
-        answer: 'Im Internet findest du Fragmente, aber kein System. Man kann vielleicht ein Design "nachmachen", aber man versteht das "Warum" dahinter nicht. Unser Kurs bietet dir ein geschlossenes System: Du lernst, wie du in jeder Situation reagierst, welche Produkte für welchen Nageltyp geeignet sind und was du unbedingt vermeiden musst.'
+        answer: (
+            <>
+                <strong>Im Internet finden Sie oft nur Fragmente – aber kein durchdachtes System.</strong><br />
+                Ein Design kann man vielleicht „nachmachen", doch das „Warum" dahinter bleibt unklar.<br />
+                Unser Kurs bietet Ihnen ein <strong>ganzheitliches, strukturiertes System</strong>:<br />
+                Sie lernen, wie Sie in jeder Situation sicher reagieren,<br />
+                welche Produkte für welchen Nageltyp geeignet sind<br />
+                und welche Fehler Sie unbedingt vermeiden sollten.
+            </>
+        )
     },
     {
         question: "Ich weiß noch gar nichts über Nails. Wie werde ich nach nur 5 Tagen zum Profi?",
-        answer: "Bevor es losgeht, führen wir ein Gespräch über deinen aktuellen Stand. Du erhältst ein Starter-Set und exklusive Video-Lektionen für die Vorbereitung. Dann kommst du für 5 Tage zu uns ins Studio und arbeitest an echten Modellen. Dein Lernplan wird individuell an dein Tempo angepasst."
+        answer: (
+            <>
+                Bevor es losgeht, führen wir ein persönliches Gespräch, um Ihren aktuellen Stand zu analysieren.<br />
+                Sie erhalten ein Starter-Set sowie exklusive Video-Lektionen zur optimalen Vorbereitung.<br />
+                Anschließend kommen Sie für 5 Tage in unser Studio und arbeiten intensiv an echten Modellen.<br />
+                Ihr Lernplan wird individuell an Ihr Tempo, Ihr Niveau und Ihre persönlichen Ziele angepasst.<br />
+                In der Praxis gestalten wir die Ausbildungszeiten flexibel – ganz nach Ihren Bedürfnissen und Möglichkeiten.<br />
+                Um optimale Ergebnisse zu gewährleisten, kombinieren wir gezielt Online-Lernen und Präsenztraining.
+            </>
+        )
     },
     {
         question: "Was passiert, wenn ich nach dem Kurs Fragen habe?",
-        answer: "Wir bieten eine Nachbetreuung an, um dich auch nach den 5 Tagen zu begleiten. Besuch unser Studio als Gast, erlebe unsere Arbeitsweise und spür die Wertschätzung, die wir jedem Kunden und Schüler entgegenbringen."
+        answer: (
+            <>
+                Wir bieten eine Nachbetreuung an, um sie auch nach dem Kurs zu begleiten. Besuch unser Studio als Gast, erlebe unsere Arbeitsweise und spür die Wertschätzung, die wir jedem Kunden und Schüler entgegenbringen.
+            </>
+        )
     },
     {
         question: "Muss ich mein eigenes Material für die Schulung kaufen?",
         answer: (
             <>
-                Das ist unser besonderer Vorteil:<br />
-                Im Studio hast du Zugriff auf über 1.000 Farben und professionelle Geräte.<br />
-                Du kannst alles testen und herausfinden, was wirklich zu dir passt – das spart dir später viel Geld.<br /><br />
-                Alle Lernmaterialien stellen wir dir selbstverständlich zur Verfügung.
+                <strong>Das ist unser besonderer Vorteil:</strong><br />
+                In unserem Studio haben Sie Zugriff auf über 1.000 Farben sowie auf professionelle Geräte.<br />
+                Sie können alles in Ruhe testen und herausfinden, was wirklich zu Ihnen passt – und sparen dadurch später viel Geld.<br />
+                Alle Lernmaterialien stellen wir Ihnen selbstverständlich vollständig zur Verfügung.
             </>
         )
     },
     {
         question: "Arbeiten wir an Übungshänden aus Plastik?",
-        answer: "Wir setzen auf maximale Praxisnähe, bis 90% an echten Modellen. Nur so lernen Sie den Umgang mit unterschiedlichen Nageltypen und gewinnen die nötige Sicherheit für Ihre zukünftigen Kunden."
+        answer: (
+            <>
+                Wir setzen auf maximale Praxisnähe, bis 90% an echten Modellen. Nur so lernen Sie den Umgang mit unterschiedlichen Nageltypen und gewinnen die nötige Sicherheit für Ihre zukünftigen Kunden.
+            </>
+        )
     }
 ];
 
 export default function NailsKursClient({ content: pageContent }: { content?: any }) {
     const { t } = useLanguage();
+    const [openFaq, setOpenFaq] = useState<number | null>(null);
     const heroImage = pageContent?.hero?.image || courseInfo.defaultImage;
     const extraImage = pageContent?.hero?.extra_image || "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800&h=400&fit=crop";
 
@@ -93,20 +131,21 @@ export default function NailsKursClient({ content: pageContent }: { content?: an
 
                             <div className="bg-white rounded-xl p-6 mb-6">
                                 <h3 className="font-bold text-[#5c4033] mb-4">
-                                    Warum Zeit mit Selbstversuchen verschwenden? Bei uns lernst du direkt auf Profi-Niveau:
+                                    Warum Zeit mit Selbstversuchen verschwenden? Bei uns lernen Sie direkt auf Profi-Niveau:
                                 </h3>
                                 <ul className="space-y-3 text-[#666]">
                                     {[
-                                        { title: "Detail-Training:", desc: "Wir lehren Bewegungsabläufe, keine starren Formeln." },
-                                        { title: "100% Praxis:", desc: "Training an echten Modellen für maximale Sicherheit." },
-                                        { title: "Fehlkäufe vermeiden:", desc: "Teste über 1.000 Farben und Profi-Equipment, ohne selbst investieren zu müssen." },
-                                        { title: "Individuelle Technik:", desc: "Finde aus vielen Methoden genau die, die zu dir passt." },
-                                        { title: "Profi-Speed:", desc: 'Wir trainieren nicht nur das "Wie", sondern auch das effiziente Tempo.' },
-                                        { title: "Kundenbindung ab Tag 1:", desc: "Vermeide typische Anfängerfehler und begeistere deine ersten Kunden sofort." }
+                                        { title: "Detail-Training:", desc: "Wir vermitteln präzise Bewegungsabläufe – keine starren Formeln." },
+                                        { title: "100% Praxis:", desc: "Wir vermitteln präzise Bewegungsabläufe – keine starren Formeln." },
+                                        { title: "Fehlkäufe vermeiden:", desc: "Testen Sie über 1.000 Farben und Profi-Equipment, ohne selbst investieren zu müssen." },
+                                        { title: "Individuelle Technik:", desc: "Finden Sie aus verschiedenen Methoden genau die, die zu Ihnen passt." },
+                                        { title: "Profi-Speed:", desc: 'Finden Sie aus verschiedenen Methoden genau die, die zu Ihnen passt.' },
+                                        { title: "Kundenbindung ab Tag 1:", desc: "Vermeiden Sie typische Anfängerfehler und begeistern Sie Ihre ersten Kunden sofort." }
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-start gap-2">
                                             <svg className="w-5 h-5 text-[#ff8b69] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                {/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /> */}
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14" />
                                             </svg>
                                             <span><strong>{item.title}</strong> {item.desc}</span>
                                         </li>
@@ -118,7 +157,7 @@ export default function NailsKursClient({ content: pageContent }: { content?: an
                                 <svg className="w-6 h-6 text-[#ff8b69]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                                 </svg>
-                                Werde Profi statt Amateur. Dein Erfolg beginnt hier!
+                                Werde Profi statt Amateur. Ihr Erfolg beginnt hier!
                             </p>
 
                             <a
@@ -144,20 +183,25 @@ export default function NailsKursClient({ content: pageContent }: { content?: an
 
                     <div className="space-y-4">
                         {faqs.map((faq, i) => (
-                            <details key={i} className="bg-[#f8f7f6] rounded-xl overflow-hidden group">
-                                <summary className="p-6 cursor-pointer font-semibold text-[#5c4033] hover:bg-[#f0ede8] transition-colors list-none flex justify-between items-center">
-                                    {faq.question}
-                                    <span className="text-[#ff8b69] group-open:rotate-45 transition-transform">+</span>
-                                </summary>
-                                <div className="px-6 pb-6 text-[#666]">
-                                    {faq.answer}
+                            <div key={i} className="bg-white rounded-xl overflow-hidden shadow-sm border border-[#ff8b69]/20 transition-all hover:shadow-md">
+                                <button
+                                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                                    className={`w-full px-6 py-4 flex items-center justify-between text-left transition-colors duration-300 ${openFaq === i ? "bg-[#e8d5c4]" : "bg-white hover:bg-[#faf4ef]"}`}
+                                >
+                                    <span className="font-bold text-[#5c4033]">{faq.question}</span>
+                                    <span className={`material-symbols-outlined transition-transform duration-300 ${openFaq === i ? "rotate-180 text-[#5c4033]" : "text-[#ff8b69]"}`}>expand_more</span>
+                                </button>
+                                <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openFaq === i ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}`}>
+                                    <div className="px-6 py-4 border-t border-[#ff8b69]/10 text-[#666] leading-relaxed">
+                                        {faq.answer}
+                                    </div>
                                 </div>
-                            </details>
+                            </div>
                         ))}
                     </div>
 
                     {/* WhatsApp CTA */}
-                    <div className="mt-12 text-center">
+                    {/* <div className="mt-12 text-center">
                         <p className="text-[#666] mb-4">Haben Sie weitere Fragen?</p>
                         <a
                             href="https://wa.me/491638562022"
@@ -170,7 +214,7 @@ export default function NailsKursClient({ content: pageContent }: { content?: an
                             </svg>
                             Kontaktieren Sie uns per WhatsApp!
                         </a>
-                    </div>
+                    </div> */}
                 </div>
             </section>
         </main>

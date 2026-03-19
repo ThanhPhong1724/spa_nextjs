@@ -247,16 +247,54 @@ const translations: Record<Language, Record<string, string>> = {
         "it.vid2_label": "Technologie erklärt",
         "it.vid3_label": "Arzt-Bestätigung",
         "it.info_title": "Informationsblatt",
-        "it.faq_q1": "Für wen ist Oxygen Scalp Detox geeignet?",
-        "it.faq_a1": "Diese Anwendung eignet sich ideal bei trockener, empfindlicher oder unausgeglichener Kopfhaut sowie bei Spannungsgefühl, Juckreiz oder Produktablagerungen.",
-        "it.faq_q2": "Woher weiß ich, ob meine Haut für die Behandlung geeignet ist?",
+        "it.faq_q1": "Für wen ist die Oxygen Infusion besonders sinnvoll?",
+        "it.faq_a1": `Wenn die tägliche Haarpflege zu Hause nicht mehr ausreicht, ist es vielleicht Zeit für professionelle Unterstützung.
+
+                    Eine Oxygen Infusion ist dabei mehr als nur eine Behandlung – sie ist auch Wertschätzung für sich selbst, besonders wenn sich die Haare schwer, fettig oder kraftlos anfühlen.
+
+                    Die Behandlung:
+                    • entfernt Ablagerungen und Silikonreste
+                    • reinigt die Kopfhaut tief mit moderner Oxygen-Technologie
+                    • schleust hochwertige Wirkstoffe gezielt in die Kopfhaut ein
+                    • kann die Durchblutung der Haarwurzel fördern
+
+                    Das Ergebnis: eine frische, gut versorgte Kopfhaut, kräftigere Haarwurzeln, mehr Fülle und Volumen im Haar sowie bessere Voraussetzungen für gesundes Haarwachstum.
+
+                    So entsteht eine saubere, gut versorgte Kopfhaut, die bessere Voraussetzungen für kräftigeres und gesünderes Haarwachstum schafft und dazu beitragen kann, das Risiko von lichtem Haar oder Haarverlust zu reduzieren.
+
+                    Viele Kund*innen empfinden die Behandlung zudem als wohltuende Auszeit – ein Moment der Entspannung, Verwöhnung und Selbstfürsorge.
+
+                    Die Realität ist: Wer nichts versucht, verändert nichts.
+                    Selbst wenn sich der Haarausfall nur teilweise reduziert und neues Haar kräftiger nachwächst, investieren Sie aktiv in Ihr Wohlbefinden, Ihre Ausstrahlung und Ihr Selbstvertrauen, anstatt dem Haarverlust einfach zuzusehen.`,
+        "it.faq_q2": "Woher weiß ich, ob das GlowMe Treatment für meine Haut geeignet ist?",
         "it.faq_a2": "Kontaktieren Sie uns gerne für eine kostenlose Beratung. Sie können uns vorab Bilder per WhatsApp senden, damit wir den aktuellen Hautzustand einschätzen und Sie individuell beraten können. Bei entzündeter Haut oder offenen Wunden empfehlen wir grundsätzlich, vorab einen Arzt aufzusuchen.",
-        "it.faq_q3": "Ich finde keinen Preis für Body Glow – warum?",
-        "it.faq_a3": "Jede Haut ist unterschiedlich. Nach Zusendung von Fotos werden die Dauer der Behandlung sowie der genaue Preis individuell berechnet und richten sich nach der Größe und dem Zustand des betroffenen Hautareals.",
-        "it.faq_q4": "Wie viele Body-Glow-Behandlungen sind notwendig?",
-        "it.faq_a4": "Der Erfolg hängt von verschiedenen Faktoren ab – wie Ernährung, Schlaf, Stress, Hautpflege-Routine sowie dem individuellen Hautzustand und der Hautstruktur. Unsere Expertin beraten Sie umfassend und erstellen einen individuellen Plan, der genau auf Ihre Haut abgestimmt ist. Bereits nach der ersten Sitzung sind sichtbare Verbesserungen erkennbar – dokumentiert durch eine professionelle Vorher-/Nachher-Hautanalyse.",
-        "it.faq_q5": "Helfen die Anwendungen bei Haarausfall?",
-        "it.faq_a5": "Beide Anwendungen dienen der kosmetischen Pflege der Kopfhaut. Sie können Haarverlust entgegenwirken, indem sie die Kopfhaut aktivieren und die Haarwurzelbasis stärken.",
+        "it.faq_q3": "Ich finde keinen Preis für GlowMe & Microneedling-warum?",
+        "it.faq_a3": "Da jede Haut und jede Kopfhaut unterschiedlich ist, wird der Behandlungsaufwand individuell bestimmt. Nach Zusendung einiger Fotos können wir den Zustand und die Größe des Areals einschätzen und Ihnen einen passenden Preis nennen.",
+        "it.faq_q4": "Wie viele Behandlungen pro Treatment sind notwendig",
+        "it.faq_a4": `Der Erfolg hängt von verschiedenen Faktoren ab – zum Beispiel von Ernährung, Schlaf, Stress, Ihrer Kopfhaut- bzw. Hautpflegeroutine sowie vom individuellen Zustand Ihrer Haut oder Kopfhaut.
+
+                    Schon nach der ersten Behandlung erhalten Sie wertvolle Hinweise und Wissen, wie Sie Ihre Haut oder Kopfhaut zu Hause besser pflegen und unterstützen können.
+
+                    Wie viele Behandlungen sinnvoll sind, ist immer eine individuelle Entscheidung. Wir setzen unsere Kund*innen niemals unter Druck, mehrere Termine als Pflicht zu buchen.
+
+                    Gerade bei Haarbehandlungen lohnt es sich, sich selbst eine einfache Frage zu stellen: Warten Sie auf ein 100%-Wunder, das es tatsächlich kaum gibt, oder sichern Sie sich lieber jedes einzelne Prozent an Haardichte, das heute möglich ist? Entscheiden Sie selbst: Wollen Sie die Kontrolle über Ihre Ausstrahlung zurückgewinnen, oder schauen Sie weiter zu, wie die Bürste voller wird? Jedes gerettete Haar zählt für Ihre Zukunft.
+
+                    Es geht vielmehr um eine persönliche Entscheidung – eine Investition in Gesundheit, Beauty und Ihr eigenes Wohlbefinden, die auch von Ihrer Lebenssituation und Ihrem Budget abhängen kann.`,
+        "it.faq_q5": "Welche Behandlung eignet sich bei dünner werdendem oder lichtem Haar?",
+        "it.faq_a5": `Bei Haarausfall oder dünner werdendem Haar können sowohl ein Detox-Treatment der Kopfhaut als auch Microneedling unterstützend wirken, um die Haarwurzel zu stärken und das Haarwachstum zu stimulieren.
+
+                    Detox-Kopfhautbehandlung
+                    Dieses Treatment reinigt die Kopfhaut tief von Ablagerungen, Silikonresten und überschüssigem Talg. Dadurch wird die Kopfhaut erfrischt und die Haarwurzel kann Nährstoffe besser aufnehmen – eine wichtige Grundlage für gesünderes Haarwachstum.
+
+                    Microneedling der Kopfhaut
+                    Beim Microneedling entstehen feine Mikrokanäle in der Kopfhaut, wodurch die Durchblutung und Regeneration der Haarfollikel angeregt wird. Gleichzeitig können Wirkstoffe gezielter und tiefer in die Haut eindringen, um das Haarwachstum zu unterstützen.
+
+                    In vielen Fällen empfehlen wir, zunächst mit einem Detox-Treatment zu beginnen. Es ist sanfter und schafft die Basis für eine gesunde Kopfhaut.
+                    Microneedling kann anschließend eine intensivere Option sein, erfordert jedoch auch mehr Aufmerksamkeit in der Nachpflege, da bei jeder Behandlung mit Mikroverletzungen ein gewisses Infektionsrisiko besteht und eine gute Pflege der Kopfhaut wichtig ist.
+
+                    Wer auf das 100%ige Wunder wartet, verliert meistens nur Zeit – und noch mehr Haare. Therapie bedeutet, den Status Quo zu verbessern. Wenn Ihr Haar durch unsere Hilfe nur 5 % oder 10 % gesünder wächst, ist das bereits ein Sieg über den genetischen oder hormonellen Verfall.
+
+                    Letztlich hängt die Entscheidung immer davon ab, wie wichtig Ihnen das Thema Haarausfall ist und wie aktiv Sie in Ihre Haar- und Kopfhautgesundheit investieren möchten.`,
         "it.faq_q6": "Sind die Behandlungen schmerzhaft oder invasiv?",
         "it.faq_a6": "Nein. Beide Anwendungen sind sanft, angenehm und nicht invasiv. Es ist keine Ausfallzeit erforderlich.",
         "it.faq_q7": "Wie oft sollten die Behandlungen durchgeführt werden?",
@@ -323,7 +361,7 @@ const translations: Record<Language, Record<string, string>> = {
         "schulung.hero_title": "Ihre Beauty-Karriere",
         "schulung.hero_title2": "15 Jahre Vorsprung ab Tag 1!",
         "schulung.hero_desc": "Wir lehren Ihnen das Handwerk und das komplette System dahinter. Sichern Sie sich einen krisensicheren Beruf, der Ihnen langfristige Stabilität und echte Karrierechancen bietet. Keine Umwege – nur echte Praxis.",
-        "schulung.benefits_title": "Dein Erfolgspaket",
+        "schulung.benefits_title": "IHR ERFOLGSPAKET",
         "schulung.b1_title": "Maximale Praxis",
         "schulung.b1_desc": "Unbegrenztes Üben an Modellen, bis jeder Handgriff sitzt.",
         "schulung.b2_title": "Schluss mit Fehlkäufen",

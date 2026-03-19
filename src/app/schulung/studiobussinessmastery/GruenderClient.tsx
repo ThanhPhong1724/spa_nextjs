@@ -133,7 +133,7 @@ export default function GruenderClient({ content: pageContent }: { content?: any
             <section className="py-16 bg-white">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-3xl font-serif font-bold text-[#5c4033] text-center mb-12">
-                        Was du in diesem Programm bekommst
+                        Das erwartet Sie im Kurs
                     </h2>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -274,9 +274,9 @@ export default function KopfhautPflegePage({ content }: { content?: any }) {
                                     <span className="font-bold text-[#5c4033]">{faq.question}</span>
                                     <span className={`material-symbols-outlined transition-transform duration-300 ${openFaq === index ? "rotate-180 text-[#5c4033]" : "text-[#ff8b69]"}`}>expand_more</span>
                                 </button>
-                                <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openFaq === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
+                                <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openFaq === index ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"}`}>
                                     <div className="px-6 py-4 border-t border-[#ff8b69]/10">
-                                        <div className="text-[#6b5344] leading-relaxed">{faq.answer}</div>
+                                        <div className="text-[#6b5344] leading-relaxed whitespace-pre-line">{faq.answer}</div>
                                     </div>
                                 </div>
                             </div>

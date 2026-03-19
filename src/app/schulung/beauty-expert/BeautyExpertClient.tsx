@@ -35,17 +35,17 @@ const modules = [
     {
         icon: <FootIcon />,
         title: "Professionelle Pediküre",
-        description: "Wir zeigen dir nicht nur die Ästhetik, sondern das volle Programm: Fachgerechte Hornhautentfernung (Fersenreinigung), Formgebung und das perfekte Auftragen von Gel auf den Zehennägeln. Deine Kunden werden das Gefühl \"auf Wolken zu gehen\" lieben."
+        description: "Wir vermitteln Ihnen nicht nur die Ästhetik, sondern das komplette Behandlungskonzept: Fachgerechte Hornhautentfernung (Fersenreinigung), präzise Formgebung sowie das perfekte Auftragen von Gel auf den Zehennägeln. Ihre Kunden werden das Gefühl lieben, wie auf Wolken zu gehen."
     },
     {
         icon: <SpaIcon />,
         title: "Head Spa",
-        description: "Tauche ein in die Welt der Entspannung. Du lernst die Kopfmassage nach asiatischer Heilkunde kombiniert mit intensiver Kopfhautpflege. Dieser Trend ist aktuell extrem gefragt und bietet dir eine hohe Gewinnspanne bei geringem Materialeinsatz."
+        description: "Tauchen Sie ein in die Welt der Entspannung. Sie lernen die Kopfmassage nach asiatischer Heilkunde, kombiniert mit intensiver Kopfhautpflege. Dieser Trend ist aktuell stark gefragt und bietet Ihnen eine attraktive Gewinnspanne bei geringem Materialeinsatz."
     },
     {
         icon: <EyeIcon />,
         title: "Wimpernverlängerung",
-        description: "Hier lernst du, wie du den Blick deiner Kunden veränderst. Wir trainieren mit dir die Präzision, die du brauchst, um saubere und langanhaltende Ergebnisse zu liefern."
+        description: "Hier lernen Sie, wie Sie den Blick Ihrer Kunden gezielt verändern. Wir trainieren mit Ihnen die Präzision und Technik, die Sie benötigen, um saubere und langanhaltende Ergebnisse zu erzielen."
     }
 ];
 
@@ -77,7 +77,7 @@ export default function BeautyExpertClient({ content: pageContent }: { content?:
                         </div>
                         <div>
                             <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#5c4033] mb-2">
-                                Beauty-Trio: Dein schnellerer Weg zum Erfolg
+                                Beauty-Trio: Ihr schnellerer Weg zum Erfolg
                             </h1>
                             <p className="text-xl text-[#666] mb-4">
                                 {courseInfo.subtitle}
@@ -91,29 +91,29 @@ export default function BeautyExpertClient({ content: pageContent }: { content?:
 
                             <div className="bg-white rounded-xl p-6 mb-6">
                                 <p className="text-[#555] mb-4">
-                                    Keine Lust auf langwieriges Üben? Starte sofort durch! Diese drei Behandlungen gehören
-                                    aktuell zu den gefragtesten Services auf dem Markt.
+                                    Keine Lust auf langwieriges Üben? Starten Sie direkt durch!
+                                    Diese drei Behandlungen gehören aktuell zu den gefragtesten Services auf dem Markt.
                                 </p>
 
-                                <h3 className="font-bold text-[#5c4033] mb-3">Dein Business-Vorteil:</h3>
-                                <ul className="space-y-2 text-[#666]">
+                                <h3 className="font-bold text-[#5c4033] mb-3">Ihr Business-Vorteil:</h3>
+                                <ul className="space-y-3 text-[#666]">
                                     <li className="flex items-start gap-2">
                                         <svg className="w-5 h-5 text-[#ff8b69] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14" />
                                         </svg>
-                                        <span><strong>Größere Zielgruppe:</strong> Wer keine Wimpern braucht, kommt für die Füße oder die Entspannung.</span>
+                                        <span><strong>Größere Zielgruppe:</strong><br />Auch Kunden, die keine Wimpern benötigen, kommen für Fußpflege oder Entspannung.</span>
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <svg className="w-5 h-5 text-[#ff8b69] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14" />
                                         </svg>
-                                        <span><strong>Voller Kalender:</strong> Mehr Services bedeuten konstante Auslastung ohne Leerlauf.</span>
+                                        <span><strong>Voller Terminkalender:</strong><br />Mehr Services bedeuten eine konstante Auslastung – ganz ohne Leerlauf.</span>
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <svg className="w-5 h-5 text-[#ff8b69] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14" />
                                         </svg>
-                                        <span><strong>Maximale Bindung:</strong> Deine Kunden bekommen alles aus einer Hand. Das spart Marketingkosten.</span>
+                                        <span><strong>Maximale Kundenbindung:</strong><br />Ihre Kunden erhalten alles aus einer Hand – das spart langfristig Marketingkosten.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -136,7 +136,7 @@ export default function BeautyExpertClient({ content: pageContent }: { content?:
             <section className="py-16 bg-white">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-3xl font-serif font-bold text-[#5c4033] text-center mb-12">
-                        Was du in den einzelnen Modulen lernst
+                        Das erwartet Sie im Kurs
                     </h2>
 
                     <div className="grid md:grid-cols-3 gap-8">
@@ -155,7 +155,7 @@ export default function BeautyExpertClient({ content: pageContent }: { content?:
             <section className="py-16 bg-gradient-to-br from-[#ff8b69] to-[#e87a5a] text-white">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-2xl md:text-3xl font-serif font-bold mb-6">
-                        Bereit für deinen schnelleren Weg zum Erfolg?
+                        Bereit für Ihren schnelleren Weg zum Erfolg?
                     </h2>
                     <p className="text-white/80 mb-8">
                         Mit dem Beauty-Trio Kurs bist du in nur 7 Tagen bereit, drei der gefragtesten Services anzubieten.
@@ -172,7 +172,7 @@ export default function BeautyExpertClient({ content: pageContent }: { content?:
             </section>
 
             {/* WhatsApp CTA */}
-            <section className="py-12 bg-white">
+            {/* <section className="py-12 bg-white">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <p className="text-[#666] mb-4">Haben Sie weitere Fragen?</p>
                     <a
@@ -187,7 +187,7 @@ export default function BeautyExpertClient({ content: pageContent }: { content?:
                         Kontaktieren Sie uns per WhatsApp!
                     </a>
                 </div>
-            </section>
+            </section> */}
         </main>
     );
 }
