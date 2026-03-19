@@ -15,6 +15,8 @@ type Post = {
     author: string;
     createdAt: Date;
     slug: string;
+    pdfUrl?: string | null;
+    videoUrl?: string | null;
 };
 
 export default function NewsDetailContent({ post }: { post: Post }) {
@@ -59,6 +61,44 @@ export default function NewsDetailContent({ post }: { post: Post }) {
                     className="prose prose-lg max-w-none text-[#6b5344] prose-headings:text-[#5c4033] prose-headings:font-bold prose-a:text-[#d4a373]"
                     dangerouslySetInnerHTML={{ __html: displayContent }}
                 />
+
+                {/* Video Embed */}
+                {post.videoUrl && (
+                    <div className="mt-10">
+                        <div className="relative w-full rounded-2xl overflow-hidden shadow-lg" style={{ paddingBottom: "56.25%" }}>
+                            <iframe
+                                src={post.videoUrl}
+                                className="absolute inset-0 w-full h-full"
+                                allowFullScreen
+                                frameBorder="0"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                                title="Video"
+                            />
+                        </div>
+                    </div>
+                )}
+
+                {/* PDF Download */}
+                {post.pdfUrl && (
+                    <div className="mt-8 p-5 bg-[#fff8f0] border border-[#d4a373]/30 rounded-2xl flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-3">
+                            <span className="material-symbols-outlined text-[#d4a373] text-3xl">picture_as_pdf</span>
+                            <div>
+                                <p className="font-bold text-[#5c4033]">PDF herunterladen</p>
+                                <p className="text-xs text-[#888]">Zum Speichern oder Ausdrucken</p>
+                            </div>
+                        </div>
+                        <a
+                            href={post.pdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 bg-[#d4a373] text-white px-5 py-2.5 rounded-full font-semibold hover:bg-[#c49060] transition-colors text-sm"
+                        >
+                            <span className="material-symbols-outlined text-sm">download</span>
+                            Download
+                        </a>
+                    </div>
+                )}
 
                 <div className="mt-12 pt-8 border-t border-[#d4a373]/20 flex justify-between">
                     <Link href="/news" className="flex items-center gap-2 text-[#8b7355] hover:text-[#d4a373] font-bold transition-colors">

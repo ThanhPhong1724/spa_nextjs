@@ -50,7 +50,8 @@ export async function POST(request: Request) {
 
     try {
         const body = await request.json();
-        const { title, titleEn, slug, content, contentEn, image, category, author, status } = body;
+        const { title, titleEn, slug, content, contentEn, image, category, author, status,
+                pdfUrl, videoUrl, infomaterialEnabled, infomaterialLabel, infomaterialSection } = body;
 
         const post = await prisma.post.create({
             data: {
@@ -63,6 +64,11 @@ export async function POST(request: Request) {
                 category,
                 author,
                 status: status || "published",
+                pdfUrl: pdfUrl || null,
+                videoUrl: videoUrl || null,
+                infomaterialEnabled: infomaterialEnabled || false,
+                infomaterialLabel: infomaterialLabel || null,
+                infomaterialSection: infomaterialSection || null,
             },
         });
 

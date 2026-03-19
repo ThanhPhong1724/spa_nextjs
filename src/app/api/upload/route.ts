@@ -22,11 +22,12 @@ export async function POST(request: Request) {
         // Validate file type
         const allowedTypes = [
             "image/jpeg", "image/png", "image/gif", "image/webp",
-            "video/mp4", "video/webm"
+            "video/mp4", "video/webm",
+            "application/pdf"
         ];
         if (!allowedTypes.includes(file.type)) {
             return NextResponse.json(
-                { error: "Invalid file type. Only Images (JPEG, PNG, GIF, WebP) and Videos (MP4, WebM) are allowed." },
+                { error: "Invalid file type. Only Images, Videos, and PDFs are allowed." },
                 { status: 400 }
             );
         }

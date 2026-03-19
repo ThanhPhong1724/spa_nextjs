@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useToast } from "@/components/Toast";
 import ImageUploader from "@/components/ImageUploader";
 import RichTextEditor from "@/components/RichTextEditor";
+import PdfUploader from "@/components/PdfUploader";
 
 type Post = {
     id?: number;
@@ -18,6 +19,11 @@ type Post = {
     category: string;
     author: string;
     status: string;
+    pdfUrl?: string | null;
+    videoUrl?: string | null;
+    infomaterialEnabled?: boolean;
+    infomaterialLabel?: string | null;
+    infomaterialSection?: string | null;
 };
 
 export default function PostEditor({ post }: { post?: Post }) {
@@ -34,6 +40,11 @@ export default function PostEditor({ post }: { post?: Post }) {
             category: "Wellness",
             author: "Admin",
             status: "published",
+            pdfUrl: "",
+            videoUrl: "",
+            infomaterialEnabled: false,
+            infomaterialLabel: "",
+            infomaterialSection: "Beauty-Wissen",
         }
     );
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -208,6 +219,77 @@ export default function PostEditor({ post }: { post?: Post }) {
                     value={formData.image}
                     onChange={(url) => setFormData((prev) => ({ ...prev, image: url }))}
                 />
+
+                {/* PDF Upload */}
+                <div className="bg-[#f8f7f6] p-6 rounded-xl border border-[#e6e2db] space-y-3">
+                    <h3 className="font-bold text-[#d4a373] uppercase tracking-wide text-xs">PDF Datei</h3>
+                    <PdfUploader
+                        value={formData.pdfUrl || ""}
+                        onChange={(url) => setFormData((prev) => ({ ...prev, pdfUrl: url }))}
+                    />
+                </div>
+
+                {/* Video Link */}
+                <div className="bg-[#f8f7f6] p-6 rounded-xl border border-[#e6e2db] space-y-3">
+                    <h3 className="font-bold text-[#d4a373] uppercase tracking-wide text-xs">Video (Instagram / TikTok)</h3>
+                    <div>
+                        <label className="block text-sm font-bold text-[#181611] mb-2">Video Embed-URL (optional)</label>
+                        <input
+                            name="videoUrl"
+                            value={formData.videoUrl || ""}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-xl border border-[#e6e2db] focus:border-[#eeb32b] outline-none"
+                            placeholder="z.B. https://www.instagram.com/p/XXX/embed oder TikTok-Link"
+                        />
+                        <p className="text-xs text-[#888] mt-1">Instagram: öffne den Beitrag → Teilen → Einbetten → Link kopieren. TikTok: Beitrag → Teilen → Einbetten.</p>
+                    </div>
+                </div>
+
+                {/* Infomaterial Linking */}
+                <div className="bg-[#fff8e7] p-6 rounded-xl border border-[#eeb32b]/30 space-y-4">
+                    <h3 className="font-bold text-[#d4a373] uppercase tracking-wide text-xs">Infomaterial-Seite</h3>
+                    <label className="flex items-center gap-3 cursor-pointer">
+                        <input
+                            type="checkbox"
+                            checked={formData.infomaterialEnabled || false}
+                            onChange={(e) => setFormData((prev) => ({ ...prev, infomaterialEnabled: e.target.checked }))}
+                            className="w-5 h-5 accent-[#eeb32b]"
+                        />
+                        <span className="font-semibold text-[#181611]">Diesen Beitrag auf der Infomaterial-Seite anzeigen?</span>
+                    </label>
+
+                    {formData.infomaterialEnabled && (
+                        <div className="space-y-4 pt-2 border-t border-[#eeb32b]/20">
+                            <div>
+                                <label className="block text-sm font-bold text-[#181611] mb-2">
+                                    Anzeigetext im Infomaterial (Linkname)
+                                </label>
+                                <input
+                                    name="infomaterialLabel"
+                                    value={formData.infomaterialLabel || ""}
+                                    onChange={handleChange}
+                                    className="w-full px-4 py-3 rounded-xl border border-[#e6e2db] focus:border-[#eeb32b] outline-none"
+                                    placeholder="Kurzer, beschreibender Name für die Liste (z.B. 'Kopfhautpflege nach dem Färben')"
+                                />
+                                <p className="text-xs text-[#888] mt-1">Dieser Name erscheint als Link-Text auf der Infomaterial-Seite — nicht der Blogtitel.</p>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-bold text-[#181611] mb-2">Kategorie</label>
+                                <select
+                                    name="infomaterialSection"
+                                    value={formData.infomaterialSection || "Beauty-Wissen"}
+                                    onChange={handleChange}
+                                    className="w-full px-4 py-3 rounded-xl border border-[#e6e2db] focus:border-[#eeb32b] outline-none"
+                                >
+                                    <option value="Beauty-Wissen">Beauty-Wissen</option>
+                                    <option value="Aftercare">Aftercare</option>
+                                    <option value="Pflegetipps">Pflegetipps</option>
+                                    <option value="Lifestyle">Lifestyle</option>
+                                </select>
+                            </div>
+                        </div>
+                    )}
+                </div>
 
                 <div className="pt-4 border-t border-[#f4f3f0] flex justify-end gap-3">
                     <Link href="/admin/posts" className="px-6 py-3 rounded-xl border border-[#e6e2db] font-bold text-[#555] hover:bg-[#f8f7f6]">

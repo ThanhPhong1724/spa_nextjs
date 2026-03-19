@@ -35,6 +35,7 @@ export default function Header() {
         { label: t("nav.offers"), href: "/angebote" },
         { label: "SCHULUNG", href: "/schulung" },
         { label: t("nav.voucher"), href: "/gutschein" },
+        { label: "INFOMATERIAL", href: "/infomaterial" },
     ];
 
     useEffect(() => {

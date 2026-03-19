@@ -40,7 +40,8 @@ export async function PUT(
     try {
         const { id } = await params;
         const body = await request.json();
-        const { title, titleEn, slug, content, contentEn, image, category, author, status } = body;
+        const { title, titleEn, slug, content, contentEn, image, category, author, status,
+                pdfUrl, videoUrl, infomaterialEnabled, infomaterialLabel, infomaterialSection } = body;
 
         const post = await prisma.post.update({
             where: { id: parseInt(id) },
@@ -54,6 +55,11 @@ export async function PUT(
                 category,
                 author,
                 status,
+                pdfUrl: pdfUrl || null,
+                videoUrl: videoUrl || null,
+                infomaterialEnabled: infomaterialEnabled || false,
+                infomaterialLabel: infomaterialLabel || null,
+                infomaterialSection: infomaterialSection || null,
             },
         });
 
