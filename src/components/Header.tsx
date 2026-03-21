@@ -34,6 +34,7 @@ export default function Header() {
         { label: t("nav.news"), href: "/news" },
         { label: t("nav.offers"), href: "/angebote" },
         { label: "SCHULUNG", href: "/schulung" },
+        { label: "BUCHUNG", href: "/buchung" },
         { label: t("nav.voucher"), href: "/gutschein" },
         { label: "INFOMATERIAL", href: "/infomaterial" },
     ];
@@ -50,7 +51,7 @@ export default function Header() {
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBgClass}`}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-10">
                 <div className="flex h-24 items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center group">
@@ -62,12 +63,12 @@ export default function Header() {
                     </Link>
 
                     {/* Desktop Nav */}
-                    <nav className="hidden lg:flex items-center gap-8">
+                    <nav className="hidden lg:flex items-center gap-5">
                         {navigation.map((item) => (
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className={`text-base font-bold transition-all hover:-translate-y-0.5 ${textColorClass} ${isTransparent ? "hover:text-white/80" : "hover:text-[#d4a373]"}`}
+                                className={`text-xs font-bold whitespace-nowrap tracking-wide transition-all hover:-translate-y-0.5 ${textColorClass} ${isTransparent ? "hover:text-white/80" : "hover:text-[#d4a373]"}`}
                             >
                                 {item.label}
                             </Link>

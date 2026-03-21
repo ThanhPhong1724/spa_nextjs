@@ -19,6 +19,7 @@ export default function AdminLayout({
     const menuItems = [
         { icon: "dashboard", label: "Dashboard", href: "/admin" },
         { icon: "article", label: "Blog Posts", href: "/admin/posts" },
+        { icon: "calendar_month", label: "Termine", href: "/admin/appointments" },
         { icon: "contacts", label: "Leads & Requests", href: "/admin/leads" },
         { icon: "edit_document", label: "Page Content", href: "/admin/content" },
         { icon: "settings", label: "Settings", href: "/admin/settings" },
