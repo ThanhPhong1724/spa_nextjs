@@ -63,12 +63,12 @@ export default function Header() {
                     </Link>
 
                     {/* Desktop Nav */}
-                    <nav className="hidden lg:flex items-center gap-5">
+                    <nav className="hidden lg:flex items-center gap-6">
                         {navigation.map((item) => (
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className={`text-xs font-bold whitespace-nowrap tracking-wide transition-all hover:-translate-y-0.5 ${textColorClass} ${isTransparent ? "hover:text-white/80" : "hover:text-[#d4a373]"}`}
+                                className={`text-sm font-bold whitespace-nowrap tracking-wide transition-all hover:-translate-y-0.5 ${textColorClass} ${isTransparent ? "hover:text-white/80" : "hover:text-[#d4a373]"}`}
                             >
                                 {item.label}
                             </Link>
