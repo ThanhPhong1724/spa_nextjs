@@ -1,0 +1,3 @@
+"id","name","phone","email","services","totalMins","date","timeSlot","remarkNote","status","isManual","createdAt","updatedAt"
+"1","Test User","+84912345678","nguyenphong1724@gmail.com","[{""name"":""Neumodellage"",""duration"":60,""price"":45,""category"":""Nails""},{""name"":""Headspa Deluxe (90 Min.)"",""duration"":90,""price"":89,""category"":""Headspa""}]","150","2026-03-20","12:45","NA","confirmed","false","2026-03-21 09:25:16.065","2026-03-21 09:25:16.065"
+"2","Van Hoang","+4915212156688","smilingnailswiesbaden@gmail.com","[{""name"":""Haut-/Kopfhautanalyse"",""duration"":30,""price"":30,""category"":""Treatments & Skincare""}]","30","2026-04-21","18:30",,"confirmed","false","2026-03-24 22:51:48.332","2026-03-24 22:51:48.332"

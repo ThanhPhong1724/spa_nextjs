@@ -4,9 +4,8 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
 model Post {
@@ -15,8 +14,8 @@ model Post {
   titleEn             String?  // English translation
   titleVi             String?  // Vietnamese (admin reference)
   slug                String   @unique
-  content             String   @db.Text // German content
-  contentEn           String?  @db.Text // English content
+  content             String   // German content
+  contentEn           String?  // English content
   image               String?
   category            String
   author              String
@@ -37,7 +36,7 @@ model Lead {
   name        String
   email       String
   phone       String?
-  details     String?  @db.Text // JSON string for extra fields
+  details     String?  // JSON string for extra fields
   status      String   @default("new") // new, read, contacted
   createdAt   DateTime @default(now())
 }
@@ -46,7 +45,7 @@ model PageContent {
   id          Int      @id @default(autoincrement())
   pageKey     String   // e.g. 'home', 'about'
   sectionKey  String   // e.g. 'hero_title', 'about_text'
-  content     String   @db.Text // JSON string: { text: "...", image: "..." }
+  content     String   // JSON string: { text: "...", image: "..." }
   updatedAt   DateTime @updatedAt
   
   @@unique([pageKey, sectionKey])
@@ -57,11 +56,11 @@ model Appointment {
   name        String
   phone       String
   email       String
-  services    String   @db.Text  // JSON: [{name, duration, price, category}]
+  services    String   // JSON: [{name, duration, price, category}]
   totalMins   Int
   date        String   // "2025-03-20"
   timeSlot    String   // "10:00"
-  remarkNote  String?  @db.Text
+  remarkNote  String?
   status      String   @default("confirmed") // confirmed | cancelled | rescheduled
   isManual    Boolean  @default(false)       // true = entered by manager manually
   createdAt   DateTime @default(now())
